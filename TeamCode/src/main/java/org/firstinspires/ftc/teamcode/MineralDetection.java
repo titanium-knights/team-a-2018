@@ -4,12 +4,19 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.robotcore.external.ClassFactory;
 import org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocalizer;
+import org.firstinspires.ftc.robotcore.external.tfod.Recognition;
 import org.firstinspires.ftc.robotcore.external.tfod.TFObjectDetector;
 
+import java.util.List;
+
+/**
+ * Wrapper class for Vuforia and TFOD.
+ * Improves code reusability.
+ */
 public class MineralDetection {
     private static final String TFOD_MODEL_ASSET = "RoverRuckus.tflite";
-    private static final String LABEL_GOLD_MINERAL = "Gold Mineral";
-    private static final String LABEL_SILVER_MINERAL = "Silver Mineral";
+    public static final String LABEL_GOLD_MINERAL = "Gold Mineral";
+    public static final String LABEL_SILVER_MINERAL = "Silver Mineral";
 
     public VuforiaLocalizer vuforia;
     public TFObjectDetector tfod;
@@ -74,5 +81,12 @@ public class MineralDetection {
      */
     public void shutdown() {
         tfod.shutdown();
+    }
+
+    /**
+     * Asks TFOD for updated recognitions.
+     */
+    public List<Recognition> getUpdatedRecognitions() {
+        return tfod.getUpdatedRecognitions();
     }
 }
