@@ -55,6 +55,7 @@ public class MineralDetectionTest extends OpMode {
     @Override
     public void init() {
         manager = new MineralDetection(hardwareMap);
+        manager.init();
     }
 
     @Override
