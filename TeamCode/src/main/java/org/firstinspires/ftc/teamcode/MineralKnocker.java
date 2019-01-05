@@ -8,11 +8,9 @@ import java.util.List;
 
 public class MineralKnocker {
     public MineralDetection mineralDetection;
-    public DriveMotors driveMotors;
 
-    public double turnRate = 1;
     public double measurementModifier = -0.5;
-    public double turnSpeed = 0.5;
+    public double turnAmountRate = 0.36;
 
     public int rollingAverage = 10;
 
@@ -59,8 +57,7 @@ public class MineralKnocker {
         return sum / n;
     }
 
-    public void turnTowardsMineral() {
-        double average = averageMeasurements() + measurementModifier;
-        driveMotors.steer(turnSpeed, turnRate * average);
+    public double getTurnAmount() {
+        return turnAmountRate * (averageMeasurements() + measurementModifier);
     }
 }
