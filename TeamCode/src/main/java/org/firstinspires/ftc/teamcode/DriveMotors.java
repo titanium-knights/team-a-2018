@@ -1,17 +1,24 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 public class DriveMotors {
     public DcMotor leftDrive;
     public DcMotor rightDrive;
 
-    public double powerMultiplier = -1;
+    public double powerMultiplier = 1;
 
     public DriveMotors(DcMotor leftDrive, DcMotor rightDrive) {
         this.leftDrive = leftDrive;
         this.rightDrive = rightDrive;
+        this.setDirections(DcMotor.Direction.FORWARD, DcMotor.Direction.REVERSE);
+    }
+
+    public void setDirections(DcMotor.Direction left, DcMotor.Direction right) {
+        this.leftDrive.setDirection(left);
+        this.rightDrive.setDirection(right);
     }
 
     public void setLeftMode(DcMotor.RunMode mode) {
@@ -41,6 +48,11 @@ public class DriveMotors {
         this.rightDrive.setPower(power * powerMultiplier);
     }
 
+    public void setPowers(double left, double right) {
+        this.setLeftPower(left);
+        this.setRightPower(right);
+    }
+
     public void setLeftSpeed(double speed) {
         this.setLeftMode(DcMotor.RunMode.RUN_USING_ENCODER);
         this.leftDrive.setPower(speed * powerMultiplier);
@@ -49,6 +61,11 @@ public class DriveMotors {
     public void setRightSpeed(double speed) {
         this.setRightMode(DcMotor.RunMode.RUN_USING_ENCODER);
         this.rightDrive.setPower(speed * powerMultiplier);
+    }
+
+    public void setSpeeds(double left, double right) {
+        this.setLeftSpeed(left);
+        this.setRightPower(right);
     }
 
     public void steerWithPower(double power, double turn) {
@@ -119,10 +136,13 @@ public class DriveMotors {
 
     static String leftDriveName = "left_drive";
     static String rightDriveName = "right_drive";
-    static double standardPowerMultiplier = -1;
+    static double standardPowerMultiplier = 1;
+    static DcMotor.Direction standardLeftDirection = DcMotor.Direction.REVERSE;
+    static DcMotor.Direction standardRightDirection = DcMotor.Direction.FORWARD;
     public static DriveMotors standard(HardwareMap hardwareMap) {
         DriveMotors result = new DriveMotors(hardwareMap.get(DcMotor.class, leftDriveName), hardwareMap.get(DcMotor.class, rightDriveName));
         result.powerMultiplier = standardPowerMultiplier;
+        result.setDirections(standardLeftDirection, standardRightDirection);
         return result;
     }
 }
