@@ -80,7 +80,7 @@ public class Intake {
     public void retractRoller(int index) {
         Roller roller = rollers[index];
         roller.servo.setPosition(roller.rollerExtendedPos);
-        roller.state = RollerState.RETRACTED;
+        roller.state = Roller.State.RETRACTED;
     }
 
     public void retractRollers() {
@@ -90,7 +90,7 @@ public class Intake {
     }
 
     public void toggleRoller(int index) {
-        if (rollers[index].state == RollerState.RETRACTED) {
+        if (rollers[index].state == Roller.State.RETRACTED) {
             extendRoller(index);
         } else {
             retractRoller(index);
@@ -131,7 +131,7 @@ public class Intake {
 
     public static String armMotorName = "intake_arm_motor";
     public static String extenderMotorName = "intake_extender_motor";
-    public static String[] rollerMotorNames = {"intake_roller1_motor", "intake_roller2_motor"};
+    public static String[] rollerMotorNames = {"intake_roller1_servo", "intake_roller2_servo"};
     public static Intake standard(HardwareMap hardwareMap) {
         Roller[] servos = new Roller[rollerMotorNames.length];
         for (int i = 0; i < rollerMotorNames.length; i++) {

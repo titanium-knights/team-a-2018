@@ -13,6 +13,12 @@ public class MineralKnockerOpMode extends LinearOpMode {
     final double turnPower = 0.5;
     final double forwardPower = 0.5;
 
+    private double wheelCircumference = 4 * Math.PI;
+    private double ticksPerRotation = 1100;
+
+    private double distanceToMinerals = 9;
+    private double distanceToMoveForward = 5;
+
     @Override
     public void runOpMode() {
         driveMotors = DriveMotors.standard(hardwareMap);
@@ -25,6 +31,10 @@ public class MineralKnockerOpMode extends LinearOpMode {
 
         knocker.mineralDetection.activate();
 
+        telemetry.addData("Status", "Moving to minerals");
+        driveMotors.moveFor((int)((distanceToMinerals / wheelCircumference) * ticksPerRotation), forwardPower);
+        driveMotors.waitUntilAvailable();
+
         telemetry.addData("Status", "Measuring");
 
         int lastCount = -1;
@@ -32,6 +42,7 @@ public class MineralKnockerOpMode extends LinearOpMode {
             if (knocker.countMeasurements() != lastCount) {
                 lastCount = knocker.countMeasurements();
                 telemetry.addData("Measurements Taken", knocker.countMeasurements());
+                telemetry.addData("Average Position", knocker.averageMeasurements());
                 telemetry.update();
             }
             knocker.measure();
@@ -40,16 +51,16 @@ public class MineralKnockerOpMode extends LinearOpMode {
         telemetry.addData("Status", "Turning");
 
         int targetPos = (int)knocker.getTurnAmount();
-        telemetry.addData("Target Position", targetPos);
         telemetry.addData("Average Position", knocker.averageMeasurements());
+        telemetry.addData("Will move", targetPos);
         telemetry.update();
         driveMotors.moveFor(targetPos, -targetPos, turnPower, turnPower);
         driveMotors.waitUntilAvailable();
 
-        telemetry.addData("Status", "Moving Forward");
+        telemetry.addData("Status", "Knocking");
         telemetry.update();
 
-        driveMotors.moveFor(360, forwardPower);
+        driveMotors.moveFor((int)((distanceToMoveForward / wheelCircumference) * ticksPerRotation), forwardPower);
         driveMotors.waitUntilAvailable();
 
         telemetry.addData("Status", "Complete");

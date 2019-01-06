@@ -56,8 +56,8 @@ public class MainOpMode extends BasicOpMode_Iterative {
     public void loop() {
         driveMotors.setPowers(gamepad1.left_stick_y, gamepad1.right_stick_y);
 
-        intake.setArmPower(gamepad2.left_stick_y);
-        intake.setExtenderPower(gamepad2.left_stick_y);
+        intake.setArmPower(gamepad2.left_stick_y * 0.7);
+        intake.setExtenderPower(gamepad2.left_stick_y * 0.7);
 
         if (gamepad2.left_bumper) {
             if (!leftBumperActive) {
@@ -79,12 +79,12 @@ public class MainOpMode extends BasicOpMode_Iterative {
 
         telemetry.addData("Left Drive Power", driveMotors.leftDrive.getPower());
         telemetry.addData("Right Drive Power", driveMotors.rightDrive.getPower());
-        telemetry.addData("=== INTAKE", "===");
+        telemetry.addData("=== : INTAKE", "===");
         telemetry.addData("Arm Position", intake.arm.getCurrentPosition());
         telemetry.addData("Arm Power", intake.arm.getPower());
         telemetry.addData("Extender Position", intake.extender.getCurrentPosition());
         telemetry.addData("Extender Power", intake.extender.getPower());
-        telemetry.addData("=== ROLLERS", "===");
+        telemetry.addData("=== : ROLLERS", "===");
         telemetry.addData("Left Roller State", intake.rollers[0].state == Roller.State.RETRACTED ? "Retracted" : "Extended");
         telemetry.addData("Right Roller State", intake.rollers[1].state == Roller.State.RETRACTED ? "Retracted" : "Extended");
     }
