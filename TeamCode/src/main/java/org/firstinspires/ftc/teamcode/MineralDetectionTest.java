@@ -29,6 +29,7 @@
 
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
@@ -49,6 +50,7 @@ import java.util.List;
  * is explained below.
  */
 @Autonomous(name = "Mineral Detection Test", group = "Tests")
+@Disabled
 public class MineralDetectionTest extends OpMode {
     private MineralDetection manager;
 

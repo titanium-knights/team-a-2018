@@ -9,8 +9,8 @@ import java.util.List;
 public class MineralKnocker {
     public MineralDetection mineralDetection;
 
-    public double measurementModifier = -0.5;
-    public double turnAmountRate = 0.36;
+    public double measurementModifier = -750;
+    public double turnAmountRate = 0.6;
 
     public int rollingAverage = 10;
 

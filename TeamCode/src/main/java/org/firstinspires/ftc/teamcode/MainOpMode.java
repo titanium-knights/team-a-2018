@@ -54,9 +54,15 @@ public class MainOpMode extends BasicOpMode_Iterative {
      */
     @Override
     public void loop() {
-        driveMotors.setPowers(gamepad1.left_stick_y, gamepad1.right_stick_y);
+        if (gamepad1.left_bumper || gamepad1.right_bumper) {
+            double drive = -gamepad1.left_stick_y;
+            double turn = -gamepad1.right_stick_x;
+            driveMotors.setPowers(Range.clip(drive + turn, -1.0, 1.0), Range.clip(drive - turn, -1.0, 1.0));
+        } else {
+            driveMotors.setPowers(-gamepad1.left_stick_y, -gamepad1.right_stick_y);
+        }
 
-        intake.setArmPower(gamepad2.left_stick_y * 0.7);
+        intake.setArmPower(gamepad2.left_stick_y);
         intake.setExtenderPower(gamepad2.left_stick_y * 0.7);
 
         if (gamepad2.left_bumper) {
@@ -85,8 +91,7 @@ public class MainOpMode extends BasicOpMode_Iterative {
         telemetry.addData("Extender Position", intake.extender.getCurrentPosition());
         telemetry.addData("Extender Power", intake.extender.getPower());
         telemetry.addData("=== : ROLLERS", "===");
-        telemetry.addData("Left Roller State", intake.rollers[0].state == Roller.State.RETRACTED ? "Retracted" : "Extended");
-        telemetry.addData("Right Roller State", intake.rollers[1].state == Roller.State.RETRACTED ? "Retracted" : "Extended");
+        telemetry.addData("Roller State", intake.rollers[0].state == Roller.State.RETRACTED ? "Retracted" : "Extended");
     }
 
     /*

@@ -65,7 +65,7 @@ public class DriveMotors {
 
     public void setSpeeds(double left, double right) {
         this.setLeftSpeed(left);
-        this.setRightPower(right);
+        this.setRightSpeed(right);
     }
 
     public void steerWithPower(double power, double turn) {

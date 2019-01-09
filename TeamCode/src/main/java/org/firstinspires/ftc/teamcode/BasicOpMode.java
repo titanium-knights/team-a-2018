@@ -51,7 +51,7 @@ import com.qualcomm.robotcore.util.Range;
  */
 
 @TeleOp(name="Motor Control OpMode", group="Motor Control")
-// @Disabled
+@Disabled
 public class BasicOpMode extends OpMode
 {
     // Declare OpMode members.

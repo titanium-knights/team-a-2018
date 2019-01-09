@@ -1,5 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
+import android.support.annotation.NonNull;
+
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
@@ -8,9 +10,6 @@ public class Intake {
     public DcMotor arm;
     public DcMotor extender;
     public Roller[] rollers;
-
-    public int rollerRetractedPos = 0;
-    public int rollerExtendedPos = 0;
 
     public boolean rollerExtended = false;
 
@@ -131,13 +130,11 @@ public class Intake {
 
     public static String armMotorName = "intake_arm_motor";
     public static String extenderMotorName = "intake_extender_motor";
-    public static String[] rollerMotorNames = {"intake_roller1_servo", "intake_roller2_servo"};
+    public static String rollerMotorName = "intake_roller1_servo";
+    @NonNull
     public static Intake standard(HardwareMap hardwareMap) {
-        Roller[] servos = new Roller[rollerMotorNames.length];
-        for (int i = 0; i < rollerMotorNames.length; i++) {
-            Roller roller = new Roller(hardwareMap.get(Servo.class, rollerMotorNames[i]));
-            servos[i] = roller;
-        }
+        Roller roller = new Roller(hardwareMap.get(Servo.class, rollerMotorName));
+        Roller[] servos = {roller, roller};
         return new Intake(hardwareMap.get(DcMotor.class, armMotorName), hardwareMap.get(DcMotor.class, extenderMotorName), servos);
     }
 }
