@@ -12,7 +12,7 @@ public class ClaimDepotOpMode extends LinearOpMode {
 
     @Override
     public void runOpMode() {
-        driveMotors = DriveMotors.standard(hardwareMap);
+        driveMotors = TwoWheelDrive.standard(hardwareMap);
         intake = Intake.standard(hardwareMap);
         telemetry.addData("Status", "Initialized");
         telemetry.update();

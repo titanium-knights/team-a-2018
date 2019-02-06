@@ -11,7 +11,7 @@ import org.firstinspires.ftc.robotcontroller.external.samples.BasicOpMode_Iterat
 public class MainOpMode extends BasicOpMode_Iterative {
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
-    private DriveMotors driveMotors;
+    private TwoWheelDrive driveMotors;
     private Intake intake;
 
     /*
@@ -22,7 +22,7 @@ public class MainOpMode extends BasicOpMode_Iterative {
         // Initialize the hardware variables. Note that the strings used here as parameters
         // to 'get' must correspond to the names assigned during the robot configuration
         // step (using the FTC Robot Controller app on the phone).
-        driveMotors = DriveMotors.standard(hardwareMap);
+        driveMotors = TwoWheelDrive.standard(hardwareMap);
         intake = Intake.standard(hardwareMap);
 
         // Tell the driver that initialization is complete.

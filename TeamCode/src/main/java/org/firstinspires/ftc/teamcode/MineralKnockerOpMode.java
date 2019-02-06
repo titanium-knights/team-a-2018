@@ -20,7 +20,7 @@ public class MineralKnockerOpMode extends LinearOpMode {
 
     @Override
     public void runOpMode() {
-        driveMotors = DriveMotors.standard(hardwareMap);
+        driveMotors = TwoWheelDrive.standard(hardwareMap);
         knocker = new MineralKnocker();
         knocker.mineralDetection = new MineralDetection(hardwareMap);
         knocker.mineralDetection.init();
@@ -59,8 +59,7 @@ public class MineralKnockerOpMode extends LinearOpMode {
         telemetry.addData("Average Position", knocker.averageMeasurements());
         telemetry.addData("Will move", targetPos);
         telemetry.update();
-        double adjustedPower = instanceTurnPower * (targetPos >= 0 ? 1 : -1);
-        driveMotors.setSpeeds(adjustedPower, -adjustedPower);
+        driveMotors.steerWithPower(instanceTurnPower, (targetPos >= 0 ? 1 : -1));
         sleep(Math.abs(targetPos));
         driveMotors.stop();
 
