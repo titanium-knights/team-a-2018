@@ -40,8 +40,8 @@ class AbsolutePositioningOpMode: OpMode() {
         val radians = Math.toRadians(transformedAngle)
 
         val vector = MecanumDrive.Motor.Vector2D(gamepad1.left_stick_x.toDouble(), (-gamepad1.left_stick_y).toDouble())
-        val rotated = vector.rotatedBy(radians)
         val turn = driveGamepad.right_stick_x.toDouble()
+        val rotated = if (turn == 0.0) vector.rotatedBy(radians) else vector
         mecanumDrive!!.move(1.0, rotated, turn)
 
         telemetry.addData("Base Angle", baseAngle)
@@ -52,5 +52,7 @@ class AbsolutePositioningOpMode: OpMode() {
         telemetry.addData("Output X", rotated.x)
         telemetry.addData("Output Y", rotated.y)
         telemetry.addData("Turn", turn)
+
+        TODO("Decide whether to turn off absolute positioning while turning")
     }
 }
