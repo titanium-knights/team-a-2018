@@ -4,10 +4,12 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.movement.DriveMotors;
+import org.firstinspires.ftc.teamcode.movement.MecanumDrive;
 import org.firstinspires.ftc.teamcode.movement.TwoWheelDrive;
 import org.firstinspires.ftc.teamcode.sensing.MineralDetection;
 import org.firstinspires.ftc.teamcode.sensing.MineralKnocker;
 
+// An op mode that samples minerals, then drives forward. Not reliable at the moment, try tweaking a few of its variables.
 @Autonomous(name = "Mineral Knocker", group = "Tests")
 public class MineralKnockerOpMode extends LinearOpMode {
     DriveMotors driveMotors;
@@ -22,7 +24,7 @@ public class MineralKnockerOpMode extends LinearOpMode {
 
     @Override
     public void runOpMode() {
-        driveMotors = TwoWheelDrive.standard(hardwareMap);
+        driveMotors = MecanumDrive.standard(hardwareMap);
         knocker = new MineralKnocker();
         knocker.mineralDetection = new MineralDetection(hardwareMap);
         knocker.mineralDetection.init();

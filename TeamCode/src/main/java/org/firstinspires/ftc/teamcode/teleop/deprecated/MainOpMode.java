@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.util.Range;
 import org.firstinspires.ftc.robotcontroller.external.samples.BasicOpMode_Iterative;
 import org.firstinspires.ftc.teamcode.movement.deprecated.Intake;
 import org.firstinspires.ftc.teamcode.movement.TwoWheelDrive;
-import org.firstinspires.ftc.teamcode.sensing.Roller;
+import org.firstinspires.ftc.teamcode.movement.deprecated.Roller;
 
 @TeleOp(name = "Main TeleOp Mode", group = "* Main")
 @Disabled

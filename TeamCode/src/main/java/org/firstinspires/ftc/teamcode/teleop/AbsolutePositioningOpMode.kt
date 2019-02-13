@@ -6,6 +6,8 @@ import org.firstinspires.ftc.teamcode.movement.MecanumDrive
 import org.firstinspires.ftc.teamcode.sensing.Gyro
 import org.firstinspires.ftc.teamcode.sensing.IMUGyro
 
+// Op mode that demonstrates "Absolute Positioning" - in other words, using the gyro to ensure that the robot moves in the same direction,
+// regardless of where it is actually oriented.
 @TeleOp(name = "Mecanum Absolute Positioning", group = "Tests")
 class AbsolutePositioningOpMode: OpMode() {
     var mecanumDrive: MecanumDrive? = null

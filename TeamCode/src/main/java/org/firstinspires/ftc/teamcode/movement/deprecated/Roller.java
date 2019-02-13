@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.sensing;
+package org.firstinspires.ftc.teamcode.movement.deprecated;
 
 import com.qualcomm.robotcore.hardware.Servo;
 

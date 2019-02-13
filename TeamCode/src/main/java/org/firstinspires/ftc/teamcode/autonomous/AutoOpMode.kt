@@ -9,6 +9,7 @@ import org.firstinspires.ftc.teamcode.sensing.IMUGyro
 import org.firstinspires.ftc.teamcode.sensing.Vision
 import java.util.*
 
+// General autonomous op mode.
 @Autonomous(name = "Autonomous Op Mode", group = "* Main")
 class AutoOpMode: LinearOpMode() {
     abstract inner class State {

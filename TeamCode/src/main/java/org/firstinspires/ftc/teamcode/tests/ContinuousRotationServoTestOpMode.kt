@@ -13,6 +13,6 @@ class ContinuousRotationServoTestOpMode: OpMode() {
     }
 
     override fun loop() {
-        crServo!!.power = gamepad2.right_stick_y.toDouble()
+        crServo!!.power = if (gamepad2.right_stick_y > 0.5) 1.0 else (if (gamepad2.right_stick_y < 0.5) -1.0 else 0.0)
     }
 }

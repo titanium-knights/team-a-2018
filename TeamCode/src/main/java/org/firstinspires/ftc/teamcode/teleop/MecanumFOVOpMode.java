@@ -6,6 +6,8 @@ import com.qualcomm.robotcore.hardware.Gamepad;
 
 import org.firstinspires.ftc.teamcode.movement.MecanumDrive;
 
+// Basic op mode for the Mecanum Drive.
+// Use left stick to move and strafe, and right stick to turn.
 @TeleOp(name = "Mecanum FOV Op Mode", group = "Tests")
 public class MecanumFOVOpMode extends OpMode {
     MecanumDrive drive;
