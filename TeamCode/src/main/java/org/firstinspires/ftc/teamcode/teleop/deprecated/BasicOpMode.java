@@ -27,7 +27,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.teleop.deprecated;
 
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
@@ -52,7 +52,7 @@ import com.qualcomm.robotcore.util.Range;
 
 @TeleOp(name="Motor Control OpMode", group="Motor Control")
 @Disabled
-public class BasicOpMode extends OpMode
+@Deprecated public class BasicOpMode extends OpMode
 {
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();

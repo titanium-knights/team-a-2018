@@ -1,14 +1,18 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.teleop.deprecated;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
 import org.firstinspires.ftc.robotcontroller.external.samples.BasicOpMode_Iterative;
+import org.firstinspires.ftc.teamcode.movement.deprecated.Intake;
+import org.firstinspires.ftc.teamcode.movement.TwoWheelDrive;
+import org.firstinspires.ftc.teamcode.sensing.Roller;
 
 @TeleOp(name = "Main TeleOp Mode", group = "* Main")
-public class MainOpMode extends BasicOpMode_Iterative {
+@Disabled
+@Deprecated public class MainOpMode extends BasicOpMode_Iterative {
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
     private TwoWheelDrive driveMotors;

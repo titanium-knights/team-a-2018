@@ -1,9 +1,11 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.autonomous;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import com.qualcomm.robotcore.hardware.DcMotor;
+
+import org.firstinspires.ftc.teamcode.movement.DriveMotors;
+import org.firstinspires.ftc.teamcode.movement.deprecated.Intake;
+import org.firstinspires.ftc.teamcode.movement.MecanumDrive;
 
 @Autonomous(name = "Claim Depot Mode", group = "* Main")
 public class ClaimDepotOpMode extends LinearOpMode {
@@ -12,7 +14,7 @@ public class ClaimDepotOpMode extends LinearOpMode {
 
     @Override
     public void runOpMode() {
-        driveMotors = TwoWheelDrive.standard(hardwareMap);
+        driveMotors = MecanumDrive.standard(hardwareMap);
         intake = Intake.standard(hardwareMap);
         telemetry.addData("Status", "Initialized");
         telemetry.update();

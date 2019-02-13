@@ -1,7 +1,9 @@
-package org.firstinspires.ftc.teamcode
+package org.firstinspires.ftc.teamcode.tests
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode
+import org.firstinspires.ftc.teamcode.sensing.Gyro
+import org.firstinspires.ftc.teamcode.sensing.IMUGyro
 
 @Autonomous(name = "Gyro Test", group = "Tests")
 class GyroTestOpMode: LinearOpMode() {

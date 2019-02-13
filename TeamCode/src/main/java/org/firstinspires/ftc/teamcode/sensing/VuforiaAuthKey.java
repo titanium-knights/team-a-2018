@@ -1,6 +1,8 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.sensing;
 
 import android.content.Context;
+
+import org.firstinspires.ftc.teamcode.R;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -1,8 +1,8 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.sensing;
 
 import com.qualcomm.robotcore.hardware.Servo;
 
-public class Roller {
+@Deprecated public class Roller {
     public Servo servo;
     public int rollerRetractedPos = 0;
     public int rollerExtendedPos = 180;

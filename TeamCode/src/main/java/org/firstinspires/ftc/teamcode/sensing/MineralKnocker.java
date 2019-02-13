@@ -1,8 +1,8 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.sensing;
 
 import org.firstinspires.ftc.robotcore.external.tfod.Recognition;
+import org.firstinspires.ftc.teamcode.sensing.MineralDetection;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.movement.deprecated;
 
 import android.support.annotation.NonNull;
 
@@ -6,7 +6,9 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
-public class Intake {
+import org.firstinspires.ftc.teamcode.sensing.Roller;
+
+@Deprecated public class Intake {
     public DcMotor arm;
     public DcMotor extender;
     public Roller[] rollers;

@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.sensing;
 
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
@@ -203,15 +203,15 @@ public class Vision extends MineralDetection {
         return lastLocation == null ? null : new Location(lastLocation.getTranslation(), Orientation.getOrientation(lastLocation, EXTRINSIC, XYZ, DEGREES), targetVisible, isStale);
     }
 
-    class Location {
-        double x;
-        double y;
-        double z;
-        double roll;
-        double pitch;
-        double heading;
-        String visibleTarget;
-        boolean isStale;
+    public class Location {
+        public final double x;
+        public final double y;
+        public final double z;
+        public final double roll;
+        public final double pitch;
+        public final double heading;
+        public final String visibleTarget;
+        public final boolean isStale;
 
         Location(VectorF translation, Orientation rotation, String visibleTarget, boolean isStale) {
             x = translation.get(0) / mmPerInch;

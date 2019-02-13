@@ -1,7 +1,10 @@
-package org.firstinspires.ftc.teamcode
+package org.firstinspires.ftc.teamcode.teleop
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp
+import org.firstinspires.ftc.teamcode.movement.MecanumDrive
+import org.firstinspires.ftc.teamcode.sensing.Gyro
+import org.firstinspires.ftc.teamcode.sensing.IMUGyro
 
 @TeleOp(name = "Mecanum Absolute Positioning", group = "Tests")
 class AbsolutePositioningOpMode: OpMode() {
@@ -53,6 +56,6 @@ class AbsolutePositioningOpMode: OpMode() {
         telemetry.addData("Output Y", rotated.y)
         telemetry.addData("Turn", turn)
 
-        TODO("Decide whether to turn off absolute positioning while turning")
+        // TODO("Decide whether to turn off absolute positioning while turning")
     }
 }

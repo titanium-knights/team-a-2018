@@ -1,10 +1,12 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.autonomous;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import com.qualcomm.robotcore.hardware.DcMotor;
+
+import org.firstinspires.ftc.teamcode.movement.DriveMotors;
+import org.firstinspires.ftc.teamcode.movement.TwoWheelDrive;
+import org.firstinspires.ftc.teamcode.sensing.MineralDetection;
+import org.firstinspires.ftc.teamcode.sensing.MineralKnocker;
 
 @Autonomous(name = "Mineral Knocker", group = "Tests")
 public class MineralKnockerOpMode extends LinearOpMode {
