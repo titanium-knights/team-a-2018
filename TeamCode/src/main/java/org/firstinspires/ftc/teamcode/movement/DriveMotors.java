@@ -6,6 +6,13 @@ import com.qualcomm.robotcore.hardware.DcMotor;
  * Public interface representing the set of methods every single drive system is guaranteed to implement.
  * For example, both a regular two wheel drive and a mecanum drive implement these same methods.
  * This makes it useful for creating op modes that work for both systems.
+ *
+ * Throughout DriveMotors and its subclasses, you will find methods referring to two similar yet distinct concepts: power and speed.
+ * Power refers to driving a motor by sending a given amount of power to it.
+ * Speed refers to intelligently controlling a motor by constantly making adjustments to power so that the motor moves in a consistent manner.
+ * Power does not require an encoder; speed does.
+ *
+ * You do not construct DriveMotors directly; instead, you use one of its subclasses.
  */
 public interface DriveMotors {
     /**

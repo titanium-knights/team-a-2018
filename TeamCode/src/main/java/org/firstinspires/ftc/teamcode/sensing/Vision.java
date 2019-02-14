@@ -21,7 +21,8 @@ import static org.firstinspires.ftc.robotcore.external.navigation.AxesReference.
 import static org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocalizer.CameraDirection.FRONT;
 
 /**
- * Wrapper class for Vuforia.
+ * This class takes care of all your vision needs.
+ * Wrapper class for Vuforia that extends MineralDetection.
  * Improves code reusability.
  */
 public class Vision extends MineralDetection {
@@ -181,6 +182,10 @@ public class Vision extends MineralDetection {
         targetsRoverRuckus.activate();
     }
 
+    /**
+     * Attempts to determine the robot's location.
+     * @return a Location describing where the robot is, may be null
+     */
     public Location getLocation() {
         // check all the trackable target to see which one (if any) is visible.
         String targetVisible = null;
@@ -203,14 +208,53 @@ public class Vision extends MineralDetection {
         return lastLocation == null ? null : new Location(lastLocation.getTranslation(), Orientation.getOrientation(lastLocation, EXTRINSIC, XYZ, DEGREES), targetVisible, isStale);
     }
 
+    /**
+     * A class representing where a robot is on the field.
+     * The origin is the center of the field.
+     */
     public class Location {
+        /**
+         * The x-coordinate of this location.
+         * Runs from audience side to opposite side.
+         */
         public final double x;
+
+        /**
+         * The y-coordinate of this location.
+         * Runs from Red Alliance Station to Blue Alliance Station.
+         */
         public final double y;
+
+        /**
+         * The z-coordinate of this location.
+         * Runs from bottom to top.
+         */
         public final double z;
+
+        /**
+         * The roll of the robot.
+         */
         public final double roll;
+
+        /**
+         * The pitch of the robot.
+         */
         public final double pitch;
+
+        /**
+         * The hading of the robot.
+         */
         public final double heading;
+
+        /**
+         * Which target is currently visible and being used to calculate the robot's location.
+         * Can be `Blue-Rover`, `Red-Footprint`, `Front-Crater`, or `Back-Space`.
+         */
         public final String visibleTarget;
+
+        /**
+         * Whether this location is stale (cached as opposed to newly calculated).
+         */
         public final boolean isStale;
 
         Location(VectorF translation, Orientation rotation, String visibleTarget, boolean isStale) {

@@ -12,6 +12,8 @@ import java.util.List;
 /**
  * Wrapper class for Vuforia and TFOD.
  * Improves code reusability.
+ * Unlike most other classes, you usually do not call standard; instead, you use its constructor.
+ *
  */
 public class MineralDetection {
     private static final String TFOD_MODEL_ASSET = "RoverRuckus.tflite";
@@ -32,6 +34,7 @@ public class MineralDetection {
 
     /**
      * Convenience method to initialize Vuforia and TensorFlow at the same time.
+     * Usually called during the init phase of an op mode.
      */
     public void init() {
         this.initVuforia();
@@ -85,6 +88,7 @@ public class MineralDetection {
 
     /**
      * Asks TFOD for updated recognitions.
+     * @return a list of recognitions that may be null
      */
     public List<Recognition> getUpdatedRecognitions() {
         return tfod.getUpdatedRecognitions();

@@ -9,7 +9,16 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+/**
+ * Helper class for retrieving the Vuforia authentication key used to power MineralDetection and Vision.
+ * This class is automatically called by MineralDetection and Vision.
+ */
 public class VuforiaAuthKey {
+    /**
+     * Gets the Vuforia authentication key.
+     * @param context Android application context (HardwareMap.appContext)
+     * @return the Vuforia auth key, or "auth key error" if one cannot be found
+     */
     public static String getAuthKey(Context context) {
         try {
             InputStream inputStream = context.getResources().openRawResource(R.raw.vuforiaauthkey);
@@ -20,7 +29,7 @@ public class VuforiaAuthKey {
 
             return key;
         } catch (IOException e) {
-            return "YOUR VUFORIA AUTH KEY HERE";
+            return "Vuforia auth key error";
         }
     }
 }

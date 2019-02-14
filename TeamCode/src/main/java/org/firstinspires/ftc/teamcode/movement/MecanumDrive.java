@@ -239,7 +239,7 @@ public class MecanumDrive implements DriveMotors {
     static DcMotor.Direction[] standardMotorDirections = {DcMotor.Direction.REVERSE, DcMotor.Direction.FORWARD, DcMotor.Direction.REVERSE, DcMotor.Direction.FORWARD};
 
     /**
-     * Given only a hardware map, constructs a ready-to-use mecanum drive capable of moving the motors on the robot.
+     * Given only a hardware map, constructs a ready-to-use mecanum drive with preset motors.
      * @param hardwareMap hardware map containing the motors installed on the robot
      * @return a "standard" ready-to-use mecanum drive
      */
