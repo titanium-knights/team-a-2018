@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 /**
  * Class representing a simple, run-of-the-mill two wheel drive.
  * We used to use this; now we are not.
- *
+ * <p>
  * This was one of the earliest classes made this year; I apologize in advance for the poor coding in this class.
  * @author anli5005
  */

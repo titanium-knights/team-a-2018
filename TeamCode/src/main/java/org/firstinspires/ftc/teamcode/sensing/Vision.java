@@ -24,7 +24,7 @@ import static org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocaliz
  * This class takes care of all your vision needs.
  * Wrapper class for Vuforia that extends MineralDetection.
  * Improves code reusability.
- *
+ * <p>
  * IMPORTANT: Use of the Vision class requires a Vuforia auth key. To learn how to set one up, browse to the VuforiaAuthKey class.
  */
 public class Vision extends MineralDetection {

@@ -12,9 +12,11 @@ import java.io.InputStreamReader;
 /**
  * Helper class for retrieving the Vuforia authentication key used to power MineralDetection and Vision.
  * This class is automatically called by MineralDetection and Vision.
- *
+ * <p>
  * For security reasons, we do not include the Vuforia auth key in the repository. As such, you will have to add one yourself.
+ * <p>
  * Browse to TeamCode/src/main/res/raw, and make a new file called "vuforiaauthkey.txt". Paste your Vuforia authentication key into there.
+ * <p>
  * TITANIUM KNIGHTS MEMBERS: To get the authentication key, contact Anthony Li or Edward Li.
  */
 public class VuforiaAuthKey {
