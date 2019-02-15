@@ -4,6 +4,10 @@ Welcome!
 
 This module, TeamCode, contains the code for the team's robot controller app.
 
+Sample code from FIRST can be found in `FtcRobotController/src/main/java/external.samples`.
+
+**IMPORTANT:** Use of vision features requires a Vuforia authentication key. Please browse to `sensing.VuforiaAuthKey` to learn how to set one up.
+
 ## List of Packages
 This module contains numerous packages, each containing a different set of classes with various functions.
 
@@ -23,9 +27,7 @@ Packages containing utility classes, or helpers meant to facilitate programming,
 | sensing | Includes classes that assist in using sensors such as the gyroscope and vision
 
 ## Adding your own Op Modes
-Adding your own Op Modes is as simple as creating a new class in the `org.firstinspires.ftc.teamcode` directory. Make sure your class inherits from either `OpMode` or `LinearOpMode`, and add the `@TeleOp` or `@Autonomous` decorator.
-
-If this all seems a little confusing, go to **FtcRobotController** > **java** > **org.firstinspires.ftc.robotcontroller** > **external.samples** if you want to see what creating an op mode is like.
+To add an op mode, create a new file in the `autonomous`, `teleop`, or `test` package, then copy and paste the code in `ExampleIterativeOpMode` or `ExampleLinearOpMode` into a new Kotlin file.
 
 ## A Note on Languages
 This project uses both Java and Kotlin (Java, but better). Feel free to use either.

@@ -6,7 +6,14 @@ import org.firstinspires.ftc.teamcode.sensing.MineralDetection;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MineralKnocker {
+/**
+ * This helper class was intended to assist in the creation of mineral knocking op modes.
+ * Since every use case is different, this class has been deprecated.
+ * See MineralKnockerOpMode for an example of how it was used.
+ *
+ * Do not use this class.
+ */
+@Deprecated public class MineralKnocker {
     public MineralDetection mineralDetection;
 
     public double measurementModifier = -750;
