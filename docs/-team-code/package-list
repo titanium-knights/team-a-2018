@@ -1,0 +1,11 @@
+$dokka.format:html
+$dokka.linkExtension:html
+
+org.firstinspires.ftc.teamcode
+org.firstinspires.ftc.teamcode.autonomous
+org.firstinspires.ftc.teamcode.movement
+org.firstinspires.ftc.teamcode.movement.deprecated
+org.firstinspires.ftc.teamcode.sensing
+org.firstinspires.ftc.teamcode.teleop
+org.firstinspires.ftc.teamcode.teleop.deprecated
+org.firstinspires.ftc.teamcode.tests

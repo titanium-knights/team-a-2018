@@ -1,0 +1,91 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Vision.Location - TeamCode</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">TeamCode</a>&nbsp;/&nbsp;<a href="../../index.html">org.firstinspires.ftc.teamcode.sensing</a>&nbsp;/&nbsp;<a href="../index.html">Vision</a>&nbsp;/&nbsp;<a href="./index.html">Location</a><br/>
+<br/>
+<h1>Location</h1>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">Location</span></code>
+<p>A class representing where a robot is on the field. The origin is the center of the field.</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="heading.html">heading</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">heading</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a></code>
+<p>The hading of the robot.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="is-stale.html">isStale</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">isStale</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Whether this location is stale (cached as opposed to newly calculated).</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="pitch.html">pitch</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">pitch</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a></code>
+<p>The pitch of the robot.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="roll.html">roll</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">roll</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a></code>
+<p>The roll of the robot.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="visible-target.html">visibleTarget</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">visibleTarget</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code>
+<p>Which target is currently visible and being used to calculate the robot's location. Can be `Blue-Rover`, `Red-Footprint`, `Front-Crater`, or `Back-Space`.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="x.html">x</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">x</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a></code>
+<p>The x-coordinate of this location. Runs from audience side to opposite side.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="y.html">y</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">y</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a></code>
+<p>The y-coordinate of this location. Runs from Red Alliance Station to Blue Alliance Station.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="z.html">z</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">z</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a></code>
+<p>The z-coordinate of this location. Runs from bottom to top.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

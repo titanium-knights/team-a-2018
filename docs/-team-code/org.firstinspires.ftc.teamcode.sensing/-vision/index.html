@@ -1,0 +1,158 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Vision - TeamCode</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">TeamCode</a>&nbsp;/&nbsp;<a href="../index.html">org.firstinspires.ftc.teamcode.sensing</a>&nbsp;/&nbsp;<a href="./index.html">Vision</a><br/>
+<br/>
+<h1>Vision</h1>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">Vision</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-mineral-detection/index.html"><span class="identifier">MineralDetection</span></a></code>
+<p>This class takes care of all your vision needs. Wrapper class for Vuforia that extends MineralDetection. Improves code reusability. IMPORTANT: Use of the Vision class requires a Vuforia auth key. To learn how to set one up, browse to the VuforiaAuthKey class.</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-location/index.html">Location</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">Location</span></code>
+<p>A class representing where a robot is on the field. The origin is the center of the field.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">Vision</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.sensing.Vision$<init>(com.qualcomm.robotcore.hardware.HardwareMap)/hardwareMap">hardwareMap</span><span class="symbol">:</span>&nbsp;<span class="identifier">HardwareMap</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../-mineral-detection/-l-a-b-e-l_-g-o-l-d_-m-i-n-e-r-a-l.html">LABEL_GOLD_MINERAL</a></p>
+</td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">LABEL_GOLD_MINERAL</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="../-mineral-detection/-l-a-b-e-l_-s-i-l-v-e-r_-m-i-n-e-r-a-l.html">LABEL_SILVER_MINERAL</a></p>
+</td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">LABEL_SILVER_MINERAL</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="../-mineral-detection/camera-direction.html">cameraDirection</a></p>
+</td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">cameraDirection</span><span class="symbol">: </span><span class="identifier">CameraDirection</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="../-mineral-detection/hardware-map.html">hardwareMap</a></p>
+</td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">hardwareMap</span><span class="symbol">: </span><span class="identifier">HardwareMap</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="../-mineral-detection/tfod.html">tfod</a></p>
+</td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">tfod</span><span class="symbol">: </span><span class="identifier">TFObjectDetector</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="../-mineral-detection/vuforia.html">vuforia</a></p>
+</td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">vuforia</span><span class="symbol">: </span><span class="identifier">VuforiaLocalizer</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="activate.html">activate</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">activate</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="get-location.html">getLocation</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">getLocation</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="-location/index.html"><span class="identifier">Location</span></a></code>
+<p>Attempts to determine the robot's location.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="init-vuforia.html">initVuforia</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">initVuforia</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Initialize the Vuforia localization engine.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../-mineral-detection/get-updated-recognitions.html">getUpdatedRecognitions</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">getUpdatedRecognitions</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html"><span class="identifier">MutableList</span></a><span class="symbol">&lt;</span><span class="identifier">Recognition</span><span class="symbol">&gt;</span></code>
+<p>Asks TFOD for updated recognitions.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-mineral-detection/init.html">init</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">init</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Convenience method to initialize Vuforia and TensorFlow at the same time. Usually called during the init phase of an op mode.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-mineral-detection/init-tfod.html">initTfod</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">initTfod</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Initialize the Tensor Flow Object Detection engine.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-mineral-detection/shutdown.html">shutdown</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">shutdown</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Shut down TFOD. This method is typically called in an OpMode's stop function.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

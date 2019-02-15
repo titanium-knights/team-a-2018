@@ -1,0 +1,96 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>DriveMotors - TeamCode</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">TeamCode</a>&nbsp;/&nbsp;<a href="../index.html">org.firstinspires.ftc.teamcode.movement</a>&nbsp;/&nbsp;<a href="./index.html">DriveMotors</a><br/>
+<br/>
+<h1>DriveMotors</h1>
+<code><span class="keyword">interface </span><span class="identifier">DriveMotors</span></code>
+<p>Public interface representing the set of methods every single drive system is guaranteed to implement. For example, both a regular two wheel drive and a mecanum drive implement these same methods. This makes it useful for creating op modes that work for both systems. Throughout DriveMotors and its subclasses, you will find methods referring to two similar yet distinct concepts: power and speed. Power refers to driving a motor by sending a given amount of power to it. Speed refers to intelligently controlling a motor by constantly making adjustments to power so that the motor moves in a consistent manner. Power does not require an encoder; speed does. You do not construct DriveMotors directly; instead, you use one of its subclasses.</p>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="forward-with-power.html">forwardWithPower</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">forwardWithPower</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.DriveMotors$forwardWithPower(kotlin.Double)/power">power</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Steers the drive forward or reverse at a given power (i.e. without encoder).</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="forward-with-speed.html">forwardWithSpeed</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">forwardWithSpeed</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.DriveMotors$forwardWithSpeed(kotlin.Double)/speed">speed</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Steers the drive forward or reverse at a given speed (i.e. with encoder).</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-motors.html">getMotors</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getMotors</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html"><span class="identifier">Array</span></a><span class="symbol">&lt;</span><span class="identifier">DcMotor</span><span class="symbol">&gt;</span></code>
+<p>Returns the underlying motors that this DriveMotors instance represents.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="steer-with-power.html">steerWithPower</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">steerWithPower</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.DriveMotors$steerWithPower(kotlin.Double, kotlin.Double)/power">power</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">, </span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.DriveMotors$steerWithPower(kotlin.Double, kotlin.Double)/turn">turn</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Steers the drive in a given direction at a given power (i.e. without encoder).</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="steer-with-speed.html">steerWithSpeed</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">steerWithSpeed</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.DriveMotors$steerWithSpeed(kotlin.Double, kotlin.Double)/speed">speed</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">, </span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.DriveMotors$steerWithSpeed(kotlin.Double, kotlin.Double)/turn">turn</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Steers the drive in a given direction at a given speed (i.e. with encoder).</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="stop.html">stop</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">stop</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Stops the drive. What could be simpler?</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../-mecanum-drive/index.html">MecanumDrive</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">MecanumDrive</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">DriveMotors</span></a></code>
+<p>Class representing four DcMotors that comprise a Mecanum drive; in other words, the drive we're using on our robot.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-two-wheel-drive/index.html">TwoWheelDrive</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">TwoWheelDrive</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">DriveMotors</span></a></code>
+<p>Class representing a simple, run-of-the-mill two wheel drive. We used to use this; now we are not. This was one of the earliest classes made this year; I apologize in advance for the poor coding in this class.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
