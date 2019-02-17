@@ -15,7 +15,7 @@ import org.firstinspires.ftc.teamcode.sensing.Vision
  * Good for Tele-Op op modes.
  */
 @TeleOp(name = "NAME HERE") // TODO: Add a good name
-// @Disabled // TODO: Delete this line to enable your op mode
+@Disabled // TODO: Delete this line to enable your op mode
 class ExampleIterativeOpMode: OpMode() {
     val drive: MecanumDrive by lazy { MecanumDrive.standard(hardwareMap) }
     val gyro: Gyro by lazy { IMUGyro.standard(hardwareMap) }
