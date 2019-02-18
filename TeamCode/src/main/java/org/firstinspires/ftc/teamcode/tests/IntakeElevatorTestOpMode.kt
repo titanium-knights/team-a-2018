@@ -48,6 +48,7 @@ class IntakeElevatorTestOpMode: LinearOpMode() {
             var power2 = gamepad1.right_stick_y.toDouble()*-0.5
             if (elevatorMotor!!.currentPosition <= 0) power2 = max(0.0, power2)
             else if (elevatorMotor!!.currentPosition >= maximumElevatorHeight) power2 = min(0.0, power2)
+            // TODO: The tilter needs better control and lower power
             tilterMotor!!.power = power*0.5
             elevatorMotor!!.power = power2
             if (gamepad1.left_bumper && extenderMotor!!.currentPosition >= 250) extenderMotor!!.power = -1.0
