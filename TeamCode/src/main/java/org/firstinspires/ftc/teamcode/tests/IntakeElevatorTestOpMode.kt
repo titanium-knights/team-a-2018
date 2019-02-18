@@ -18,6 +18,7 @@ class IntakeElevatorTestOpMode: LinearOpMode() {
     var extenderMotor: DcMotor? = null
     var elevatorMotor: DcMotor? = null
     var tilterMotor: DcMotor? = null
+    var rollerMotor: DcMotor? = null
 
     override fun runOpMode() {
 
@@ -29,8 +30,10 @@ class IntakeElevatorTestOpMode: LinearOpMode() {
         extenderMotor = hardwareMap.get(DcMotor::class.java, "intake_extender")
         elevatorMotor = hardwareMap.get(DcMotor::class.java, "elevator_extender")
         tilterMotor = hardwareMap.get(DcMotor::class.java, "intake_tilter")
+        rollerMotor = hardwareMap.get(DcMotor::class.java, "intake_roller")
 
         elevatorMotor!!.mode = DcMotor.RunMode.RUN_USING_ENCODER
+        tilterMotor!!.mode = DcMotor.RunMode.RUN_USING_ENCODER
 
         waitForStart()
 
@@ -45,11 +48,14 @@ class IntakeElevatorTestOpMode: LinearOpMode() {
             var power2 = gamepad1.right_stick_y.toDouble()*-0.5
             if (elevatorMotor!!.currentPosition <= 0) power2 = max(0.0, power2)
             else if (elevatorMotor!!.currentPosition >= maximumElevatorHeight) power2 = min(0.0, power2)
-            tilterMotor!!.power = power
+            tilterMotor!!.power = power*0.5
             elevatorMotor!!.power = power2
             if (gamepad1.left_bumper && extenderMotor!!.currentPosition >= 250) extenderMotor!!.power = -1.0
             else if (gamepad1.right_bumper && extenderMotor!!.currentPosition <= maximumIntakeExtension) extenderMotor!!.power = 1.0
             else extenderMotor!!.power = 0.0
+            if (gamepad1.left_trigger == 1.0f) rollerMotor!!.power = 1.0
+            else if (gamepad1.right_trigger == 1.0f) rollerMotor!!.power = -1.0
+            else rollerMotor!!.power = 0.0
         }
 
         // If you want to stop the op mode once you're done, call requestOpModeStop().
