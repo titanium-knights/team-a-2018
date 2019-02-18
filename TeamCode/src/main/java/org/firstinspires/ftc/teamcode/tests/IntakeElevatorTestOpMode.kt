@@ -3,6 +3,8 @@ package org.firstinspires.ftc.teamcode.tests
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp
 import com.qualcomm.robotcore.hardware.DcMotor
+import kotlin.math.max
+import kotlin.math.min
 
 /**
  * Tests REV Core Hex Motor on both Intake Extender and Elevator
@@ -10,8 +12,12 @@ import com.qualcomm.robotcore.hardware.DcMotor
 @TeleOp(name = "Combined Test", group = "Tests") // TODO: Add a good name
 class IntakeElevatorTestOpMode: LinearOpMode() {
 
-    var rollerMotor: DcMotor? = null
+    val maximumElevatorHeight = 950
+    val maximumIntakeExtension = 14250
+
+    var extenderMotor: DcMotor? = null
     var elevatorMotor: DcMotor? = null
+    var tilterMotor: DcMotor? = null
 
     override fun runOpMode() {
 
@@ -20,8 +26,11 @@ class IntakeElevatorTestOpMode: LinearOpMode() {
         telemetry.addData("Status", "Initialized")
         telemetry.update() // NOTE: In a LinearOpMode, you will need to call update() whenever you modify telemetry data.
 
-        rollerMotor = hardwareMap.get(DcMotor::class.java, "intake_extender")
+        extenderMotor = hardwareMap.get(DcMotor::class.java, "intake_extender")
         elevatorMotor = hardwareMap.get(DcMotor::class.java, "elevator_extender")
+        tilterMotor = hardwareMap.get(DcMotor::class.java, "intake_tilter")
+
+        elevatorMotor!!.mode = DcMotor.RunMode.RUN_USING_ENCODER
 
         waitForStart()
 
@@ -29,10 +38,18 @@ class IntakeElevatorTestOpMode: LinearOpMode() {
         // Use opModeIsActive() to check whether the robot should stop.
 
         while (opModeIsActive()) {
+            telemetry.addData("Elevator Pos", elevatorMotor!!.currentPosition)
+            telemetry.addData("Intake Extender Pos", extenderMotor!!.currentPosition)
+            telemetry.update()
             val power = gamepad1.left_stick_y.toDouble()
-            val power2 = gamepad1.right_stick_y.toDouble()*-0.5
-            rollerMotor!!.power = power
+            var power2 = gamepad1.right_stick_y.toDouble()*-0.5
+            if (elevatorMotor!!.currentPosition <= 0) power2 = max(0.0, power2)
+            else if (elevatorMotor!!.currentPosition >= maximumElevatorHeight) power2 = min(0.0, power2)
+            tilterMotor!!.power = power
             elevatorMotor!!.power = power2
+            if (gamepad1.left_bumper && extenderMotor!!.currentPosition >= 250) extenderMotor!!.power = -1.0
+            else if (gamepad1.right_bumper && extenderMotor!!.currentPosition <= maximumIntakeExtension) extenderMotor!!.power = 1.0
+            else extenderMotor!!.power = 0.0
         }
 
         // If you want to stop the op mode once you're done, call requestOpModeStop().
