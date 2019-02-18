@@ -27,7 +27,7 @@ class ElevatorExtenderTestOpMode: LinearOpMode() {
         // Use opModeIsActive() to check whether the robot should stop.
 
         while (opModeIsActive()) {
-            val power = gamepad1.left_stick_y.toDouble()*0.5
+            val power = gamepad1.left_stick_y.toDouble()*-0.5
             extenderMotor!!.power = power
         }
 
