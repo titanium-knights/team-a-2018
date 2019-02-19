@@ -13,7 +13,7 @@ import kotlin.math.min
 class IntakeElevatorTestOpMode: LinearOpMode() {
 
     val maximumElevatorHeight = 950
-    val maximumIntakeExtension = 14250
+    val maximumIntakeExtension = 3250
 
     var extenderMotor: DcMotor? = null
     var elevatorMotor: DcMotor? = null
@@ -51,7 +51,7 @@ class IntakeElevatorTestOpMode: LinearOpMode() {
             // TODO: The tilter needs better control and lower power
             tilterMotor!!.power = power*0.5
             elevatorMotor!!.power = power2
-            if (gamepad1.left_bumper && extenderMotor!!.currentPosition >= 250) extenderMotor!!.power = -1.0
+            if (gamepad1.left_bumper && extenderMotor!!.currentPosition >= 50) extenderMotor!!.power = -1.0
             else if (gamepad1.right_bumper && extenderMotor!!.currentPosition <= maximumIntakeExtension) extenderMotor!!.power = 1.0
             else extenderMotor!!.power = 0.0
             if (gamepad1.left_trigger == 1.0f) rollerMotor!!.power = 1.0
