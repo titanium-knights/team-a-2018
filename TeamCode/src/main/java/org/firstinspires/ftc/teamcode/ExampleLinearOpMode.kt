@@ -16,7 +16,7 @@ import org.firstinspires.ftc.teamcode.sensing.Vision
  */
 @Autonomous(name = "NAME HERE") // TODO: Add a good name
 @Disabled // TODO: Delete this line to enable your op mode
-class ExampleLinearOpMode: LinearOpMode() {
+class ExampleLinearOpModeKotlin: LinearOpMode() {
     val drive: MecanumDrive by lazy { MecanumDrive.standard(hardwareMap) }
     val gyro: Gyro by lazy { IMUGyro.standard(hardwareMap) }
     val vision: Vision by lazy { Vision(hardwareMap) }

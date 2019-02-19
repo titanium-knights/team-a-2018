@@ -16,7 +16,7 @@ import org.firstinspires.ftc.teamcode.sensing.Vision
  */
 @TeleOp(name = "NAME HERE") // TODO: Add a good name
 @Disabled // TODO: Delete this line to enable your op mode
-class ExampleIterativeOpMode: OpMode() {
+class ExampleIterativeOpModeKotlin: OpMode() {
     val drive: MecanumDrive by lazy { MecanumDrive.standard(hardwareMap) }
     val gyro: Gyro by lazy { IMUGyro.standard(hardwareMap) }
     val vision: Vision by lazy { Vision(hardwareMap) }
@@ -51,7 +51,6 @@ class ExampleIterativeOpMode: OpMode() {
 
     override fun start() {
         /** Place any code that should run once when the op mode starts here. **/
-        drive.forwardWithPower(0.1)
     }
 
     override fun loop() {
