@@ -16,7 +16,7 @@ import org.firstinspires.ftc.teamcode.sensing.Vision
  */
 @Autonomous(name = "NAME HERE") // TODO: Add a good name
 @Disabled // TODO: Delete this line to enable your op mode
-class ExampleLinearOpMode: LinearOpMode() {
+class ExampleLinearOpModeKotlin: LinearOpMode() {
     val drive: MecanumDrive by lazy { MecanumDrive.standard(hardwareMap) }
     val gyro: Gyro by lazy { IMUGyro.standard(hardwareMap) }
     val vision: Vision by lazy { Vision(hardwareMap) }
@@ -45,6 +45,10 @@ class ExampleLinearOpMode: LinearOpMode() {
         // TODO: Place any code that should run once the op mode starts here.
         // Use opModeIsActive() to check whether the robot should stop.
 
+        // TIPS:
+        // To access the gamepads, use gamepad1 or gamepad2.
+        // See the MecanumDrive docs to learn how to drive the robot.
+        //
         // If you want to stop the op mode once you're done, call requestOpModeStop().
     }
 }
