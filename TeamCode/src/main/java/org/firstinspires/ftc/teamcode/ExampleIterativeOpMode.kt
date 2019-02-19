@@ -59,7 +59,7 @@ class ExampleIterativeOpMode: OpMode() {
 
         // TIPS:
         // To access the gamepads, use gamepad1 or gamepad2.
-        // See the MecanumDrive docs to
+        // See the MecanumDrive docs to learn how to drive the robot.
         //
         // If you want to stop the op mode once you're done, call requestOpModeStop().
     }
