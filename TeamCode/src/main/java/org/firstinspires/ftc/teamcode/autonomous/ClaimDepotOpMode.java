@@ -9,7 +9,7 @@ import org.firstinspires.ftc.teamcode.movement.MecanumDrive;
 
 // An op mode that drives forward and claims "the depot." That's it.
 @Autonomous(name = "Claim Depot Mode", group = "* Main")
-public class ClaimDepotOpMode extends LinearOpMode {
+@Deprecated public class ClaimDepotOpMode extends LinearOpMode {
     DriveMotors driveMotors;
     Intake intake;
 

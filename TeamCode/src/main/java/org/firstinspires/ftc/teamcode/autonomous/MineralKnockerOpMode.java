@@ -11,7 +11,7 @@ import org.firstinspires.ftc.teamcode.sensing.MineralKnocker;
 
 // An op mode that samples minerals, then drives forward. Not reliable at the moment, try tweaking a few of its variables.
 @Autonomous(name = "Mineral Knocker", group = "Tests")
-public class MineralKnockerOpMode extends LinearOpMode {
+@Deprecated public class MineralKnockerOpMode extends LinearOpMode {
     DriveMotors driveMotors;
     MineralKnocker knocker;
 
