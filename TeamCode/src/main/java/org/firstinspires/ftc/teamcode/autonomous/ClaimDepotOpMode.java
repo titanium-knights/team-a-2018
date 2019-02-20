@@ -4,7 +4,6 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.movement.DriveMotors;
-import org.firstinspires.ftc.teamcode.movement.deprecated.Intake;
 import org.firstinspires.ftc.teamcode.movement.MecanumDrive;
 
 // An op mode that drives forward and claims "the depot." That's it.

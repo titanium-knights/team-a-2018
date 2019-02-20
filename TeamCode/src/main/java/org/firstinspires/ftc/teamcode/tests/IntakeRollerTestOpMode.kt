@@ -5,9 +5,9 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp
 import com.qualcomm.robotcore.hardware.DcMotor
 
 /**
- * Tests REV Core Hex Motor on Intake Roller
+ * Tests REV Core Hex Motor on OldIntake Roller
  */
-@TeleOp(name = "Intake Roller Test", group = "Tests") // TODO: Add a good name
+@TeleOp(name = "OldIntake Roller Test", group = "Tests") // TODO: Add a good name
 class IntakeRollerTestOpMode: LinearOpMode() {
 
     var rollerMotor: DcMotor? = null

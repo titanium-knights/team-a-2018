@@ -9,7 +9,7 @@ import kotlin.math.min
 
 
 /**
- * Tests REV Core Hex Motor on Intake Roller
+ * Tests REV Core Hex Motor on OldIntake Roller
  */
 @TeleOp(name = "Servo Lifting Test", group = "Tests") // TODO: Add a good name
 class ServoTestOpMode: LinearOpMode() {

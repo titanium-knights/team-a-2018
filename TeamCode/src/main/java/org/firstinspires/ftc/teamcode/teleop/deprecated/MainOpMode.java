@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
 import org.firstinspires.ftc.robotcontroller.external.samples.BasicOpMode_Iterative;
-import org.firstinspires.ftc.teamcode.movement.deprecated.Intake;
+import org.firstinspires.ftc.teamcode.movement.deprecated.OldIntake;
 import org.firstinspires.ftc.teamcode.movement.TwoWheelDrive;
 import org.firstinspires.ftc.teamcode.movement.deprecated.Roller;
 
@@ -16,7 +16,7 @@ import org.firstinspires.ftc.teamcode.movement.deprecated.Roller;
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
     private TwoWheelDrive driveMotors;
-    private Intake intake;
+    private OldIntake intake;
 
     /*
      * Code to run ONCE when the driver hits INIT
@@ -27,7 +27,7 @@ import org.firstinspires.ftc.teamcode.movement.deprecated.Roller;
         // to 'get' must correspond to the names assigned during the robot configuration
         // step (using the FTC Robot Controller app on the phone).
         driveMotors = TwoWheelDrive.standard(hardwareMap);
-        intake = Intake.standard(hardwareMap);
+        intake = OldIntake.standard(hardwareMap);
 
         // Tell the driver that initialization is complete.
         telemetry.addData("Status", "Initialized");

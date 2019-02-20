@@ -7,7 +7,7 @@ import kotlin.math.max
 import kotlin.math.min
 
 /**
- * Tests REV Core Hex Motor on both Intake Extender and Elevator
+ * Tests REV Core Hex Motor on both OldIntake Extender and Elevator
  */
 @TeleOp(name = "Combined Test", group = "Tests") // TODO: Add a good name
 class IntakeElevatorTestOpMode: LinearOpMode() {
@@ -42,7 +42,7 @@ class IntakeElevatorTestOpMode: LinearOpMode() {
 
         while (opModeIsActive()) {
             telemetry.addData("Elevator Pos", elevatorMotor!!.currentPosition)
-            telemetry.addData("Intake Extender Pos", extenderMotor!!.currentPosition)
+            telemetry.addData("OldIntake Extender Pos", extenderMotor!!.currentPosition)
             telemetry.update()
             val power = gamepad1.left_stick_y.toDouble()
             var power2 = gamepad1.right_stick_y.toDouble()*-0.5
