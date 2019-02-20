@@ -29,7 +29,7 @@ class ExampleLinearOpModeKotlin: LinearOpMode() {
         // gyro.calibrate()
         // while (!gyro.isCalibrated && !isStopRequested) { idle() } // Wait for the gyro to be calibrated.
 
-        // Uncomment the next few lines if you need to use the vision system
+        // Uncomment the next line if you need to use the vision system
         // vision.init()
 
         // To add a servo, use this code:
@@ -42,6 +42,9 @@ class ExampleLinearOpModeKotlin: LinearOpMode() {
 
         waitForStart()
 
+        // Uncomment the next line if you need to use the vision system
+        // vision.activate()
+
         // TODO: Place any code that should run once the op mode starts here.
         // Use opModeIsActive() to check whether the robot should stop.
 
@@ -50,5 +53,8 @@ class ExampleLinearOpModeKotlin: LinearOpMode() {
         // See the MecanumDrive docs to learn how to drive the robot.
         //
         // If you want to stop the op mode once you're done, call requestOpModeStop().
+
+        // Uncomment the next line if you need to use the vision system
+        // vision.activate()
     }
 }

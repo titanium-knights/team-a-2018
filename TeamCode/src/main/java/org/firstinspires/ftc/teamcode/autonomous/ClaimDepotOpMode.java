@@ -11,12 +11,10 @@ import org.firstinspires.ftc.teamcode.movement.MecanumDrive;
 @Autonomous(name = "Claim Depot Mode", group = "* Main")
 @Deprecated public class ClaimDepotOpMode extends LinearOpMode {
     DriveMotors driveMotors;
-    Intake intake;
 
     @Override
     public void runOpMode() {
         driveMotors = MecanumDrive.standard(hardwareMap);
-        intake = Intake.standard(hardwareMap);
         telemetry.addData("Status", "Initialized");
         telemetry.update();
         waitForStart();
@@ -29,9 +27,9 @@ import org.firstinspires.ftc.teamcode.movement.MecanumDrive;
 
         telemetry.addData("Status", "Raising arm");
         telemetry.update();
-        intake.setArmPower(1);
+        // intake.setArmPower(1);
         sleep(60);
-        intake.stopArm();
+        // intake.stopArm();
 
         telemetry.addData("Status", "Complete");
         telemetry.update();

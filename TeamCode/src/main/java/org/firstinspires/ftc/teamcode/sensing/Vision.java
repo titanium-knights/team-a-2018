@@ -244,7 +244,7 @@ public class Vision extends MineralDetection {
         public final double pitch;
 
         /**
-         * The hading of the robot.
+         * The heading of the robot.
          */
         public final double heading;
 

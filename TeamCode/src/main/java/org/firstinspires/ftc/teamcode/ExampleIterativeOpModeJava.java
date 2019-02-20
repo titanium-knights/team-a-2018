@@ -48,6 +48,9 @@ public class ExampleIterativeOpModeJava extends OpMode {
     }
 
     @Override public void start() {
+        // Uncomment the next line if you need to use the vision system
+        // vision.activate();
+
         /** Place any code that should run once when the op mode starts here. **/
     }
 
@@ -62,6 +65,9 @@ public class ExampleIterativeOpModeJava extends OpMode {
     }
 
     @Override public void stop() {
+        // Uncomment the next line if you need to use the vision system
+        // vision.activate();
+
         /** Place any code that should run once the op mode stops here. **/
     }
 }

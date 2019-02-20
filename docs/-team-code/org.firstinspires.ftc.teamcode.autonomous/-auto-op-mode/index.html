@@ -9,6 +9,8 @@
 <br/>
 <h1>AutoOpMode</h1>
 <code><span class="identifier">@Autonomous</span><span class="symbol">(</span>"Autonomous Op Mode"<span class="symbol">, </span>"* Main"<span class="symbol">)</span> <span class="keyword">class </span><span class="identifier">AutoOpMode</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">LinearOpMode</span></code>
+<p>The autonomous op mode.</p>
+<p>The letters A-M and numbers 1-3 found in the documentation for the quick tuning variables correspond to the letters and numbers in the autonomous plan diagram.</p>
 <h3>Types</h3>
 <table>
 <tbody>
@@ -21,38 +23,71 @@
 </tr>
 <tr>
 <td>
-<p><a href="-determine-position/index.html">DeterminePosition</a></p>
+<p><a href="-gather-vision-data/index.html">GatherVisionData</a></p>
 </td>
 <td>
-<code><span class="keyword">inner</span> <span class="keyword">class </span><span class="identifier">DeterminePosition</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-state/index.html"><span class="identifier">State</span></a></code></td>
+<code><span class="keyword">inner</span> <span class="keyword">class </span><span class="identifier">GatherVisionData</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-state/index.html"><span class="identifier">State</span></a></code>
+<p>Stage in which the robot gathers vision data. (1)</p>
+</td>
 </tr>
 <tr>
 <td>
-<p><a href="-knock-mineral/index.html">KnockMineral</a></p>
+<p><a href="-knock-mineral-crater-side/index.html">KnockMineralCraterSide</a></p>
 </td>
 <td>
-<code><span class="keyword">inner</span> <span class="keyword">class </span><span class="identifier">KnockMineral</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-state/index.html"><span class="identifier">State</span></a></code></td>
+<code><span class="keyword">inner</span> <span class="keyword">class </span><span class="identifier">KnockMineralCraterSide</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-state/index.html"><span class="identifier">State</span></a></code>
+<p>Stage in which the robot knocks the mineral and travels to the crater from the depot side.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-knock-mineral-depot-side/index.html">KnockMineralDepotSide</a></p>
+</td>
+<td>
+<code><span class="keyword">inner</span> <span class="keyword">class </span><span class="identifier">KnockMineralDepotSide</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-state/index.html"><span class="identifier">State</span></a></code>
+<p>Stage in which the robot knocks the mineral from the depot side.</p>
+</td>
 </tr>
 <tr>
 <td>
 <p><a href="-land/index.html">Land</a></p>
 </td>
 <td>
-<code><span class="keyword">inner</span> <span class="keyword">class </span><span class="identifier">Land</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-state/index.html"><span class="identifier">State</span></a></code></td>
+<code><span class="keyword">inner</span> <span class="keyword">class </span><span class="identifier">Land</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-state/index.html"><span class="identifier">State</span></a></code>
+<p>Work-in-progress stage in which the robot lands.</p>
+</td>
 </tr>
 <tr>
 <td>
 <p><a href="-move-from-lander/index.html">MoveFromLander</a></p>
 </td>
 <td>
-<code><span class="keyword">inner</span> <span class="keyword">class </span><span class="identifier">MoveFromLander</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-state/index.html"><span class="identifier">State</span></a></code></td>
+<code><span class="keyword">inner</span> <span class="keyword">class </span><span class="identifier">MoveFromLander</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-state/index.html"><span class="identifier">State</span></a></code>
+<p>Stage in which the robot moves away from the lander. (A)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-park-at-crater/index.html">ParkAtCrater</a></p>
+</td>
+<td>
+<code><span class="keyword">inner</span> <span class="keyword">class </span><span class="identifier">ParkAtCrater</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-state/index.html"><span class="identifier">State</span></a></code></td>
 </tr>
 <tr>
 <td>
 <p><a href="-state/index.html">State</a></p>
 </td>
 <td>
-<code><span class="keyword">abstract</span> <span class="keyword">inner</span> <span class="keyword">class </span><span class="identifier">State</span></code></td>
+<code><span class="keyword">abstract</span> <span class="keyword">inner</span> <span class="keyword">class </span><span class="identifier">State</span></code>
+<p>Abstract class representing a single state/step in the AutoOpMode.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-travel-to-depot/index.html">TravelToDepot</a></p>
+</td>
+<td>
+<code><span class="keyword">inner</span> <span class="keyword">class </span><span class="identifier">TravelToDepot</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-state/index.html"><span class="identifier">State</span></a></code></td>
 </tr>
 </tbody>
 </table>
@@ -64,13 +99,232 @@
 <p><a href="-init-.html">&lt;init&gt;</a></p>
 </td>
 <td>
-<code><span class="identifier">AutoOpMode</span><span class="symbol">(</span><span class="symbol">)</span></code></td>
+<code><span class="identifier">AutoOpMode</span><span class="symbol">(</span><span class="symbol">)</span></code>
+<p>The autonomous op mode.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="claim-depot-angle.html">claimDepotAngle</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">claimDepotAngle</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a></code>
+<p>Angle to which the robot should turn in order to claim the depot when started from the crater side, in degrees. (3)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="drive.html">drive</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">drive</span><span class="symbol">: </span><a href="../../org.firstinspires.ftc.teamcode.movement/-mecanum-drive/index.html"><span class="identifier">MecanumDrive</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="extend-intake-power.html">extendIntakePower</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">extendIntakePower</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
+<p>Power at which the robot should extend and retract the intake, in milliseconds. (2)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="extend-intake-time.html">extendIntakeTime</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">extendIntakeTime</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
+<p>How long the robot should extend the intake, in milliseconds. (2)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="gyro.html">gyro</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">gyro</span><span class="symbol">: </span><a href="../../org.firstinspires.ftc.teamcode.sensing/-gyro/index.html"><span class="identifier">Gyro</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="knock-mineral-crater-side-time.html">knockMineralCraterSideTime</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">knockMineralCraterSideTime</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
+<p>How long the robot should move to knock a mineral on the crater side, in milliseconds. (C)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="knock-mineral-depot-side-time.html">knockMineralDepotSideTime</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">knockMineralDepotSideTime</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
+<p>How long the robot should move to knock a mineral on the depot side, in milliseconds. (B)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="move-from-lander-time.html">moveFromLanderTime</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">moveFromLanderTime</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
+<p>How long the robot should move away from the lander, in power-adjusted milliseconds. (A)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="move-to-depot-crater-side-power.html">moveToDepotCraterSidePower</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">moveToDepotCraterSidePower</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a></code>
+<p>Power at which the robot moves along the side of the field towards the depot. (V)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="move-to-depot-crater-side-threshold.html">moveToDepotCraterSideThreshold</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">moveToDepotCraterSideThreshold</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a></code>
+<p>Threshold at which the robot must stop while moving to the depot from the crater side, in the vision coordinate system. (V)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="move-to-depot-crater-side-time.html">moveToDepotCraterSideTime</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">moveToDepotCraterSideTime</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
+<p>How long the robot should move towards the depot when started from the crater side, in milliseconds. (E)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="move-to-mineral-time.html">moveToMineralTime</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">moveToMineralTime</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
+<p>How long the robot should move horizontally towards a mineral, in milliseconds. (M)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="move-to-side-crater-side-time.html">moveToSideCraterSideTime</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">moveToSideCraterSideTime</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
+<p>How long the robot should move from the center mineral towards the side of the field before traveling to the depot, in milliseconds. (D)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="move-to-side-time.html">moveToSideTime</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">moveToSideTime</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
+<p>How long the robot should move towards the side of the field after claiming the depot. (G)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="park-at-crater-time.html">parkAtCraterTime</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">parkAtCraterTime</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
+<p>How long the robot should move towards the crater, in milliseconds. (H)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="rotate-intake-power.html">rotateIntakePower</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">rotateIntakePower</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a></code>
+<p>Power at which the robot should rotate the intake, in milliseconds. (2)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="rotate-intake-time.html">rotateIntakeTime</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">rotateIntakeTime</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
+<p>How long the robot should rotate the intake, in milliseconds. (2)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="standard-power.html">standardPower</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">standardPower</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a></code>
+<p>Standard power used when moving the robot.
+All millisecond values are multiplied by this value.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="turn-power.html">turnPower</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">turnPower</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a></code>
+<p>Power at which the robot should turn.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="vision.html">vision</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">vision</span><span class="symbol">: </span><a href="../../org.firstinspires.ftc.teamcode.sensing/-vision/index.html"><span class="identifier">Vision</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="vision-time.html">visionTime</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">visionTime</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
+<p>How long the robot should obtain vision data for, in power-adjusted milliseconds. (1)</p>
+</td>
 </tr>
 </tbody>
 </table>
 <h3>Functions</h3>
 <table>
 <tbody>
+<tr>
+<td>
+<p><a href="add-crater-stages.html">addCraterStages</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">addCraterStages</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="add-depot-stages.html">addDepotStages</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">addDepotStages</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="add-fallback-stages.html">addFallbackStages</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">addFallbackStages</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="run.html">run</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">run</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
 <tr>
 <td>
 <p><a href="run-op-mode.html">runOpMode</a></p>
