@@ -93,7 +93,14 @@ class AutoOpMode: LinearOpMode() {
 
     /** Abstract class representing a single state/step in the AutoOpMode. **/
     abstract inner class State {
+        /** The name of the State, displayed on the driver station. **/
         abstract val name: String
+
+        /**
+         * Runs the code associated with a state.
+         * @param prev previous state; null if none
+         * @param next next state; null if none known
+         */
         abstract fun run(prev: State?, next: State?)
     }
 
@@ -122,7 +129,7 @@ class AutoOpMode: LinearOpMode() {
         override val name = "Gather vision data"
 
         override fun run(prev: State?, next: State?) {
-            var atDepot = true
+            var atDepot: Boolean? = null
 
             var location: Vision.Location? = null
             var goldMineralPosSum: Double = 0.0
@@ -133,6 +140,13 @@ class AutoOpMode: LinearOpMode() {
             while (elapsedTime.milliseconds() - startTime < visionTime) {
                 if (shouldFindLocation) {
                     location = vision.location
+                    if (location != null) {
+                        telemetry.addData("Location X", location.x)
+                        telemetry.addData("Location Y", location.y)
+                        telemetry.addData("Location Heading", location.heading)
+                        telemetry.addData("Location Target", location.visibleTarget)
+                        telemetry.update()
+                    }
                 }
 
                 val measurements = vision.updatedRecognitions
@@ -147,9 +161,7 @@ class AutoOpMode: LinearOpMode() {
             }
 
             if (shouldFindLocation && location != null) {
-                if ((location.heading > 0 && location.heading < 90) || (location.heading > 180 && location.heading < 270)) {
-                    atDepot = false
-                }
+                atDepot = !((location.heading > 0 && location.heading < 90) || (location.heading > 180 && location.heading < 270))
             }
 
             if (measurementsTaken > 0) {
@@ -162,14 +174,18 @@ class AutoOpMode: LinearOpMode() {
             }
 
             if (shouldFindLocation) {
-                if (atDepot) addDepotStages() else addCraterStages()
+                if (atDepot == null) {
+                    addFallbackStages()
+                } else {
+                    if (atDepot) addDepotStages() else addCraterStages()
+                }
             }
         }
     }
 
     /** Stage in which the robot knocks the mineral from the depot side. **/
     inner class KnockMineralDepotSide: State() {
-        override val name = "Knock mineral"
+        override val name = "Knock mineral (depot)"
 
         override fun run(prev: State?, next: State?) {
             if (mineralPos != 0) {
@@ -192,7 +208,7 @@ class AutoOpMode: LinearOpMode() {
 
     /** Stage in which the robot knocks the mineral and travels to the crater from the depot side. **/
     inner class KnockMineralCraterSide: State() {
-        override val name = "Knock mineral and travel to depot"
+        override val name = "Knock mineral"
 
         override fun run(prev: State?, next: State?) {
             if (mineralPos != 0) {
@@ -208,7 +224,13 @@ class AutoOpMode: LinearOpMode() {
             drive.forwardWithPower(-standardPower)
             sleep(adjustByPower(knockMineralCraterSideTime))
             drive.stop()
+        }
+    }
 
+    inner class TravelToDepot: State() {
+        override val name = "Travel to depot"
+
+        override fun run(prev: State?, next: State?) {
             drive.strafeLeftWithPower(standardPower)
             sleep(adjustByPower(moveToSideCraterSideTime + moveToMineralTime * mineralPos))
             drive.stop()
@@ -224,7 +246,7 @@ class AutoOpMode: LinearOpMode() {
             do {
                 location = vision.location
                 sleep(50)
-            } while (location == null || (sign(location.x) != -sign(location.y) || abs(location.y) < moveToDepotCraterSideThreshold))
+            } while (opModeIsActive() && (location == null || (sign(location.x) != -sign(location.y) || abs(location.y) < moveToDepotCraterSideThreshold)))
             drive.stop()
 
             drive.strafeLeftWithPower(standardPower)
@@ -237,7 +259,7 @@ class AutoOpMode: LinearOpMode() {
         override val name = "Claim depot"
 
         override fun run(prev: State?, next: State?) {
-            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            // TODO: Not implemented
         }
     }
 
@@ -286,6 +308,12 @@ class AutoOpMode: LinearOpMode() {
         telemetry.update()
     }
 
+    protected fun addFallbackStages() {
+        states.addAll(arrayOf(
+                KnockMineralCraterSide()
+        ))
+    }
+
     protected fun addDepotStages() {
         states.addAll(arrayOf(
                 KnockMineralDepotSide(),
@@ -297,6 +325,7 @@ class AutoOpMode: LinearOpMode() {
     protected fun addCraterStages() {
         states.addAll(arrayOf(
                 KnockMineralCraterSide(),
+                TravelToDepot(),
                 ClaimDepot(),
                 ParkAtCrater()
         ))
@@ -304,6 +333,7 @@ class AutoOpMode: LinearOpMode() {
 
     protected fun run() {
         elapsedTime.reset()
+        vision.activate()
 
         var previousState: State? = null
         while (opModeIsActive() && states.peek() != null) {
@@ -318,6 +348,7 @@ class AutoOpMode: LinearOpMode() {
             previousState = state
         }
 
+        vision.shutdown()
         requestOpModeStop()
     }
 

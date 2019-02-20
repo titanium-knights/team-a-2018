@@ -9,6 +9,7 @@
 <br/>
 <h1>State</h1>
 <code><span class="keyword">abstract</span> <span class="keyword">inner</span> <span class="keyword">class </span><span class="identifier">State</span></code>
+<p>Abstract class representing a single state/step in the AutoOpMode.</p>
 <h3>Constructors</h3>
 <table>
 <tbody>
@@ -17,7 +18,9 @@
 <p><a href="-init-.html">&lt;init&gt;</a></p>
 </td>
 <td>
-<code><span class="identifier">State</span><span class="symbol">(</span><span class="symbol">)</span></code></td>
+<code><span class="identifier">State</span><span class="symbol">(</span><span class="symbol">)</span></code>
+<p>Abstract class representing a single state/step in the AutoOpMode.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -29,7 +32,9 @@
 <p><a href="name.html">name</a></p>
 </td>
 <td>
-<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">name</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">name</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code>
+<p>The name of the State, displayed on the driver station.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -41,7 +46,9 @@
 <p><a href="run.html">run</a></p>
 </td>
 <td>
-<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">run</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.autonomous.AutoOpMode.State$run(org.firstinspires.ftc.teamcode.autonomous.AutoOpMode.State, org.firstinspires.ftc.teamcode.autonomous.AutoOpMode.State)/prev">prev</span><span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">State</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.firstinspires.ftc.teamcode.autonomous.AutoOpMode.State$run(org.firstinspires.ftc.teamcode.autonomous.AutoOpMode.State, org.firstinspires.ftc.teamcode.autonomous.AutoOpMode.State)/next">next</span><span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">State</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">run</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.autonomous.AutoOpMode.State$run(org.firstinspires.ftc.teamcode.autonomous.AutoOpMode.State, org.firstinspires.ftc.teamcode.autonomous.AutoOpMode.State)/prev">prev</span><span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">State</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.firstinspires.ftc.teamcode.autonomous.AutoOpMode.State$run(org.firstinspires.ftc.teamcode.autonomous.AutoOpMode.State, org.firstinspires.ftc.teamcode.autonomous.AutoOpMode.State)/next">next</span><span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">State</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Runs the code associated with a state.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -57,31 +64,62 @@
 </tr>
 <tr>
 <td>
-<p><a href="../-determine-position/index.html">DeterminePosition</a></p>
+<p><a href="../-gather-vision-data/index.html">GatherVisionData</a></p>
 </td>
 <td>
-<code><span class="keyword">inner</span> <span class="keyword">class </span><span class="identifier">DeterminePosition</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">State</span></a></code></td>
+<code><span class="keyword">inner</span> <span class="keyword">class </span><span class="identifier">GatherVisionData</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">State</span></a></code>
+<p>Stage in which the robot gathers vision data. (1)</p>
+</td>
 </tr>
 <tr>
 <td>
-<p><a href="../-knock-mineral/index.html">KnockMineral</a></p>
+<p><a href="../-knock-mineral-crater-side/index.html">KnockMineralCraterSide</a></p>
 </td>
 <td>
-<code><span class="keyword">inner</span> <span class="keyword">class </span><span class="identifier">KnockMineral</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">State</span></a></code></td>
+<code><span class="keyword">inner</span> <span class="keyword">class </span><span class="identifier">KnockMineralCraterSide</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">State</span></a></code>
+<p>Stage in which the robot knocks the mineral and travels to the crater from the depot side.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-knock-mineral-depot-side/index.html">KnockMineralDepotSide</a></p>
+</td>
+<td>
+<code><span class="keyword">inner</span> <span class="keyword">class </span><span class="identifier">KnockMineralDepotSide</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">State</span></a></code>
+<p>Stage in which the robot knocks the mineral from the depot side.</p>
+</td>
 </tr>
 <tr>
 <td>
 <p><a href="../-land/index.html">Land</a></p>
 </td>
 <td>
-<code><span class="keyword">inner</span> <span class="keyword">class </span><span class="identifier">Land</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">State</span></a></code></td>
+<code><span class="keyword">inner</span> <span class="keyword">class </span><span class="identifier">Land</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">State</span></a></code>
+<p>Work-in-progress stage in which the robot lands.</p>
+</td>
 </tr>
 <tr>
 <td>
 <p><a href="../-move-from-lander/index.html">MoveFromLander</a></p>
 </td>
 <td>
-<code><span class="keyword">inner</span> <span class="keyword">class </span><span class="identifier">MoveFromLander</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">State</span></a></code></td>
+<code><span class="keyword">inner</span> <span class="keyword">class </span><span class="identifier">MoveFromLander</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">State</span></a></code>
+<p>Stage in which the robot moves away from the lander. (A)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-park-at-crater/index.html">ParkAtCrater</a></p>
+</td>
+<td>
+<code><span class="keyword">inner</span> <span class="keyword">class </span><span class="identifier">ParkAtCrater</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">State</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="../-travel-to-depot/index.html">TravelToDepot</a></p>
+</td>
+<td>
+<code><span class="keyword">inner</span> <span class="keyword">class </span><span class="identifier">TravelToDepot</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">State</span></a></code></td>
 </tr>
 </tbody>
 </table>

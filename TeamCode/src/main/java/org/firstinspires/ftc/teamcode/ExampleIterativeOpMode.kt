@@ -50,6 +50,9 @@ class ExampleIterativeOpModeKotlin: OpMode() {
     }
 
     override fun start() {
+        // Uncomment the next line if you need to use the vision system
+        // vision.activate()
+
         /** Place any code that should run once when the op mode starts here. **/
     }
 
@@ -64,6 +67,9 @@ class ExampleIterativeOpModeKotlin: OpMode() {
     }
 
     override fun stop() {
+        // Uncomment the next line if you need to use the vision system
+        // vision.activate()
+
         /** Place any code that should run once the op mode stops here. **/
     }
 }

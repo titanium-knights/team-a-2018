@@ -35,6 +35,9 @@ public class ExampleLinearOpModeJava extends LinearOpMode {
 
         waitForStart();
 
+        // Uncomment the next line if you need to use the vision system
+        // vision.activate();
+
         // TODO: Place any code that should run once the op mode starts here.
         // Use opModeIsActive() to check whether the robot should stop.
 
@@ -43,5 +46,8 @@ public class ExampleLinearOpModeJava extends LinearOpMode {
         // See the MecanumDrive docs to learn how to drive the robot.
         //
         // If you want to stop the op mode once you're done, call requestOpModeStop().
+
+        // Uncomment the next line if you need to use the vision system
+        // vision.shutdown();
     }
 }
