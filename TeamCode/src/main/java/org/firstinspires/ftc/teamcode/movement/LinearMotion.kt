@@ -9,7 +9,7 @@ open class LinearMotion(
         /**
          * The motor controlled by the linear motion system.
          */
-        private val motor: DcMotor,
+        val motor: DcMotor,
 
         /**
          * The range of movement that this system supports.
@@ -58,6 +58,11 @@ open class LinearMotion(
      * Stops the linear motion system.
      */
     fun stop() = moveRaw(0.0)
+
+    /**
+     * The current position of the linear motion system.
+     */
+    val currentPosition get() = motor.currentPosition
 
     /**
      * Moves the linear motion system at a given power if it is allowed to; stops it if it is not.
