@@ -66,8 +66,11 @@ class ElevatorExtake(
 
     companion object: Factory<ElevatorExtake> {
         /** @inheritDoc **/
-        @JvmStatic override fun standard(hardwareMap: HardwareMap): ElevatorExtake {
-            TODO("not implemented")
-        }
+        @JvmStatic override fun standard(hardwareMap: HardwareMap) = ElevatorExtake(
+                hardwareMap.get(DcMotor::class.java, "elevator_extender"),
+                0..950,
+                1.0,
+                hardwareMap.get(DcMotor::class.java, "elevator_tilter")
+        )
     }
 }
