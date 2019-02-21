@@ -6,7 +6,9 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
-@Deprecated public class OldIntake {
+import org.firstinspires.ftc.teamcode.movement.Intake;
+
+@Deprecated public class OldIntake implements Intake {
     public DcMotor arm;
     public DcMotor extender;
     public Roller[] rollers;
