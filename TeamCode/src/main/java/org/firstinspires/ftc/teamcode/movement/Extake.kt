@@ -37,7 +37,7 @@ class ElevatorExtake(
          * The bin servo, used for tilting the bin.
          */
         val binMotor: Servo
-): LinearMotion(elevatorMotor, elevatorRange, elevatorPowerMultiplier), Intake {
+): LinearMotion(elevatorMotor, elevatorRange, elevatorPowerMultiplier), Extake {
     /**
      * Moves the bin motor at a given power.
      * @param power the power to move the bin motor at
