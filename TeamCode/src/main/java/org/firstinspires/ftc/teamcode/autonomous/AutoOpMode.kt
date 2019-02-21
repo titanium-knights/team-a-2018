@@ -3,6 +3,8 @@ package org.firstinspires.ftc.teamcode.autonomous
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode
 import com.qualcomm.robotcore.util.ElapsedTime
+import org.firstinspires.ftc.teamcode.movement.ElevatorExtake
+import org.firstinspires.ftc.teamcode.movement.ElevatorIntake
 import org.firstinspires.ftc.teamcode.movement.MecanumDrive
 import org.firstinspires.ftc.teamcode.sensing.Gyro
 import org.firstinspires.ftc.teamcode.sensing.IMUGyro
@@ -65,7 +67,7 @@ class AutoOpMode: LinearOpMode() {
     // val moveToDepotDepotSideTime = 1000
 
     /** Power at which the robot should extend and retract the intake, in milliseconds. (2) **/
-    val extendIntakePower = 1000
+    val extendIntakePower = 0.5
 
     /** How long the robot should extend the intake, in milliseconds. (2) **/
     val extendIntakeTime = 1000
@@ -75,6 +77,9 @@ class AutoOpMode: LinearOpMode() {
 
     /** How long the robot should rotate the intake, in milliseconds. (2) **/
     val rotateIntakeTime = 1000
+
+    /** How long the robot should pause after extending the intake, in milliseconds. (2) **/
+    val claimDepotPauseTime = 1000
 
     /** How long the robot should move towards the side of the field after claiming the depot. (G) **/
     val moveToSideTime = 1000
@@ -255,14 +260,32 @@ class AutoOpMode: LinearOpMode() {
         }
     }
 
+    /** Stage in which the robot uses its intake to claim the depot. (2) **/
     inner class ClaimDepot: State() {
         override val name = "Claim depot"
 
         override fun run(prev: State?, next: State?) {
-            // TODO: Not implemented
+            intake.move(extendIntakePower)
+            sleep(extendIntakeTime.toLong())
+            intake.stop()
+
+            intake.moveBin(rotateIntakePower)
+            sleep(rotateIntakeTime.toLong())
+            intake.stopBin()
+
+            sleep(claimDepotPauseTime.toLong())
+
+            intake.move(-extendIntakePower)
+            sleep(extendIntakeTime.toLong())
+            intake.stop()
+
+            intake.moveBin(-rotateIntakePower)
+            sleep(rotateIntakeTime.toLong())
+            intake.stopBin()
         }
     }
 
+    /** Stage in which the robot travels to and parks at the crater. **/
     inner class ParkAtCrater: State() {
         override val name = "Park at crater"
 
@@ -285,6 +308,8 @@ class AutoOpMode: LinearOpMode() {
     val drive: MecanumDrive by lazy { MecanumDrive.standard(hardwareMap) }
     val gyro: Gyro by lazy { IMUGyro.standard(hardwareMap) }
     val vision: Vision by lazy { Vision(hardwareMap) }
+    val intake: ElevatorIntake by lazy { ElevatorIntake.standard(hardwareMap) }
+    val extake: ElevatorExtake by lazy { ElevatorExtake.standard(hardwareMap) }
 
     private val elapsedTime = ElapsedTime()
 
@@ -295,9 +320,10 @@ class AutoOpMode: LinearOpMode() {
         gyro.initialize()
         gyro.calibrate()
         vision.init()
+        intake
 
-        states.clear()
-        // states.add(Land())
+        // states.clear()
+        states.add(Land())
         states.add(MoveFromLander())
 
         while (opModeIsActive() && !gyro.isCalibrated) {
