@@ -8,7 +8,7 @@
 <a href="../../index.html">TeamCode</a>&nbsp;/&nbsp;<a href="../index.html">org.firstinspires.ftc.teamcode.tests</a>&nbsp;/&nbsp;<a href="./index.html">IntakeElevatorTestOpMode</a><br/>
 <br/>
 <h1>IntakeElevatorTestOpMode</h1>
-<code><span class="identifier">@TeleOp</span><span class="symbol">(</span>"Combined Test"<span class="symbol">, </span>"Tests"<span class="symbol">)</span> <span class="keyword">class </span><span class="identifier">IntakeElevatorTestOpMode</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">LinearOpMode</span></code>
+<code><span class="identifier">@TeleOp</span><span class="symbol">(</span>"Combined Test"<span class="symbol">, </span>"Tests"<span class="symbol">)</span> <span class="keyword">class </span><span class="identifier">IntakeElevatorTestOpMode</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">OpMode</span></code>
 <p>Tests REV Core Hex Motor on both OldIntake Extender and LinearMotion</p>
 <h3>Constructors</h3>
 <table>
@@ -29,45 +29,17 @@
 <tbody>
 <tr>
 <td>
-<p><a href="elevator-motor.html">elevatorMotor</a></p>
+<p><a href="extake.html">extake</a></p>
 </td>
 <td>
-<code><span class="keyword">var </span><span class="identifier">elevatorMotor</span><span class="symbol">: </span><span class="identifier">DcMotor</span><span class="symbol">?</span></code></td>
+<code><span class="keyword">val </span><span class="identifier">extake</span><span class="symbol">: </span><a href="../../org.firstinspires.ftc.teamcode.movement/-elevator-extake/index.html"><span class="identifier">ElevatorExtake</span></a></code></td>
 </tr>
 <tr>
 <td>
-<p><a href="extender-motor.html">extenderMotor</a></p>
+<p><a href="intake.html">intake</a></p>
 </td>
 <td>
-<code><span class="keyword">var </span><span class="identifier">extenderMotor</span><span class="symbol">: </span><span class="identifier">DcMotor</span><span class="symbol">?</span></code></td>
-</tr>
-<tr>
-<td>
-<p><a href="maximum-elevator-height.html">maximumElevatorHeight</a></p>
-</td>
-<td>
-<code><span class="keyword">val </span><span class="identifier">maximumElevatorHeight</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
-</tr>
-<tr>
-<td>
-<p><a href="maximum-intake-extension.html">maximumIntakeExtension</a></p>
-</td>
-<td>
-<code><span class="keyword">val </span><span class="identifier">maximumIntakeExtension</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
-</tr>
-<tr>
-<td>
-<p><a href="roller-motor.html">rollerMotor</a></p>
-</td>
-<td>
-<code><span class="keyword">var </span><span class="identifier">rollerMotor</span><span class="symbol">: </span><span class="identifier">DcMotor</span><span class="symbol">?</span></code></td>
-</tr>
-<tr>
-<td>
-<p><a href="tilter-motor.html">tilterMotor</a></p>
-</td>
-<td>
-<code><span class="keyword">var </span><span class="identifier">tilterMotor</span><span class="symbol">: </span><span class="identifier">DcMotor</span><span class="symbol">?</span></code></td>
+<code><span class="keyword">val </span><span class="identifier">intake</span><span class="symbol">: </span><a href="../../org.firstinspires.ftc.teamcode.movement/-elevator-intake/index.html"><span class="identifier">ElevatorIntake</span></a></code></td>
 </tr>
 </tbody>
 </table>
@@ -76,10 +48,17 @@
 <tbody>
 <tr>
 <td>
-<p><a href="run-op-mode.html">runOpMode</a></p>
+<p><a href="init.html">init</a></p>
 </td>
 <td>
-<code><span class="keyword">fun </span><span class="identifier">runOpMode</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+<code><span class="keyword">fun </span><span class="identifier">init</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="loop.html">loop</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">loop</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 </tbody>
 </table>
