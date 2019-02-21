@@ -5,6 +5,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit
 import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference
+import org.firstinspires.ftc.teamcode.utils.Factory
 
 /**
  * Public interface representing the set of methods every single gyro sensor is guaranteed to implement.
@@ -66,7 +67,7 @@ class IMUGyro(val imu: BNO055IMU, val parameters: BNO055IMU.Parameters): Gyro {
         return imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle.toDouble() * angleModifier
     }
 
-    companion object Factory {
+    companion object: Factory<IMUGyro> {
         val IMU_NAME = "imu"
         val IMU_PARAMETERS: BNO055IMU.Parameters get() {
             val parameters = BNO055IMU.Parameters()
@@ -78,11 +79,9 @@ class IMUGyro(val imu: BNO055IMU, val parameters: BNO055IMU.Parameters): Gyro {
         }
 
         /**
-         * Given only a hardware map, constructs an IMUGyro that uses the Expansion Hub's gyro.
-         * @param hardwareMap hardware map containing the motors installed on the robot
-         * @return a "standard" ready-to-use IMUGyro
+         * @inheritDoc
          */
-        @JvmStatic fun standard(hardwareMap: HardwareMap): IMUGyro {
+        @JvmStatic override fun standard(hardwareMap: HardwareMap): IMUGyro {
             return IMUGyro(hardwareMap[BNO055IMU::class.java, IMU_NAME], IMU_PARAMETERS)
         }
     }

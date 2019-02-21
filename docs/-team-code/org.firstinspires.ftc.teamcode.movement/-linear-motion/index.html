@@ -1,0 +1,124 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>LinearMotion - TeamCode</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">TeamCode</a>&nbsp;/&nbsp;<a href="../index.html">org.firstinspires.ftc.teamcode.movement</a>&nbsp;/&nbsp;<a href="./index.html">LinearMotion</a><br/>
+<br/>
+<h1>LinearMotion</h1>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">LinearMotion</span></code>
+<p>A linear motion system driven by a DcMotor.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">LinearMotion</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.LinearMotion$<init>(com.qualcomm.robotcore.hardware.DcMotor, kotlin.ranges.IntRange, kotlin.Double)/motor">motor</span><span class="symbol">:</span>&nbsp;<span class="identifier">DcMotor</span><span class="symbol">, </span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.LinearMotion$<init>(com.qualcomm.robotcore.hardware.DcMotor, kotlin.ranges.IntRange, kotlin.Double)/range">range</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/-int-range/index.html"><span class="identifier">IntRange</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.LinearMotion$<init>(com.qualcomm.robotcore.hardware.DcMotor, kotlin.ranges.IntRange, kotlin.Double)/powerMultiplier">powerMultiplier</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a>&nbsp;<span class="symbol">=</span>&nbsp;1.0<span class="symbol">)</span></code>
+<p>A linear motion system driven by a DcMotor.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="power-multiplier.html">powerMultiplier</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">powerMultiplier</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a></code>
+<p>Constant to multiply powers by.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="range.html">range</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">range</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/-int-range/index.html"><span class="identifier">IntRange</span></a><span class="symbol">?</span></code>
+<p>The range of movement that this system supports.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="can-move.html">canMove</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">canMove</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.LinearMotion$canMove(kotlin.Double, kotlin.Int)/power">power</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.LinearMotion$canMove(kotlin.Double, kotlin.Int)/at">at</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Checks whether the linear motion system is allowed to move at a given power.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="move.html">move</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">move</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.LinearMotion$move(kotlin.Double)/power">power</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Moves the linear motion system at a given power.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="move-if-able.html">moveIfAble</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">moveIfAble</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.LinearMotion$moveIfAble(kotlin.Double)/power">power</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Moves the linear motion system at a given power if it is allowed to; stops it if it is not.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="move-raw.html">moveRaw</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">moveRaw</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.LinearMotion$moveRaw(kotlin.Double)/power">power</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Move the linear motion system at a power, bypassing powerMultiplier.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="stop.html">stop</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">stop</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Stops the linear motion system.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../-elevator-extake/index.html">ElevatorExtake</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">ElevatorExtake</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">LinearMotion</span></a><span class="symbol">, </span><a href="../-intake.html"><span class="identifier">Intake</span></a></code>
+<p>Extake comprised of an elevator that extends and retracts a rotatable bin.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-elevator-intake/index.html">ElevatorIntake</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">ElevatorIntake</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">LinearMotion</span></a><span class="symbol">, </span><a href="../-intake.html"><span class="identifier">Intake</span></a></code>
+<p>Intake comprised of an elevator that extends and retracts a rotatable bin and roller.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -7,7 +7,7 @@ import kotlin.math.max
 import kotlin.math.min
 
 /**
- * Tests REV Core Hex Motor on both OldIntake Extender and Elevator
+ * Tests REV Core Hex Motor on both OldIntake Extender and LinearMotion
  */
 @TeleOp(name = "Combined Test", group = "Tests") // TODO: Add a good name
 class IntakeElevatorTestOpMode: LinearOpMode() {
@@ -41,7 +41,7 @@ class IntakeElevatorTestOpMode: LinearOpMode() {
         // Use opModeIsActive() to check whether the robot should stop.
 
         while (opModeIsActive()) {
-            telemetry.addData("Elevator Pos", elevatorMotor!!.currentPosition)
+            telemetry.addData("LinearMotion Pos", elevatorMotor!!.currentPosition)
             telemetry.addData("OldIntake Extender Pos", extenderMotor!!.currentPosition)
             telemetry.update()
             val power = gamepad1.left_stick_y.toDouble()

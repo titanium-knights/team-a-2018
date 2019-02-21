@@ -25,6 +25,7 @@ Packages containing utility classes, or helpers meant to facilitate programming,
 | ---:|:---
 | movement | Includes utility classes that drive the robot and move its intake
 | sensing | Includes classes that assist in using sensors such as the gyroscope and vision
+| utils | Includes miscellaneous utility classes
 
 ## Adding your own Op Modes
 To add an op mode, create a new file in the `autonomous`, `teleop`, or `test` package, then copy and paste the code in `ExampleIterativeOpMode` or `ExampleLinearOpMode` into a new Kotlin file.

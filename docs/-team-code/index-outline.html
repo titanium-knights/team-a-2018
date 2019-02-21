@@ -286,7 +286,39 @@
 </BODY>
 </HTML>
 </ul>
-<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.tests/-elevator-extender-test-op-mode/index.html"><span class="identifier">@TeleOp</span><span class="symbol">(</span>"Elevator Test"<span class="symbol">, </span>"Tests"<span class="symbol">)</span> <span class="keyword">class </span><span class="identifier">ElevatorExtenderTestOpMode</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">LinearOpMode</span></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-elevator-extake/index.html"><span class="keyword">class </span><span class="identifier">ElevatorExtake</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="org.firstinspires.ftc.teamcode.movement/-linear-motion/index.html"><span class="identifier">LinearMotion</span></a><span class="symbol">, </span><a href="org.firstinspires.ftc.teamcode.movement/-intake.html"><span class="identifier">Intake</span></a></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-elevator-extake/-init-.html"><span class="identifier">ElevatorExtake</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.ElevatorExtake$<init>(com.qualcomm.robotcore.hardware.DcMotor, kotlin.ranges.IntRange, kotlin.Double, com.qualcomm.robotcore.hardware.Servo)/elevatorMotor">elevatorMotor</span><span class="symbol">:</span>&nbsp;<span class="identifier">DcMotor</span><span class="symbol">, </span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.ElevatorExtake$<init>(com.qualcomm.robotcore.hardware.DcMotor, kotlin.ranges.IntRange, kotlin.Double, com.qualcomm.robotcore.hardware.Servo)/elevatorRange">elevatorRange</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/-int-range/index.html"><span class="identifier">IntRange</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.ElevatorExtake$<init>(com.qualcomm.robotcore.hardware.DcMotor, kotlin.ranges.IntRange, kotlin.Double, com.qualcomm.robotcore.hardware.Servo)/elevatorPowerMultiplier">elevatorPowerMultiplier</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a>&nbsp;<span class="symbol">=</span>&nbsp;1.0<span class="symbol">, </span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.ElevatorExtake$<init>(com.qualcomm.robotcore.hardware.DcMotor, kotlin.ranges.IntRange, kotlin.Double, com.qualcomm.robotcore.hardware.Servo)/binMotor">binMotor</span><span class="symbol">:</span>&nbsp;<span class="identifier">Servo</span><span class="symbol">)</span></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-elevator-extake/-companion/index.html"><span class="keyword">companion</span> <span class="keyword">object </span><span class="identifier">Companion</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="org.firstinspires.ftc.teamcode.utils/-factory/index.html"><span class="identifier">Factory</span></a><span class="symbol">&lt;</span><a href="org.firstinspires.ftc.teamcode.movement/-elevator-extake/index.html"><span class="identifier">ElevatorExtake</span></a><span class="symbol">&gt;</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-elevator-extake/-companion/standard.html"><span class="identifier">@JvmStatic</span> <span class="keyword">fun </span><span class="identifier">standard</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.ElevatorExtake.Companion$standard(com.qualcomm.robotcore.hardware.HardwareMap)/hardwareMap">hardwareMap</span><span class="symbol">:</span>&nbsp;<span class="identifier">HardwareMap</span><span class="symbol">)</span><span class="symbol">: </span><a href="org.firstinspires.ftc.teamcode.movement/-elevator-extake/index.html"><span class="identifier">ElevatorExtake</span></a></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-elevator-extake/bin-motor.html"><span class="keyword">val </span><span class="identifier">binMotor</span><span class="symbol">: </span><span class="identifier">Servo</span></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-elevator-extake/bin-position.html"><span class="keyword">val </span><span class="identifier">binPosition</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-elevator-extake/move-bin.html"><span class="keyword">fun </span><span class="identifier">moveBin</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.ElevatorExtake$moveBin(kotlin.Double)/position">position</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-elevator-extake/standard.html"><span class="identifier">@JvmStatic</span> <span class="keyword">fun </span><span class="identifier">standard</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.ElevatorExtake.Companion$standard(com.qualcomm.robotcore.hardware.HardwareMap)/hardwareMap">hardwareMap</span><span class="symbol">:</span>&nbsp;<span class="identifier">HardwareMap</span><span class="symbol">)</span><span class="symbol">: </span><a href="org.firstinspires.ftc.teamcode.movement/-elevator-extake/index.html"><span class="identifier">ElevatorExtake</span></a></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-elevator-extake/stop-all.html"><span class="keyword">fun </span><span class="identifier">stopAll</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-elevator-extake/stop-bin.html"><span class="keyword">fun </span><span class="identifier">stopBin</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.tests/-elevator-extender-test-op-mode/index.html"><span class="identifier">@TeleOp</span><span class="symbol">(</span>"LinearMotion Test"<span class="symbol">, </span>"Tests"<span class="symbol">)</span> <span class="keyword">class </span><span class="identifier">ElevatorExtenderTestOpMode</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">LinearOpMode</span></a></a><br/>
 <ul>
 <HTML>
 <HEAD>
@@ -298,6 +330,40 @@
 <a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.tests/-elevator-extender-test-op-mode/-init-.html"><span class="identifier">ElevatorExtenderTestOpMode</span><span class="symbol">(</span><span class="symbol">)</span></a></a><br/>
 <a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.tests/-elevator-extender-test-op-mode/extender-motor.html"><span class="keyword">var </span><span class="identifier">extenderMotor</span><span class="symbol">: </span><span class="identifier">DcMotor</span><span class="symbol">?</span></a></a><br/>
 <a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.tests/-elevator-extender-test-op-mode/run-op-mode.html"><span class="keyword">fun </span><span class="identifier">runOpMode</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-elevator-intake/index.html"><span class="keyword">class </span><span class="identifier">ElevatorIntake</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="org.firstinspires.ftc.teamcode.movement/-linear-motion/index.html"><span class="identifier">LinearMotion</span></a><span class="symbol">, </span><a href="org.firstinspires.ftc.teamcode.movement/-intake.html"><span class="identifier">Intake</span></a></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-elevator-intake/-init-.html"><span class="identifier">ElevatorIntake</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.ElevatorIntake$<init>(com.qualcomm.robotcore.hardware.DcMotor, kotlin.ranges.IntRange, kotlin.Double, com.qualcomm.robotcore.hardware.DcMotor, com.qualcomm.robotcore.hardware.DcMotor)/extenderMotor">extenderMotor</span><span class="symbol">:</span>&nbsp;<span class="identifier">DcMotor</span><span class="symbol">, </span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.ElevatorIntake$<init>(com.qualcomm.robotcore.hardware.DcMotor, kotlin.ranges.IntRange, kotlin.Double, com.qualcomm.robotcore.hardware.DcMotor, com.qualcomm.robotcore.hardware.DcMotor)/extenderRange">extenderRange</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/-int-range/index.html"><span class="identifier">IntRange</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.ElevatorIntake$<init>(com.qualcomm.robotcore.hardware.DcMotor, kotlin.ranges.IntRange, kotlin.Double, com.qualcomm.robotcore.hardware.DcMotor, com.qualcomm.robotcore.hardware.DcMotor)/extenderPowerMultiplier">extenderPowerMultiplier</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a>&nbsp;<span class="symbol">=</span>&nbsp;1.0<span class="symbol">, </span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.ElevatorIntake$<init>(com.qualcomm.robotcore.hardware.DcMotor, kotlin.ranges.IntRange, kotlin.Double, com.qualcomm.robotcore.hardware.DcMotor, com.qualcomm.robotcore.hardware.DcMotor)/binMotor">binMotor</span><span class="symbol">:</span>&nbsp;<span class="identifier">DcMotor</span><span class="symbol">, </span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.ElevatorIntake$<init>(com.qualcomm.robotcore.hardware.DcMotor, kotlin.ranges.IntRange, kotlin.Double, com.qualcomm.robotcore.hardware.DcMotor, com.qualcomm.robotcore.hardware.DcMotor)/rollerMotor">rollerMotor</span><span class="symbol">:</span>&nbsp;<span class="identifier">DcMotor</span><span class="symbol">)</span></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-elevator-intake/-companion/index.html"><span class="keyword">companion</span> <span class="keyword">object </span><span class="identifier">Companion</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="org.firstinspires.ftc.teamcode.utils/-factory/index.html"><span class="identifier">Factory</span></a><span class="symbol">&lt;</span><a href="org.firstinspires.ftc.teamcode.movement/-elevator-intake/index.html"><span class="identifier">ElevatorIntake</span></a><span class="symbol">&gt;</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-elevator-intake/-companion/standard.html"><span class="identifier">@JvmStatic</span> <span class="keyword">fun </span><span class="identifier">standard</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.ElevatorIntake.Companion$standard(com.qualcomm.robotcore.hardware.HardwareMap)/hardwareMap">hardwareMap</span><span class="symbol">:</span>&nbsp;<span class="identifier">HardwareMap</span><span class="symbol">)</span><span class="symbol">: </span><a href="org.firstinspires.ftc.teamcode.movement/-elevator-intake/index.html"><span class="identifier">ElevatorIntake</span></a></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-elevator-intake/bin-motor.html"><span class="keyword">val </span><span class="identifier">binMotor</span><span class="symbol">: </span><span class="identifier">DcMotor</span></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-elevator-intake/move-bin.html"><span class="keyword">fun </span><span class="identifier">moveBin</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.ElevatorIntake$moveBin(kotlin.Double)/power">power</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-elevator-intake/move-roller.html"><span class="keyword">fun </span><span class="identifier">moveRoller</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.ElevatorIntake$moveRoller(kotlin.Double)/power">power</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-elevator-intake/roller-motor.html"><span class="keyword">val </span><span class="identifier">rollerMotor</span><span class="symbol">: </span><span class="identifier">DcMotor</span></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-elevator-intake/standard.html"><span class="identifier">@JvmStatic</span> <span class="keyword">fun </span><span class="identifier">standard</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.ElevatorIntake.Companion$standard(com.qualcomm.robotcore.hardware.HardwareMap)/hardwareMap">hardwareMap</span><span class="symbol">:</span>&nbsp;<span class="identifier">HardwareMap</span><span class="symbol">)</span><span class="symbol">: </span><a href="org.firstinspires.ftc.teamcode.movement/-elevator-intake/index.html"><span class="identifier">ElevatorIntake</span></a></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-elevator-intake/stop-all.html"><span class="keyword">fun </span><span class="identifier">stopAll</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-elevator-intake/stop-bin.html"><span class="keyword">fun </span><span class="identifier">stopBin</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-elevator-intake/stop-roller.html"><span class="keyword">fun </span><span class="identifier">stopRoller</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></a></a><br/>
 </BODY>
 </HTML>
 </ul>
@@ -371,6 +437,20 @@
 </BODY>
 </HTML>
 </ul>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-extake.html"><span class="keyword">interface </span><span class="identifier">Extake</span></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.utils/-factory/index.html"><span class="keyword">interface </span><span class="identifier">Factory</span><span class="symbol">&lt;</span><span class="identifier">Hardware</span><span class="symbol">&gt;</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.utils/-factory/standard.html"><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">standard</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.utils.Factory$standard(com.qualcomm.robotcore.hardware.HardwareMap)/hardwareMap">hardwareMap</span><span class="symbol">:</span>&nbsp;<span class="identifier">HardwareMap</span><span class="symbol">)</span><span class="symbol">: </span><a href="org.firstinspires.ftc.teamcode.utils/-factory/index.html#Hardware"><span class="identifier">Hardware</span></a></a></a><br/>
+</BODY>
+</HTML>
+</ul>
 <a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.sensing/-gyro/index.html"><span class="keyword">interface </span><span class="identifier">Gyro</span></a></a><br/>
 <ul>
 <HTML>
@@ -412,6 +492,21 @@
 </HEAD>
 <BODY>
 <a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.sensing/-i-m-u-gyro/-init-.html"><span class="identifier">IMUGyro</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.sensing.IMUGyro$<init>(com.qualcomm.hardware.bosch.BNO055IMU, com.qualcomm.hardware.bosch.BNO055IMU.Parameters)/imu">imu</span><span class="symbol">:</span>&nbsp;<span class="identifier">BNO055IMU</span><span class="symbol">, </span><span class="identifier" id="org.firstinspires.ftc.teamcode.sensing.IMUGyro$<init>(com.qualcomm.hardware.bosch.BNO055IMU, com.qualcomm.hardware.bosch.BNO055IMU.Parameters)/parameters">parameters</span><span class="symbol">:</span>&nbsp;<span class="identifier">Parameters</span><span class="symbol">)</span></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.sensing/-i-m-u-gyro/-companion/index.html"><span class="keyword">companion</span> <span class="keyword">object </span><span class="identifier">Companion</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="org.firstinspires.ftc.teamcode.utils/-factory/index.html"><span class="identifier">Factory</span></a><span class="symbol">&lt;</span><a href="org.firstinspires.ftc.teamcode.sensing/-i-m-u-gyro/index.html"><span class="identifier">IMUGyro</span></a><span class="symbol">&gt;</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.sensing/-i-m-u-gyro/-companion/-i-m-u_-n-a-m-e.html"><span class="keyword">val </span><span class="identifier">IMU_NAME</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.sensing/-i-m-u-gyro/-companion/-i-m-u_-p-a-r-a-m-e-t-e-r-s.html"><span class="keyword">val </span><span class="identifier">IMU_PARAMETERS</span><span class="symbol">: </span><span class="identifier">Parameters</span></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.sensing/-i-m-u-gyro/-companion/standard.html"><span class="identifier">@JvmStatic</span> <span class="keyword">fun </span><span class="identifier">standard</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.sensing.IMUGyro.Companion$standard(com.qualcomm.robotcore.hardware.HardwareMap)/hardwareMap">hardwareMap</span><span class="symbol">:</span>&nbsp;<span class="identifier">HardwareMap</span><span class="symbol">)</span><span class="symbol">: </span><a href="org.firstinspires.ftc.teamcode.sensing/-i-m-u-gyro/index.html"><span class="identifier">IMUGyro</span></a></a></a><br/>
+</BODY>
+</HTML>
+</ul>
 <a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.sensing/-i-m-u-gyro/-i-m-u_-n-a-m-e.html"><span class="keyword">val </span><span class="identifier">IMU_NAME</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></a></a><br/>
 <a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.sensing/-i-m-u-gyro/-i-m-u_-p-a-r-a-m-e-t-e-r-s.html"><span class="keyword">val </span><span class="identifier">IMU_PARAMETERS</span><span class="symbol">: </span><span class="identifier">Parameters</span></a></a><br/>
 <a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.sensing/-i-m-u-gyro/angle-modifier.html"><span class="keyword">val </span><span class="identifier">angleModifier</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a></a></a><br/>
@@ -421,10 +516,11 @@
 <a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.sensing/-i-m-u-gyro/initialize.html"><span class="keyword">fun </span><span class="identifier">initialize</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></a></a><br/>
 <a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.sensing/-i-m-u-gyro/is-calibrated.html"><span class="keyword">val </span><span class="identifier">isCalibrated</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></a></a><br/>
 <a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.sensing/-i-m-u-gyro/parameters.html"><span class="keyword">val </span><span class="identifier">parameters</span><span class="symbol">: </span><span class="identifier">Parameters</span></a></a><br/>
-<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.sensing/-i-m-u-gyro/standard.html"><span class="identifier">@JvmStatic</span> <span class="keyword">fun </span><span class="identifier">standard</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.sensing.IMUGyro.Factory$standard(com.qualcomm.robotcore.hardware.HardwareMap)/hardwareMap">hardwareMap</span><span class="symbol">:</span>&nbsp;<span class="identifier">HardwareMap</span><span class="symbol">)</span><span class="symbol">: </span><a href="org.firstinspires.ftc.teamcode.sensing/-i-m-u-gyro/index.html"><span class="identifier">IMUGyro</span></a></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.sensing/-i-m-u-gyro/standard.html"><span class="identifier">@JvmStatic</span> <span class="keyword">fun </span><span class="identifier">standard</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.sensing.IMUGyro.Companion$standard(com.qualcomm.robotcore.hardware.HardwareMap)/hardwareMap">hardwareMap</span><span class="symbol">:</span>&nbsp;<span class="identifier">HardwareMap</span><span class="symbol">)</span><span class="symbol">: </span><a href="org.firstinspires.ftc.teamcode.sensing/-i-m-u-gyro/index.html"><span class="identifier">IMUGyro</span></a></a></a><br/>
 </BODY>
 </HTML>
 </ul>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-intake.html"><span class="keyword">interface </span><span class="identifier">Intake</span></a></a><br/>
 <a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.tests/-intake-elevator-test-op-mode/index.html"><span class="identifier">@TeleOp</span><span class="symbol">(</span>"Combined Test"<span class="symbol">, </span>"Tests"<span class="symbol">)</span> <span class="keyword">class </span><span class="identifier">IntakeElevatorTestOpMode</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">LinearOpMode</span></a></a><br/>
 <ul>
 <HTML>
@@ -472,6 +568,26 @@
 <a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.tests/-jog-extender-to-reset-test-op-mode/-init-.html"><span class="identifier">JogExtenderToResetTestOpMode</span><span class="symbol">(</span><span class="symbol">)</span></a></a><br/>
 <a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.tests/-jog-extender-to-reset-test-op-mode/extender-motor.html"><span class="keyword">var </span><span class="identifier">extenderMotor</span><span class="symbol">: </span><span class="identifier">DcMotor</span><span class="symbol">?</span></a></a><br/>
 <a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.tests/-jog-extender-to-reset-test-op-mode/run-op-mode.html"><span class="keyword">fun </span><span class="identifier">runOpMode</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-linear-motion/index.html"><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">LinearMotion</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-linear-motion/-init-.html"><span class="identifier">LinearMotion</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.LinearMotion$<init>(com.qualcomm.robotcore.hardware.DcMotor, kotlin.ranges.IntRange, kotlin.Double)/motor">motor</span><span class="symbol">:</span>&nbsp;<span class="identifier">DcMotor</span><span class="symbol">, </span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.LinearMotion$<init>(com.qualcomm.robotcore.hardware.DcMotor, kotlin.ranges.IntRange, kotlin.Double)/range">range</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/-int-range/index.html"><span class="identifier">IntRange</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.LinearMotion$<init>(com.qualcomm.robotcore.hardware.DcMotor, kotlin.ranges.IntRange, kotlin.Double)/powerMultiplier">powerMultiplier</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a>&nbsp;<span class="symbol">=</span>&nbsp;1.0<span class="symbol">)</span></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-linear-motion/can-move.html"><span class="keyword">fun </span><span class="identifier">canMove</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.LinearMotion$canMove(kotlin.Double, kotlin.Int)/power">power</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.LinearMotion$canMove(kotlin.Double, kotlin.Int)/at">at</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-linear-motion/move.html"><span class="keyword">fun </span><span class="identifier">move</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.LinearMotion$move(kotlin.Double)/power">power</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-linear-motion/move-if-able.html"><span class="keyword">fun </span><span class="identifier">moveIfAble</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.LinearMotion$moveIfAble(kotlin.Double)/power">power</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-linear-motion/move-raw.html"><span class="keyword">fun </span><span class="identifier">moveRaw</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.LinearMotion$moveRaw(kotlin.Double)/power">power</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-linear-motion/power-multiplier.html"><span class="keyword">val </span><span class="identifier">powerMultiplier</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-linear-motion/range.html"><span class="keyword">val </span><span class="identifier">range</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/-int-range/index.html"><span class="identifier">IntRange</span></a><span class="symbol">?</span></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-linear-motion/stop.html"><span class="keyword">fun </span><span class="identifier">stop</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></a></a><br/>
 </BODY>
 </HTML>
 </ul>
@@ -1218,6 +1334,94 @@
 </BODY>
 </HTML>
 </ul>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-elevator-extake/index.html"><span class="keyword">class </span><span class="identifier">ElevatorExtake</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="org.firstinspires.ftc.teamcode.movement/-linear-motion/index.html"><span class="identifier">LinearMotion</span></a><span class="symbol">, </span><a href="org.firstinspires.ftc.teamcode.movement/-intake.html"><span class="identifier">Intake</span></a></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-elevator-extake/-init-.html"><span class="identifier">ElevatorExtake</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.ElevatorExtake$<init>(com.qualcomm.robotcore.hardware.DcMotor, kotlin.ranges.IntRange, kotlin.Double, com.qualcomm.robotcore.hardware.Servo)/elevatorMotor">elevatorMotor</span><span class="symbol">:</span>&nbsp;<span class="identifier">DcMotor</span><span class="symbol">, </span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.ElevatorExtake$<init>(com.qualcomm.robotcore.hardware.DcMotor, kotlin.ranges.IntRange, kotlin.Double, com.qualcomm.robotcore.hardware.Servo)/elevatorRange">elevatorRange</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/-int-range/index.html"><span class="identifier">IntRange</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.ElevatorExtake$<init>(com.qualcomm.robotcore.hardware.DcMotor, kotlin.ranges.IntRange, kotlin.Double, com.qualcomm.robotcore.hardware.Servo)/elevatorPowerMultiplier">elevatorPowerMultiplier</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a>&nbsp;<span class="symbol">=</span>&nbsp;1.0<span class="symbol">, </span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.ElevatorExtake$<init>(com.qualcomm.robotcore.hardware.DcMotor, kotlin.ranges.IntRange, kotlin.Double, com.qualcomm.robotcore.hardware.Servo)/binMotor">binMotor</span><span class="symbol">:</span>&nbsp;<span class="identifier">Servo</span><span class="symbol">)</span></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-elevator-extake/-companion/index.html"><span class="keyword">companion</span> <span class="keyword">object </span><span class="identifier">Companion</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="org.firstinspires.ftc.teamcode.utils/-factory/index.html"><span class="identifier">Factory</span></a><span class="symbol">&lt;</span><a href="org.firstinspires.ftc.teamcode.movement/-elevator-extake/index.html"><span class="identifier">ElevatorExtake</span></a><span class="symbol">&gt;</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-elevator-extake/-companion/standard.html"><span class="identifier">@JvmStatic</span> <span class="keyword">fun </span><span class="identifier">standard</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.ElevatorExtake.Companion$standard(com.qualcomm.robotcore.hardware.HardwareMap)/hardwareMap">hardwareMap</span><span class="symbol">:</span>&nbsp;<span class="identifier">HardwareMap</span><span class="symbol">)</span><span class="symbol">: </span><a href="org.firstinspires.ftc.teamcode.movement/-elevator-extake/index.html"><span class="identifier">ElevatorExtake</span></a></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-elevator-extake/bin-motor.html"><span class="keyword">val </span><span class="identifier">binMotor</span><span class="symbol">: </span><span class="identifier">Servo</span></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-elevator-extake/bin-position.html"><span class="keyword">val </span><span class="identifier">binPosition</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-elevator-extake/move-bin.html"><span class="keyword">fun </span><span class="identifier">moveBin</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.ElevatorExtake$moveBin(kotlin.Double)/position">position</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-elevator-extake/standard.html"><span class="identifier">@JvmStatic</span> <span class="keyword">fun </span><span class="identifier">standard</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.ElevatorExtake.Companion$standard(com.qualcomm.robotcore.hardware.HardwareMap)/hardwareMap">hardwareMap</span><span class="symbol">:</span>&nbsp;<span class="identifier">HardwareMap</span><span class="symbol">)</span><span class="symbol">: </span><a href="org.firstinspires.ftc.teamcode.movement/-elevator-extake/index.html"><span class="identifier">ElevatorExtake</span></a></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-elevator-extake/stop-all.html"><span class="keyword">fun </span><span class="identifier">stopAll</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-elevator-extake/stop-bin.html"><span class="keyword">fun </span><span class="identifier">stopBin</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-elevator-intake/index.html"><span class="keyword">class </span><span class="identifier">ElevatorIntake</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="org.firstinspires.ftc.teamcode.movement/-linear-motion/index.html"><span class="identifier">LinearMotion</span></a><span class="symbol">, </span><a href="org.firstinspires.ftc.teamcode.movement/-intake.html"><span class="identifier">Intake</span></a></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-elevator-intake/-init-.html"><span class="identifier">ElevatorIntake</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.ElevatorIntake$<init>(com.qualcomm.robotcore.hardware.DcMotor, kotlin.ranges.IntRange, kotlin.Double, com.qualcomm.robotcore.hardware.DcMotor, com.qualcomm.robotcore.hardware.DcMotor)/extenderMotor">extenderMotor</span><span class="symbol">:</span>&nbsp;<span class="identifier">DcMotor</span><span class="symbol">, </span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.ElevatorIntake$<init>(com.qualcomm.robotcore.hardware.DcMotor, kotlin.ranges.IntRange, kotlin.Double, com.qualcomm.robotcore.hardware.DcMotor, com.qualcomm.robotcore.hardware.DcMotor)/extenderRange">extenderRange</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/-int-range/index.html"><span class="identifier">IntRange</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.ElevatorIntake$<init>(com.qualcomm.robotcore.hardware.DcMotor, kotlin.ranges.IntRange, kotlin.Double, com.qualcomm.robotcore.hardware.DcMotor, com.qualcomm.robotcore.hardware.DcMotor)/extenderPowerMultiplier">extenderPowerMultiplier</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a>&nbsp;<span class="symbol">=</span>&nbsp;1.0<span class="symbol">, </span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.ElevatorIntake$<init>(com.qualcomm.robotcore.hardware.DcMotor, kotlin.ranges.IntRange, kotlin.Double, com.qualcomm.robotcore.hardware.DcMotor, com.qualcomm.robotcore.hardware.DcMotor)/binMotor">binMotor</span><span class="symbol">:</span>&nbsp;<span class="identifier">DcMotor</span><span class="symbol">, </span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.ElevatorIntake$<init>(com.qualcomm.robotcore.hardware.DcMotor, kotlin.ranges.IntRange, kotlin.Double, com.qualcomm.robotcore.hardware.DcMotor, com.qualcomm.robotcore.hardware.DcMotor)/rollerMotor">rollerMotor</span><span class="symbol">:</span>&nbsp;<span class="identifier">DcMotor</span><span class="symbol">)</span></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-elevator-intake/-companion/index.html"><span class="keyword">companion</span> <span class="keyword">object </span><span class="identifier">Companion</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="org.firstinspires.ftc.teamcode.utils/-factory/index.html"><span class="identifier">Factory</span></a><span class="symbol">&lt;</span><a href="org.firstinspires.ftc.teamcode.movement/-elevator-intake/index.html"><span class="identifier">ElevatorIntake</span></a><span class="symbol">&gt;</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-elevator-intake/-companion/standard.html"><span class="identifier">@JvmStatic</span> <span class="keyword">fun </span><span class="identifier">standard</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.ElevatorIntake.Companion$standard(com.qualcomm.robotcore.hardware.HardwareMap)/hardwareMap">hardwareMap</span><span class="symbol">:</span>&nbsp;<span class="identifier">HardwareMap</span><span class="symbol">)</span><span class="symbol">: </span><a href="org.firstinspires.ftc.teamcode.movement/-elevator-intake/index.html"><span class="identifier">ElevatorIntake</span></a></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-elevator-intake/bin-motor.html"><span class="keyword">val </span><span class="identifier">binMotor</span><span class="symbol">: </span><span class="identifier">DcMotor</span></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-elevator-intake/move-bin.html"><span class="keyword">fun </span><span class="identifier">moveBin</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.ElevatorIntake$moveBin(kotlin.Double)/power">power</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-elevator-intake/move-roller.html"><span class="keyword">fun </span><span class="identifier">moveRoller</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.ElevatorIntake$moveRoller(kotlin.Double)/power">power</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-elevator-intake/roller-motor.html"><span class="keyword">val </span><span class="identifier">rollerMotor</span><span class="symbol">: </span><span class="identifier">DcMotor</span></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-elevator-intake/standard.html"><span class="identifier">@JvmStatic</span> <span class="keyword">fun </span><span class="identifier">standard</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.ElevatorIntake.Companion$standard(com.qualcomm.robotcore.hardware.HardwareMap)/hardwareMap">hardwareMap</span><span class="symbol">:</span>&nbsp;<span class="identifier">HardwareMap</span><span class="symbol">)</span><span class="symbol">: </span><a href="org.firstinspires.ftc.teamcode.movement/-elevator-intake/index.html"><span class="identifier">ElevatorIntake</span></a></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-elevator-intake/stop-all.html"><span class="keyword">fun </span><span class="identifier">stopAll</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-elevator-intake/stop-bin.html"><span class="keyword">fun </span><span class="identifier">stopBin</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-elevator-intake/stop-roller.html"><span class="keyword">fun </span><span class="identifier">stopRoller</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-extake.html"><span class="keyword">interface </span><span class="identifier">Extake</span></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-intake.html"><span class="keyword">interface </span><span class="identifier">Intake</span></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-linear-motion/index.html"><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">LinearMotion</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-linear-motion/-init-.html"><span class="identifier">LinearMotion</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.LinearMotion$<init>(com.qualcomm.robotcore.hardware.DcMotor, kotlin.ranges.IntRange, kotlin.Double)/motor">motor</span><span class="symbol">:</span>&nbsp;<span class="identifier">DcMotor</span><span class="symbol">, </span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.LinearMotion$<init>(com.qualcomm.robotcore.hardware.DcMotor, kotlin.ranges.IntRange, kotlin.Double)/range">range</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/-int-range/index.html"><span class="identifier">IntRange</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.LinearMotion$<init>(com.qualcomm.robotcore.hardware.DcMotor, kotlin.ranges.IntRange, kotlin.Double)/powerMultiplier">powerMultiplier</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a>&nbsp;<span class="symbol">=</span>&nbsp;1.0<span class="symbol">)</span></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-linear-motion/can-move.html"><span class="keyword">fun </span><span class="identifier">canMove</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.LinearMotion$canMove(kotlin.Double, kotlin.Int)/power">power</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.LinearMotion$canMove(kotlin.Double, kotlin.Int)/at">at</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-linear-motion/move.html"><span class="keyword">fun </span><span class="identifier">move</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.LinearMotion$move(kotlin.Double)/power">power</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-linear-motion/move-if-able.html"><span class="keyword">fun </span><span class="identifier">moveIfAble</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.LinearMotion$moveIfAble(kotlin.Double)/power">power</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-linear-motion/move-raw.html"><span class="keyword">fun </span><span class="identifier">moveRaw</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.movement.LinearMotion$moveRaw(kotlin.Double)/power">power</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-linear-motion/power-multiplier.html"><span class="keyword">val </span><span class="identifier">powerMultiplier</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-linear-motion/range.html"><span class="keyword">val </span><span class="identifier">range</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/-int-range/index.html"><span class="identifier">IntRange</span></a><span class="symbol">?</span></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-linear-motion/stop.html"><span class="keyword">fun </span><span class="identifier">stop</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></a></a><br/>
+</BODY>
+</HTML>
+</ul>
 <a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.movement/-mecanum-drive/index.html"><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">MecanumDrive</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="org.firstinspires.ftc.teamcode.movement/-drive-motors/index.html"><span class="identifier">DriveMotors</span></a></a></a><br/>
 <ul>
 <HTML>
@@ -1470,6 +1674,21 @@
 </HEAD>
 <BODY>
 <a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.sensing/-i-m-u-gyro/-init-.html"><span class="identifier">IMUGyro</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.sensing.IMUGyro$<init>(com.qualcomm.hardware.bosch.BNO055IMU, com.qualcomm.hardware.bosch.BNO055IMU.Parameters)/imu">imu</span><span class="symbol">:</span>&nbsp;<span class="identifier">BNO055IMU</span><span class="symbol">, </span><span class="identifier" id="org.firstinspires.ftc.teamcode.sensing.IMUGyro$<init>(com.qualcomm.hardware.bosch.BNO055IMU, com.qualcomm.hardware.bosch.BNO055IMU.Parameters)/parameters">parameters</span><span class="symbol">:</span>&nbsp;<span class="identifier">Parameters</span><span class="symbol">)</span></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.sensing/-i-m-u-gyro/-companion/index.html"><span class="keyword">companion</span> <span class="keyword">object </span><span class="identifier">Companion</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="org.firstinspires.ftc.teamcode.utils/-factory/index.html"><span class="identifier">Factory</span></a><span class="symbol">&lt;</span><a href="org.firstinspires.ftc.teamcode.sensing/-i-m-u-gyro/index.html"><span class="identifier">IMUGyro</span></a><span class="symbol">&gt;</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.sensing/-i-m-u-gyro/-companion/-i-m-u_-n-a-m-e.html"><span class="keyword">val </span><span class="identifier">IMU_NAME</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.sensing/-i-m-u-gyro/-companion/-i-m-u_-p-a-r-a-m-e-t-e-r-s.html"><span class="keyword">val </span><span class="identifier">IMU_PARAMETERS</span><span class="symbol">: </span><span class="identifier">Parameters</span></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.sensing/-i-m-u-gyro/-companion/standard.html"><span class="identifier">@JvmStatic</span> <span class="keyword">fun </span><span class="identifier">standard</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.sensing.IMUGyro.Companion$standard(com.qualcomm.robotcore.hardware.HardwareMap)/hardwareMap">hardwareMap</span><span class="symbol">:</span>&nbsp;<span class="identifier">HardwareMap</span><span class="symbol">)</span><span class="symbol">: </span><a href="org.firstinspires.ftc.teamcode.sensing/-i-m-u-gyro/index.html"><span class="identifier">IMUGyro</span></a></a></a><br/>
+</BODY>
+</HTML>
+</ul>
 <a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.sensing/-i-m-u-gyro/-i-m-u_-n-a-m-e.html"><span class="keyword">val </span><span class="identifier">IMU_NAME</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></a></a><br/>
 <a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.sensing/-i-m-u-gyro/-i-m-u_-p-a-r-a-m-e-t-e-r-s.html"><span class="keyword">val </span><span class="identifier">IMU_PARAMETERS</span><span class="symbol">: </span><span class="identifier">Parameters</span></a></a><br/>
 <a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.sensing/-i-m-u-gyro/angle-modifier.html"><span class="keyword">val </span><span class="identifier">angleModifier</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a></a></a><br/>
@@ -1479,7 +1698,7 @@
 <a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.sensing/-i-m-u-gyro/initialize.html"><span class="keyword">fun </span><span class="identifier">initialize</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></a></a><br/>
 <a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.sensing/-i-m-u-gyro/is-calibrated.html"><span class="keyword">val </span><span class="identifier">isCalibrated</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></a></a><br/>
 <a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.sensing/-i-m-u-gyro/parameters.html"><span class="keyword">val </span><span class="identifier">parameters</span><span class="symbol">: </span><span class="identifier">Parameters</span></a></a><br/>
-<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.sensing/-i-m-u-gyro/standard.html"><span class="identifier">@JvmStatic</span> <span class="keyword">fun </span><span class="identifier">standard</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.sensing.IMUGyro.Factory$standard(com.qualcomm.robotcore.hardware.HardwareMap)/hardwareMap">hardwareMap</span><span class="symbol">:</span>&nbsp;<span class="identifier">HardwareMap</span><span class="symbol">)</span><span class="symbol">: </span><a href="org.firstinspires.ftc.teamcode.sensing/-i-m-u-gyro/index.html"><span class="identifier">IMUGyro</span></a></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.sensing/-i-m-u-gyro/standard.html"><span class="identifier">@JvmStatic</span> <span class="keyword">fun </span><span class="identifier">standard</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.sensing.IMUGyro.Companion$standard(com.qualcomm.robotcore.hardware.HardwareMap)/hardwareMap">hardwareMap</span><span class="symbol">:</span>&nbsp;<span class="identifier">HardwareMap</span><span class="symbol">)</span><span class="symbol">: </span><a href="org.firstinspires.ftc.teamcode.sensing/-i-m-u-gyro/index.html"><span class="identifier">IMUGyro</span></a></a></a><br/>
 </BODY>
 </HTML>
 </ul>
@@ -1708,7 +1927,7 @@
 </BODY>
 </HTML>
 </ul>
-<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.tests/-elevator-extender-test-op-mode/index.html"><span class="identifier">@TeleOp</span><span class="symbol">(</span>"Elevator Test"<span class="symbol">, </span>"Tests"<span class="symbol">)</span> <span class="keyword">class </span><span class="identifier">ElevatorExtenderTestOpMode</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">LinearOpMode</span></a></a><br/>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.tests/-elevator-extender-test-op-mode/index.html"><span class="identifier">@TeleOp</span><span class="symbol">(</span>"LinearMotion Test"<span class="symbol">, </span>"Tests"<span class="symbol">)</span> <span class="keyword">class </span><span class="identifier">ElevatorExtenderTestOpMode</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">LinearOpMode</span></a></a><br/>
 <ul>
 <HTML>
 <HEAD>
@@ -1852,6 +2071,31 @@
 <a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.tests/-vision-location-test-op-mode/start.html"><span class="keyword">fun </span><span class="identifier">start</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></a></a><br/>
 <a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.tests/-vision-location-test-op-mode/stop.html"><span class="keyword">fun </span><span class="identifier">stop</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></a></a><br/>
 <a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.tests/-vision-location-test-op-mode/vision.html"><span class="keyword">val </span><span class="identifier">vision</span><span class="symbol">: </span><a href="org.firstinspires.ftc.teamcode.sensing/-vision/index.html"><span class="identifier">Vision</span></a></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+</BODY>
+</HTML>
+</ul>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.utils/index.html"><span class="keyword">package</span> <span class="identifier">org.firstinspires.ftc.teamcode.utils</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.utils/-factory/index.html"><span class="keyword">interface </span><span class="identifier">Factory</span><span class="symbol">&lt;</span><span class="identifier">Hardware</span><span class="symbol">&gt;</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="docs/-team-code/index"><a href="org.firstinspires.ftc.teamcode.utils/-factory/standard.html"><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">standard</span><span class="symbol">(</span><span class="identifier" id="org.firstinspires.ftc.teamcode.utils.Factory$standard(com.qualcomm.robotcore.hardware.HardwareMap)/hardwareMap">hardwareMap</span><span class="symbol">:</span>&nbsp;<span class="identifier">HardwareMap</span><span class="symbol">)</span><span class="symbol">: </span><a href="org.firstinspires.ftc.teamcode.utils/-factory/index.html#Hardware"><span class="identifier">Hardware</span></a></a></a><br/>
 </BODY>
 </HTML>
 </ul>
