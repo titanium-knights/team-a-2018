@@ -20,7 +20,7 @@ import kotlin.math.sign
  * The letters A-M and numbers 1-3 found in the documentation for the quick tuning variables correspond to the letters and numbers in the autonomous plan diagram.
  * **/
 @Autonomous(name = "Autonomous Op Mode", group = "* Main")
-class AutoOpMode: LinearOpMode() {
+open class AutoOpMode: LinearOpMode() {
     // Quick tuning variables
 
     /**
@@ -313,9 +313,9 @@ class AutoOpMode: LinearOpMode() {
 
     private val elapsedTime = ElapsedTime()
 
-    private val states = LinkedList<State>()
+    protected val states = LinkedList<State>()
 
-    private fun setup() {
+    protected fun setup() {
         drive
         gyro.initialize()
         gyro.calibrate()
