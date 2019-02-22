@@ -25,6 +25,9 @@ class IntakeElevatorTestOpMode: OpMode() {
         telemetry.addData("Linear Motion Pos", extake.currentPosition)
         telemetry.addData("Intake Extender Pos", intake.currentPosition)
 
+        val bin = gamepad1.left_stick_y.toDouble() * 0.15
+        telemetry.addData("Bin Power", bin)
+
         intake.moveBin(gamepad1.left_stick_y.toDouble())
         extake.moveIfAble(gamepad1.right_stick_y.toDouble() * -0.5)
         intake.moveIfAble(when {
