@@ -15,6 +15,7 @@ public class TeleOpMode extends OpMode {
     private ElevatorExtake extake;
 
     private final int intakeInPos = 0;
+    private final int intakeMidPos = 120;
     private final int intakeOutPos = 510;
 
     private final double extakeInPos = 0.0;
@@ -82,13 +83,18 @@ public class TeleOpMode extends OpMode {
                 intake.stop();
             }
 
-            // Move the intake bin out if RIGHT on the D-Pad is pressed.
-            // Move it in if LEFT is pressed.
-            if (gamepad2.dpad_right) {
+            // Move the intake bin out if B is pressed.
+            // Move it to an intermediate position if Y is pressed.
+            // Move it in if X is pressed.
+            if (gamepad2.b) {
                 intake.getRollerMotor().setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 intake.getRollerMotor().setTargetPosition(intakeOutPos);
                 intake.moveRoller(0.3);
-            } else if (gamepad2.dpad_left) {
+            } else if (gamepad2.y) {
+                intake.getRollerMotor().setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                intake.getRollerMotor().setTargetPosition(intakeMidPos);
+                intake.moveRoller(0.3);
+            } else if (gamepad2.x) {
                 intake.getRollerMotor().setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 intake.getRollerMotor().setTargetPosition(intakeInPos);
                 intake.moveRoller(0.3);
@@ -121,10 +127,10 @@ public class TeleOpMode extends OpMode {
             extake.moveBin(extakeInPos);
         }
 
-        // Move the rollers backward if X or Y are pressed; move them forward if A or B are pressed.
-        if (gamepad2.x || gamepad2.y) {
+        // Move the rollers backward if LEFT on the D-Pad is pressed; move them forward if RIGHT is pressed.
+        if (gamepad2.dpad_left) {
             intake.moveRoller(-1.0);
-        } else if (gamepad2.a || gamepad2.b) {
+        } else if (gamepad2.dpad_right) {
             intake.moveRoller(1.0);
         }
 

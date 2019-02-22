@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.autonomous
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode
+import com.qualcomm.robotcore.hardware.DcMotor
 import com.qualcomm.robotcore.util.ElapsedTime
 import org.firstinspires.ftc.teamcode.movement.ElevatorExtake
 import org.firstinspires.ftc.teamcode.movement.ElevatorIntake
@@ -334,14 +335,21 @@ open class AutoOpMode: LinearOpMode() {
     protected val states = LinkedList<State>()
 
     protected fun setup() {
-        drive
+        val motors = mutableListOf(intake.motor, intake.binMotor, intake.rollerMotor, extake.motor).apply {
+            addAll(drive.motors)
+        }
+        motors.forEach {
+            val mode = it.mode
+            it.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER)
+            it.setMode(mode)
+        }
+
         gyro.initialize()
         gyro.calibrate()
         vision.init()
-        intake
 
-        // states.clear()
-        states.add(Land())
+        states.clear()
+        // states.add(Land())
         states.add(MoveFromLander())
 
         while (opModeIsActive() && !gyro.isCalibrated) {
