@@ -145,19 +145,48 @@ public class MecanumDrive implements DriveMotors {
     }
 
     /**
+     * An enum representing how turning should be calculated.
+     */
+    public enum TurnBehavior {
+        /**
+         * Multiply the power by the turn value.
+         */
+        MULTIPLY,
+
+        /**
+         * Add/subtract the turn value from the power.
+         */
+        ADDSUBTRACT
+    }
+
+    /**
      * Moves in a given direction at a given power while turning towards a given direction
+     * @param power the power to move in
+     * @param vector the direction to move in
+     * @param turn the direction at which to turn
+     * @param turnBehavior how turning should be calculated
+     */
+    public void move(double power, Motor.Vector2D vector, double turn, TurnBehavior turnBehavior) {
+        for (Motor motor: motors) {
+            double transformed = transformPower(Motor.Vector2D.dotProduct(vector, motor.vector)) * power;
+            if ((motor.location & 1) > 0) {
+                double motorPower = turnBehavior == TurnBehavior.ADDSUBTRACT ? transformed - turn : transformed * 2 * (0.5 - turn);
+                motor.motor.setPower(Range.clip(motorPower, -1.0, 1.0));
+            } else {
+                double motorPower = turnBehavior == TurnBehavior.ADDSUBTRACT ? transformed + turn : transformed * 2 * (turn + 0.5);
+                motor.motor.setPower(Range.clip(motorPower, -1.0, 1.0));
+            }
+        }
+    }
+
+    /**
+     * Moves in a given direction at a given power while turning towards a given direction. Uses MULTIPLY for the turn behavior.
      * @param power the power to move in
      * @param vector the direction to move in
      * @param turn the direction at which to turn
      */
     public void move(double power, Motor.Vector2D vector, double turn) {
-        for (Motor motor: motors) {
-            if ((motor.location & 1) > 0) {
-                motor.motor.setPower(Range.clip(transformPower(Motor.Vector2D.dotProduct(vector, motor.vector)) * power * 2 * (0.5 - turn), -1.0, 1.0));
-            } else {
-                motor.motor.setPower(Range.clip(transformPower(Motor.Vector2D.dotProduct(vector, motor.vector)) * power * 2 * (turn + 0.5), -1.0, 1.0));
-            }
-        }
+        move(power, vector, turn, TurnBehavior.MULTIPLY);
     }
 
     public void forwardWithPower(double power) {
