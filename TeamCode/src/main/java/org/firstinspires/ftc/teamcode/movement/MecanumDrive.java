@@ -208,12 +208,12 @@ public class MecanumDrive implements DriveMotors {
 
     public void steerWithPower(double power, double turn) {
         setMotorMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        move(power, new Motor.Vector2D(1, 0), turn);
+        move(power, new Motor.Vector2D(0, 1), turn);
     }
 
     public void steerWithSpeed(double speed, double turn) {
         setMotorMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        move(speed, new Motor.Vector2D(1, 0), turn);
+        move(speed, new Motor.Vector2D(0, 1), turn);
     }
 
     public void stop() {
