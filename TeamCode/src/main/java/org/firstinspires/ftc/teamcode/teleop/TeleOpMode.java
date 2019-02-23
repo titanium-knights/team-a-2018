@@ -132,6 +132,8 @@ public class TeleOpMode extends OpMode {
             intake.moveRoller(-1.0);
         } else if (gamepad2.dpad_right) {
             intake.moveRoller(1.0);
+        } else {
+            intake.stopRoller();
         }
 
         // Resets all encoders if BACK is pressed on gamepad 1.
