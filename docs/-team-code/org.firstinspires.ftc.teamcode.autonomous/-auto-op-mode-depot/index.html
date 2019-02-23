@@ -1,100 +1,14 @@
 <HTML>
 <HEAD>
 <meta charset="UTF-8">
-<title>AutoOpMode - TeamCode</title>
+<title>AutoOpModeDepot - TeamCode</title>
 <link rel="stylesheet" href="../../../style.css">
 </HEAD>
 <BODY>
-<a href="../../index.html">TeamCode</a>&nbsp;/&nbsp;<a href="../index.html">org.firstinspires.ftc.teamcode.autonomous</a>&nbsp;/&nbsp;<a href="./index.html">AutoOpMode</a><br/>
+<a href="../../index.html">TeamCode</a>&nbsp;/&nbsp;<a href="../index.html">org.firstinspires.ftc.teamcode.autonomous</a>&nbsp;/&nbsp;<a href="./index.html">AutoOpModeDepot</a><br/>
 <br/>
-<h1>AutoOpMode</h1>
-<code><span class="identifier">@Autonomous</span><span class="symbol">(</span>"Autonomous Op Mode"<span class="symbol">, </span>"* Main"<span class="symbol">)</span> <span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">AutoOpMode</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">LinearOpMode</span></code>
-<p>The autonomous op mode.</p>
-<p>The letters A-M and numbers 1-3 found in the documentation for the quick tuning variables correspond to the letters and numbers in the autonomous plan diagram.</p>
-<h3>Types</h3>
-<table>
-<tbody>
-<tr>
-<td>
-<p><a href="-claim-depot/index.html">ClaimDepot</a></p>
-</td>
-<td>
-<code><span class="keyword">inner</span> <span class="keyword">class </span><span class="identifier">ClaimDepot</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-state/index.html"><span class="identifier">State</span></a></code>
-<p>Stage in which the robot uses its intake to claim the depot. (2)</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="-gather-vision-data/index.html">GatherVisionData</a></p>
-</td>
-<td>
-<code><span class="keyword">inner</span> <span class="keyword">class </span><span class="identifier">GatherVisionData</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-state/index.html"><span class="identifier">State</span></a></code>
-<p>Stage in which the robot gathers vision data. (1)</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="-knock-mineral-crater-side/index.html">KnockMineralCraterSide</a></p>
-</td>
-<td>
-<code><span class="keyword">inner</span> <span class="keyword">class </span><span class="identifier">KnockMineralCraterSide</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-state/index.html"><span class="identifier">State</span></a></code>
-<p>Stage in which the robot knocks the mineral and travels to the crater from the depot side.</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="-knock-mineral-depot-side/index.html">KnockMineralDepotSide</a></p>
-</td>
-<td>
-<code><span class="keyword">inner</span> <span class="keyword">class </span><span class="identifier">KnockMineralDepotSide</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-state/index.html"><span class="identifier">State</span></a></code>
-<p>Stage in which the robot knocks the mineral from the depot side.</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="-land/index.html">Land</a></p>
-</td>
-<td>
-<code><span class="keyword">inner</span> <span class="keyword">class </span><span class="identifier">Land</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-state/index.html"><span class="identifier">State</span></a></code>
-<p>Work-in-progress stage in which the robot lands.</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="-move-from-lander/index.html">MoveFromLander</a></p>
-</td>
-<td>
-<code><span class="keyword">inner</span> <span class="keyword">class </span><span class="identifier">MoveFromLander</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-state/index.html"><span class="identifier">State</span></a></code>
-<p>Stage in which the robot moves away from the lander. (A)</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="-park-at-crater/index.html">ParkAtCrater</a></p>
-</td>
-<td>
-<code><span class="keyword">inner</span> <span class="keyword">class </span><span class="identifier">ParkAtCrater</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-state/index.html"><span class="identifier">State</span></a></code>
-<p>Stage in which the robot travels to and parks at the crater when started from the crater side.</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="-state/index.html">State</a></p>
-</td>
-<td>
-<code><span class="keyword">abstract</span> <span class="keyword">inner</span> <span class="keyword">class </span><span class="identifier">State</span></code>
-<p>Abstract class representing a single state/step in the AutoOpMode.</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="-travel-to-depot/index.html">TravelToDepot</a></p>
-</td>
-<td>
-<code><span class="keyword">inner</span> <span class="keyword">class </span><span class="identifier">TravelToDepot</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-state/index.html"><span class="identifier">State</span></a></code></td>
-</tr>
-</tbody>
-</table>
+<h1>AutoOpModeDepot</h1>
+<code><span class="identifier">@Autonomous</span><span class="symbol">(</span>"Autonomous Op Mode - Depot Side"<span class="symbol">, </span>"Fallbacks"<span class="symbol">)</span> <span class="keyword">class </span><span class="identifier">AutoOpModeDepot</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-auto-op-mode/index.html"><span class="identifier">AutoOpMode</span></a></code>
 <h3>Constructors</h3>
 <table>
 <tbody>
@@ -103,18 +17,16 @@
 <p><a href="-init-.html">&lt;init&gt;</a></p>
 </td>
 <td>
-<code><span class="identifier">AutoOpMode</span><span class="symbol">(</span><span class="symbol">)</span></code>
-<p>The autonomous op mode.</p>
-</td>
+<code><span class="identifier">AutoOpModeDepot</span><span class="symbol">(</span><span class="symbol">)</span></code></td>
 </tr>
 </tbody>
 </table>
-<h3>Properties</h3>
+<h3>Inherited Properties</h3>
 <table>
 <tbody>
 <tr>
 <td>
-<p><a href="claim-depot-angle.html">claimDepotAngle</a></p>
+<p><a href="../-auto-op-mode/claim-depot-angle.html">claimDepotAngle</a></p>
 </td>
 <td>
 <code><span class="keyword">val </span><span class="identifier">claimDepotAngle</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a></code>
@@ -123,7 +35,7 @@
 </tr>
 <tr>
 <td>
-<p><a href="claim-depot-pause-time.html">claimDepotPauseTime</a></p>
+<p><a href="../-auto-op-mode/claim-depot-pause-time.html">claimDepotPauseTime</a></p>
 </td>
 <td>
 <code><span class="keyword">val </span><span class="identifier">claimDepotPauseTime</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
@@ -132,14 +44,14 @@
 </tr>
 <tr>
 <td>
-<p><a href="drive.html">drive</a></p>
+<p><a href="../-auto-op-mode/drive.html">drive</a></p>
 </td>
 <td>
 <code><span class="keyword">val </span><span class="identifier">drive</span><span class="symbol">: </span><a href="../../org.firstinspires.ftc.teamcode.movement/-mecanum-drive/index.html"><span class="identifier">MecanumDrive</span></a></code></td>
 </tr>
 <tr>
 <td>
-<p><a href="exit-depot-time.html">exitDepotTime</a></p>
+<p><a href="../-auto-op-mode/exit-depot-time.html">exitDepotTime</a></p>
 </td>
 <td>
 <code><span class="keyword">val </span><span class="identifier">exitDepotTime</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
@@ -148,28 +60,28 @@
 </tr>
 <tr>
 <td>
-<p><a href="extake.html">extake</a></p>
+<p><a href="../-auto-op-mode/extake.html">extake</a></p>
 </td>
 <td>
 <code><span class="keyword">val </span><span class="identifier">extake</span><span class="symbol">: </span><a href="../../org.firstinspires.ftc.teamcode.movement/-elevator-extake/index.html"><span class="identifier">ElevatorExtake</span></a></code></td>
 </tr>
 <tr>
 <td>
-<p><a href="gyro.html">gyro</a></p>
+<p><a href="../-auto-op-mode/gyro.html">gyro</a></p>
 </td>
 <td>
 <code><span class="keyword">val </span><span class="identifier">gyro</span><span class="symbol">: </span><a href="../../org.firstinspires.ftc.teamcode.sensing/-gyro/index.html"><span class="identifier">Gyro</span></a></code></td>
 </tr>
 <tr>
 <td>
-<p><a href="intake.html">intake</a></p>
+<p><a href="../-auto-op-mode/intake.html">intake</a></p>
 </td>
 <td>
 <code><span class="keyword">val </span><span class="identifier">intake</span><span class="symbol">: </span><a href="../../org.firstinspires.ftc.teamcode.movement/-elevator-intake/index.html"><span class="identifier">ElevatorIntake</span></a></code></td>
 </tr>
 <tr>
 <td>
-<p><a href="knock-mineral-crater-side-time.html">knockMineralCraterSideTime</a></p>
+<p><a href="../-auto-op-mode/knock-mineral-crater-side-time.html">knockMineralCraterSideTime</a></p>
 </td>
 <td>
 <code><span class="keyword">val </span><span class="identifier">knockMineralCraterSideTime</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
@@ -178,7 +90,7 @@
 </tr>
 <tr>
 <td>
-<p><a href="knock-mineral-depot-side-time.html">knockMineralDepotSideTime</a></p>
+<p><a href="../-auto-op-mode/knock-mineral-depot-side-time.html">knockMineralDepotSideTime</a></p>
 </td>
 <td>
 <code><span class="keyword">val </span><span class="identifier">knockMineralDepotSideTime</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
@@ -187,7 +99,7 @@
 </tr>
 <tr>
 <td>
-<p><a href="knock-mineral-return-crater-side-time.html">knockMineralReturnCraterSideTime</a></p>
+<p><a href="../-auto-op-mode/knock-mineral-return-crater-side-time.html">knockMineralReturnCraterSideTime</a></p>
 </td>
 <td>
 <code><span class="keyword">val </span><span class="identifier">knockMineralReturnCraterSideTime</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
@@ -196,7 +108,7 @@
 </tr>
 <tr>
 <td>
-<p><a href="move-from-lander-time.html">moveFromLanderTime</a></p>
+<p><a href="../-auto-op-mode/move-from-lander-time.html">moveFromLanderTime</a></p>
 </td>
 <td>
 <code><span class="keyword">val </span><span class="identifier">moveFromLanderTime</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
@@ -205,7 +117,7 @@
 </tr>
 <tr>
 <td>
-<p><a href="move-to-depot-crater-side-power.html">moveToDepotCraterSidePower</a></p>
+<p><a href="../-auto-op-mode/move-to-depot-crater-side-power.html">moveToDepotCraterSidePower</a></p>
 </td>
 <td>
 <code><span class="keyword">val </span><span class="identifier">moveToDepotCraterSidePower</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a></code>
@@ -214,7 +126,7 @@
 </tr>
 <tr>
 <td>
-<p><a href="move-to-depot-crater-side-threshold.html">moveToDepotCraterSideThreshold</a></p>
+<p><a href="../-auto-op-mode/move-to-depot-crater-side-threshold.html">moveToDepotCraterSideThreshold</a></p>
 </td>
 <td>
 <code><span class="keyword">val </span><span class="identifier">moveToDepotCraterSideThreshold</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a></code>
@@ -223,7 +135,7 @@
 </tr>
 <tr>
 <td>
-<p><a href="move-to-mineral-crater-side-time.html">moveToMineralCraterSideTime</a></p>
+<p><a href="../-auto-op-mode/move-to-mineral-crater-side-time.html">moveToMineralCraterSideTime</a></p>
 </td>
 <td>
 <code><span class="keyword">val </span><span class="identifier">moveToMineralCraterSideTime</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
@@ -232,7 +144,7 @@
 </tr>
 <tr>
 <td>
-<p><a href="move-to-mineral-depot-side-time.html">moveToMineralDepotSideTime</a></p>
+<p><a href="../-auto-op-mode/move-to-mineral-depot-side-time.html">moveToMineralDepotSideTime</a></p>
 </td>
 <td>
 <code><span class="keyword">val </span><span class="identifier">moveToMineralDepotSideTime</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
@@ -241,7 +153,7 @@
 </tr>
 <tr>
 <td>
-<p><a href="move-to-side-crater-side-time.html">moveToSideCraterSideTime</a></p>
+<p><a href="../-auto-op-mode/move-to-side-crater-side-time.html">moveToSideCraterSideTime</a></p>
 </td>
 <td>
 <code><span class="keyword">val </span><span class="identifier">moveToSideCraterSideTime</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
@@ -250,7 +162,7 @@
 </tr>
 <tr>
 <td>
-<p><a href="move-to-side-time.html">moveToSideTime</a></p>
+<p><a href="../-auto-op-mode/move-to-side-time.html">moveToSideTime</a></p>
 </td>
 <td>
 <code><span class="keyword">val </span><span class="identifier">moveToSideTime</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
@@ -259,7 +171,7 @@
 </tr>
 <tr>
 <td>
-<p><a href="park-at-crater-time.html">parkAtCraterTime</a></p>
+<p><a href="../-auto-op-mode/park-at-crater-time.html">parkAtCraterTime</a></p>
 </td>
 <td>
 <code><span class="keyword">val </span><span class="identifier">parkAtCraterTime</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
@@ -268,7 +180,7 @@
 </tr>
 <tr>
 <td>
-<p><a href="post-knock-mineral-depot-side-time.html">postKnockMineralDepotSideTime</a></p>
+<p><a href="../-auto-op-mode/post-knock-mineral-depot-side-time.html">postKnockMineralDepotSideTime</a></p>
 </td>
 <td>
 <code><span class="keyword">val </span><span class="identifier">postKnockMineralDepotSideTime</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
@@ -277,7 +189,7 @@
 </tr>
 <tr>
 <td>
-<p><a href="rotate-intake-power.html">rotateIntakePower</a></p>
+<p><a href="../-auto-op-mode/rotate-intake-power.html">rotateIntakePower</a></p>
 </td>
 <td>
 <code><span class="keyword">val </span><span class="identifier">rotateIntakePower</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a></code>
@@ -286,7 +198,7 @@
 </tr>
 <tr>
 <td>
-<p><a href="rotate-intake-time.html">rotateIntakeTime</a></p>
+<p><a href="../-auto-op-mode/rotate-intake-time.html">rotateIntakeTime</a></p>
 </td>
 <td>
 <code><span class="keyword">val </span><span class="identifier">rotateIntakeTime</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
@@ -295,7 +207,7 @@
 </tr>
 <tr>
 <td>
-<p><a href="standard-power.html">standardPower</a></p>
+<p><a href="../-auto-op-mode/standard-power.html">standardPower</a></p>
 </td>
 <td>
 <code><span class="keyword">val </span><span class="identifier">standardPower</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a></code>
@@ -305,14 +217,14 @@ All millisecond values are multiplied by this value.</p>
 </tr>
 <tr>
 <td>
-<p><a href="states.html">states</a></p>
+<p><a href="../-auto-op-mode/states.html">states</a></p>
 </td>
 <td>
-<code><span class="keyword">val </span><span class="identifier">states</span><span class="symbol">: </span><a href="https://developer.android.com/reference/java/util/LinkedList.html"><span class="identifier">LinkedList</span></a><span class="symbol">&lt;</span><a href="-state/index.html"><span class="identifier">State</span></a><span class="symbol">&gt;</span></code></td>
+<code><span class="keyword">val </span><span class="identifier">states</span><span class="symbol">: </span><a href="https://developer.android.com/reference/java/util/LinkedList.html"><span class="identifier">LinkedList</span></a><span class="symbol">&lt;</span><a href="../-auto-op-mode/-state/index.html"><span class="identifier">State</span></a><span class="symbol">&gt;</span></code></td>
 </tr>
 <tr>
 <td>
-<p><a href="turn-power.html">turnPower</a></p>
+<p><a href="../-auto-op-mode/turn-power.html">turnPower</a></p>
 </td>
 <td>
 <code><span class="keyword">val </span><span class="identifier">turnPower</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a></code>
@@ -321,14 +233,14 @@ All millisecond values are multiplied by this value.</p>
 </tr>
 <tr>
 <td>
-<p><a href="vision.html">vision</a></p>
+<p><a href="../-auto-op-mode/vision.html">vision</a></p>
 </td>
 <td>
 <code><span class="keyword">val </span><span class="identifier">vision</span><span class="symbol">: </span><a href="../../org.firstinspires.ftc.teamcode.sensing/-vision/index.html"><span class="identifier">Vision</span></a></code></td>
 </tr>
 <tr>
 <td>
-<p><a href="vision-time.html">visionTime</a></p>
+<p><a href="../-auto-op-mode/vision-time.html">visionTime</a></p>
 </td>
 <td>
 <code><span class="keyword">val </span><span class="identifier">visionTime</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
@@ -342,71 +254,50 @@ All millisecond values are multiplied by this value.</p>
 <tbody>
 <tr>
 <td>
-<p><a href="add-crater-stages.html">addCraterStages</a></p>
+<p><a href="run-op-mode.html">runOpMode</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">runOpMode</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../-auto-op-mode/add-crater-stages.html">addCraterStages</a></p>
 </td>
 <td>
 <code><span class="keyword">fun </span><span class="identifier">addCraterStages</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 <tr>
 <td>
-<p><a href="add-depot-stages.html">addDepotStages</a></p>
+<p><a href="../-auto-op-mode/add-depot-stages.html">addDepotStages</a></p>
 </td>
 <td>
 <code><span class="keyword">fun </span><span class="identifier">addDepotStages</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 <tr>
 <td>
-<p><a href="add-fallback-stages.html">addFallbackStages</a></p>
+<p><a href="../-auto-op-mode/add-fallback-stages.html">addFallbackStages</a></p>
 </td>
 <td>
 <code><span class="keyword">fun </span><span class="identifier">addFallbackStages</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 <tr>
 <td>
-<p><a href="run.html">run</a></p>
+<p><a href="../-auto-op-mode/run.html">run</a></p>
 </td>
 <td>
 <code><span class="keyword">fun </span><span class="identifier">run</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 <tr>
 <td>
-<p><a href="run-op-mode.html">runOpMode</a></p>
-</td>
-<td>
-<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">runOpMode</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
-</tr>
-<tr>
-<td>
-<p><a href="setup.html">setup</a></p>
+<p><a href="../-auto-op-mode/setup.html">setup</a></p>
 </td>
 <td>
 <code><span class="keyword">fun </span><span class="identifier">setup</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
-</tr>
-</tbody>
-</table>
-<h3>Inheritors</h3>
-<table>
-<tbody>
-<tr>
-<td>
-<p><a href="../-auto-op-mode-crater/index.html">AutoOpModeCrater</a></p>
-</td>
-<td>
-<code><span class="keyword">class </span><span class="identifier">AutoOpModeCrater</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">AutoOpMode</span></a></code></td>
-</tr>
-<tr>
-<td>
-<p><a href="../-auto-op-mode-depot/index.html">AutoOpModeDepot</a></p>
-</td>
-<td>
-<code><span class="keyword">class </span><span class="identifier">AutoOpModeDepot</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">AutoOpMode</span></a></code></td>
-</tr>
-<tr>
-<td>
-<p><a href="../../org.firstinspires.ftc.teamcode.tests/-auto-test-op-mode/index.html">AutoTestOpMode</a></p>
-</td>
-<td>
-<code><span class="keyword">class </span><span class="identifier">AutoTestOpMode</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">AutoOpMode</span></a></code></td>
 </tr>
 </tbody>
 </table>
