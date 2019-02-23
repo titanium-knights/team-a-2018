@@ -53,7 +53,7 @@ public class TeleOpMode extends OpMode {
 
         // Drive the Mecanum Drive.
         MecanumDrive.Motor.Vector2D vector = new MecanumDrive.Motor.Vector2D(x, y);
-        drive.move(1, vector, turn);
+        drive.move(1, vector, turn, MecanumDrive.TurnBehavior.ADDSUBTRACT);
 
         // Retract or extend the intake (front elevator) if LT or RT are pressed.
         // If the BACK button is pressed, extend/retract without obeying software limits.
@@ -144,5 +144,9 @@ public class TeleOpMode extends OpMode {
         telemetry.addData("Forward Power", y);
         telemetry.addData("Strafe", (x == 0 ? "None " : (x < 0 ? "Left " : "Right ")) + Math.abs(x));
         telemetry.addData("Turn", (turn == 0 ? "None " : (turn < 0 ? "Left " : "Right ")) + Math.abs(turn));
+        telemetry.addData("Intake Extender Pos", intake.getCurrentPosition());
+        telemetry.addData("Intake Bin Pos", intake.getBinMotor().getCurrentPosition());
+        telemetry.addData("Extake Extender Pos", extake.getCurrentPosition());
+        telemetry.addData("Extake Bin Pos", extake.getBinMotor().getPosition());
     }
 }
