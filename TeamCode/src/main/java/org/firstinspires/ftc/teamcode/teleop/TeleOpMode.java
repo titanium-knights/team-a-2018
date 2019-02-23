@@ -15,17 +15,16 @@ public class TeleOpMode extends OpMode {
     private ElevatorExtake extake;
 
     private final int intakeInPos = 0;
+    private final int intakeMidPos = 480;
+    private final int intakeOutPos = 1000;
 
-    private final double extakeInPos = 0.0;
-    private final double extakeOutPos = 0.8;
+    private final double extakeInPos = 1.0;
+    private final double extakeOutPos = 0.0;
 
-    private void resetEncoders() {
-        DcMotor[] motors = {intake.getBinMotor(), intake.getRollerMotor(), intake.getMotor(), extake.getMotor()};
-        for (DcMotor motor: motors) {
-            DcMotor.RunMode mode = motor.getMode();
-            motor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-            motor.setMode(mode);
-        }
+    private void resetEncoder(DcMotor motor) {
+        DcMotor.RunMode mode = motor.getMode();
+        motor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        motor.setMode(mode);
     }
 
     @Override public void init() {
@@ -39,12 +38,12 @@ public class TeleOpMode extends OpMode {
     @Override public void loop() {
         // Strafe the Mecanum Drive using the left stick X as long as it is clearly to the side.
         double x = gamepad1.left_stick_x;
-        if (x > -0.2 || x < 0.2) {
+        if (x > -0.2 && x < 0.2) {
             x = 0.0;
         }
 
         // Move the Mecanum Drive forward using the left stick Y.
-        double y = gamepad1.left_stick_y;
+        double y = -gamepad1.left_stick_y;
 
         // Turn the Mecanum Drive using the right stick X.
         double turn = gamepad1.right_stick_x;
@@ -54,15 +53,15 @@ public class TeleOpMode extends OpMode {
         drive.move(1, vector, turn, MecanumDrive.TurnBehavior.ADDSUBTRACT);
 
         // Retract or extend the intake (front elevator) if LT or RT are pressed.
-        // If the BACK button is pressed, extend/retract without obeying software limits.
+        // If the A button is pressed, extend/retract without obeying software limits.
         if (gamepad2.left_trigger == 1.0f) {
-            if (gamepad2.back) {
+            if (gamepad2.a) {
                 intake.move(-0.2);
             } else {
                 intake.moveIfAble(-1.0);
             }
         } else if (gamepad2.right_trigger == 1.0f) {
-            if (gamepad2.back) {
+            if (gamepad2.a) {
                 intake.move(0.2);
             } else {
                 intake.moveIfAble(1.0);
@@ -72,43 +71,43 @@ public class TeleOpMode extends OpMode {
         }
 
         // Manually move the intake if the left stick is used.
-        if (Math.abs(gamepad2.left_stick_y) < 0.1) {
-            intake.getRollerMotor().setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-            intake.moveRoller(gamepad2.left_stick_y < 0 ? -0.2 : 0.2);
+        if (Math.abs(gamepad2.left_stick_y) > 0.1) {
+            intake.getBinMotor().setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            intake.moveBin(gamepad2.left_stick_y < 0 ? -0.4 : 0.4);
         } else {
             // Stop the intake if it is not being moved.
-            if (intake.getRollerMotor().getMode() != DcMotor.RunMode.RUN_TO_POSITION) {
-                intake.stop();
+            if (!intake.getBinMotor().isBusy() && (intake.getBinMotor().getMode() != DcMotor.RunMode.RUN_TO_POSITION || intake.getBinMotor().getTargetPosition() != intakeMidPos)) {
+                intake.stopBin();
             }
 
             // Move the intake bin out if B is pressed.
             // Move it to an intermediate position if Y is pressed.
             // Move it in if X is pressed.
             if (gamepad2.b) {
-                intake.getRollerMotor().setMode(DcMotor.RunMode.RUN_TO_POSITION);
-                intake.getRollerMotor().setTargetPosition(intakeOutPos);
-                intake.moveRoller(0.3);
+                intake.getBinMotor().setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                intake.getBinMotor().setTargetPosition(intakeOutPos);
+                intake.moveBin(0.3);
             } else if (gamepad2.y) {
-                intake.getRollerMotor().setMode(DcMotor.RunMode.RUN_TO_POSITION);
-                intake.getRollerMotor().setTargetPosition(intakeMidPos);
-                intake.moveRoller(0.3);
+                intake.getBinMotor().setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                intake.getBinMotor().setTargetPosition(intakeMidPos);
+                intake.moveBin(0.3);
             } else if (gamepad2.x) {
-                intake.getRollerMotor().setMode(DcMotor.RunMode.RUN_TO_POSITION);
-                intake.getRollerMotor().setTargetPosition(intakeInPos);
-                intake.moveRoller(0.3);
+                intake.getBinMotor().setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                intake.getBinMotor().setTargetPosition(intakeInPos);
+                intake.moveBin(0.3);
             }
         }
 
         // Retract or extend the extake (back elevator) if LT or RT are pressed.
-        // If the BACK button is pressed, extend/retract without obeying software limits.
+        // If the A button is pressed, extend/retract without obeying software limits.
         if (gamepad2.left_bumper) {
-            if (gamepad2.back) {
+            if (gamepad2.a) {
                 extake.move(-0.2);
             } else {
                 extake.moveIfAble(-1.0);
             }
         } else if (gamepad2.right_bumper) {
-            if (gamepad2.back) {
+            if (gamepad2.a) {
                 extake.move(0.2);
             } else {
                 extake.moveIfAble(1.0);
@@ -134,9 +133,17 @@ public class TeleOpMode extends OpMode {
             intake.stopRoller();
         }
 
-        // Resets all encoders if BACK is pressed on gamepad 1.
-        if (gamepad1.back) {
-            resetEncoders();
+        // Resets encoders if X is held.
+        if (gamepad1.x) {
+            if (gamepad1.a) {
+                resetEncoder(intake.getBinMotor());
+            }
+            if (gamepad1.b) {
+                resetEncoder(intake.getMotor());
+            }
+            if (gamepad1.y) {
+                resetEncoder(extake.getMotor());
+            }
         }
 
         // Update telemetry data.
@@ -147,6 +154,6 @@ public class TeleOpMode extends OpMode {
         telemetry.addData("Intake Extender Pos", intake.getCurrentPosition());
         telemetry.addData("Intake Bin Pos", intake.getBinMotor().getCurrentPosition());
         telemetry.addData("Extake Extender Pos", extake.getCurrentPosition());
-        telemetry.addData("Extake Bin Pos", extake.getBinMotor().getPosition());
+        telemetry.addData("Extake Bin Pos", extake.getBinPosition());
     }
 }
