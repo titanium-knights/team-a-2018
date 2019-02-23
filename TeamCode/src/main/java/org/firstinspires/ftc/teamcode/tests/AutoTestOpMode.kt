@@ -8,6 +8,7 @@ class AutoTestOpMode: AutoOpMode() {
     override fun runOpMode() {
         setup()
         states.clear()
+        states.add(GatherVisionData(false))
         states.add(MoveFromLander())
         states.add(KnockMineralCraterSide())
         states.add(TravelToDepot())

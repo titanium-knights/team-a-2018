@@ -15,8 +15,6 @@ public class TeleOpMode extends OpMode {
     private ElevatorExtake extake;
 
     private final int intakeInPos = 0;
-    private final int intakeMidPos = 120;
-    private final int intakeOutPos = 510;
 
     private final double extakeInPos = 0.0;
     private final double extakeOutPos = 0.8;

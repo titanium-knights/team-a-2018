@@ -51,7 +51,6 @@ import java.util.List;
  * is explained below.
  */
 @Autonomous(name = "Mineral Detection Test", group = "Tests")
-@Disabled
 public class MineralDetectionTest extends OpMode {
     private MineralDetection manager;
 
@@ -73,33 +72,27 @@ public class MineralDetectionTest extends OpMode {
         List<Recognition> updatedRecognitions = manager.getUpdatedRecognitions();
         if (updatedRecognitions != null) {
             telemetry.addData("# Object Detected", updatedRecognitions.size());
-            if (updatedRecognitions.size() == 3) {
-                int goldMineralX = -1;
-                int silverMineral1X = -1;
-                int silverMineral2X = -1;
+            // if (updatedRecognitions.size() == 3) {
                 ArrayList<Float> xValues = new ArrayList<>();
+                ArrayList<Float> heightValues = new ArrayList<>();
+                ArrayList<String> recognitions = new ArrayList<>();
+                ArrayList<Float> confidenceValues = new ArrayList<>();
                 for (Recognition recognition : updatedRecognitions) {
                     xValues.add(recognition.getLeft());
                     if (recognition.getLabel().equals(MineralDetection.LABEL_GOLD_MINERAL)) {
-                        goldMineralX = (int) recognition.getLeft();
-                    } else if (silverMineral1X == -1) {
-                        silverMineral1X = (int) recognition.getLeft();
+                        recognitions.add("Gold");
                     } else {
-                        silverMineral2X = (int) recognition.getLeft();
+                        recognitions.add("Silver");
                     }
-                }
-                if (goldMineralX != -1 && silverMineral1X != -1 && silverMineral2X != -1) {
-                    if (goldMineralX < silverMineral1X && goldMineralX < silverMineral2X) {
-                        telemetry.addData("Gold Mineral Position", "Left");
-                    } else if (goldMineralX > silverMineral1X && goldMineralX > silverMineral2X) {
-                        telemetry.addData("Gold Mineral Position", "Right");
-                    } else {
-                        telemetry.addData("Gold Mineral Position", "Center");
-                    }
+                    heightValues.add(recognition.getHeight());
+                    confidenceValues.add(recognition.getConfidence());
                 }
                 Collections.sort(xValues);
                 telemetry.addData("X Values", xValues.toString());
-            }
+                telemetry.addData("Recognitions", recognitions.toString());
+                telemetry.addData("Heights", heightValues.toString());
+                telemetry.addData("Confidences", confidenceValues.toString());
+            // }
             telemetry.update();
         }
     }

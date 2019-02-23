@@ -1,13 +1,15 @@
 package org.firstinspires.ftc.teamcode.tests
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp
 import com.qualcomm.robotcore.hardware.DcMotor
 
 /**
- * Tests REV Core Hex Motor on OldIntake Roller
+ * Tests REV Core Hex Motor on Intake Roller
  */
 @TeleOp(name = "OldIntake Roller Test", group = "Tests") // TODO: Add a good name
+@Disabled
 class IntakeRollerTestOpMode: LinearOpMode() {
 
     var rollerMotor: DcMotor? = null

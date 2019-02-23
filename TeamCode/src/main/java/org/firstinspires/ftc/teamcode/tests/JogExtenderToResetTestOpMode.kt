@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.tests
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp
 import com.qualcomm.robotcore.hardware.DcMotor
@@ -8,6 +9,7 @@ import com.qualcomm.robotcore.hardware.DcMotor
  * Tests REV Core Hex Motor on OldIntake Roller
  */
 @TeleOp(name = "Reset Extender Test", group = "Tests") // TODO: Add a good name
+@Disabled
 class JogExtenderToResetTestOpMode: LinearOpMode() {
 
     var extenderMotor: DcMotor? = null

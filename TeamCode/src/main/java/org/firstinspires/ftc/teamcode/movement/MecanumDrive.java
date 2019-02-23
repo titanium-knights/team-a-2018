@@ -170,10 +170,10 @@ public class MecanumDrive implements DriveMotors {
         for (Motor motor: motors) {
             double transformed = transformPower(Motor.Vector2D.dotProduct(vector, motor.vector)) * power;
             if ((motor.location & 1) > 0) {
-                double motorPower = turnBehavior == TurnBehavior.ADDSUBTRACT ? transformed - turn : transformed * 2 * (0.5 - turn);
+                double motorPower = turnBehavior == TurnBehavior.ADDSUBTRACT ? transformed - turn : transformed * Range.clip(1.0 - 2.0 * turn, -1.0, 1.0);
                 motor.motor.setPower(Range.clip(motorPower, -1.0, 1.0));
             } else {
-                double motorPower = turnBehavior == TurnBehavior.ADDSUBTRACT ? transformed + turn : transformed * 2 * (turn + 0.5);
+                double motorPower = turnBehavior == TurnBehavior.ADDSUBTRACT ? transformed + turn : transformed * Range.clip(1.0 + 2.0 * turn, -1.0, 1.0);
                 motor.motor.setPower(Range.clip(motorPower, -1.0, 1.0));
             }
         }

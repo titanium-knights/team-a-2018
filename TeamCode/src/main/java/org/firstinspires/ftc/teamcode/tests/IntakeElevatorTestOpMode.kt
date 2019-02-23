@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.tests
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled
 import com.qualcomm.robotcore.eventloop.opmode.OpMode
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp
 import com.qualcomm.robotcore.hardware.DcMotor
@@ -10,6 +11,7 @@ import org.firstinspires.ftc.teamcode.movement.ElevatorIntake
  * Tests REV Core Hex Motor on both OldIntake Extender and LinearMotion
  */
 @TeleOp(name = "Combined Test", group = "Tests") // TODO: Add a good name
+@Disabled
 class IntakeElevatorTestOpMode: OpMode() {
     val intake: ElevatorIntake by lazy { ElevatorIntake.standard(hardwareMap) }
     val extake: ElevatorExtake by lazy { ElevatorExtake.standard(hardwareMap) }

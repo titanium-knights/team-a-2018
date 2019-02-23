@@ -43,7 +43,7 @@ class ElevatorExtake(
      * @param power the power to move the bin motor at
      */
     fun moveBin(position: Double) {
-        binMotor.position
+        binMotor.position = position
     }
 
     /**
