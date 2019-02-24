@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.autonomous;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.movement.DriveMotors;
@@ -8,6 +9,7 @@ import org.firstinspires.ftc.teamcode.movement.MecanumDrive;
 
 // An op mode that drives forward and claims "the depot." That's it.
 @Autonomous(name = "Claim Depot Mode", group = "* Main")
+@Disabled
 @Deprecated public class ClaimDepotOpMode extends LinearOpMode {
     DriveMotors driveMotors;
 

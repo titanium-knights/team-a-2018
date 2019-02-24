@@ -181,9 +181,9 @@ open class AutoOpMode: LinearOpMode() {
 
             if (shouldFindLocation) {
                 if (atDepot == null) {
-                    addFallbackStages()
+                    addFallbackStates()
                 } else {
-                    if (atDepot) addDepotStages() else addCraterStages()
+                    if (atDepot) addDepotStates() else addCraterStates()
                 }
             }
         }
@@ -203,7 +203,14 @@ open class AutoOpMode: LinearOpMode() {
             drive.forwardWithPower(-standardPower)
             sleep(adjustByPower(knockMineralDepotSideTime))
             drive.stop()
+        }
+    }
 
+    /** Stage in which the robot enters the depot from the depot side. **/
+    inner class EnterDepot: State() {
+        override val name = "Enter depot"
+
+        override fun run(prev: State?, next: State?) {
             if (mineralPos != 0) {
                 drive.move(mineralPos * standardPower, MecanumDrive.Motor.Vector2D(1.0, 0.2), 0.0)
                 sleep(adjustByPower(moveToMineralDepotSideTime))
@@ -213,15 +220,14 @@ open class AutoOpMode: LinearOpMode() {
             drive.forwardWithPower(-standardPower)
             sleep(adjustByPower(knockMineralDepotSideTime))
             drive.stop()
+        }
+    }
 
-            drive.steerWithPower(turnPower, 1.0)
-            while (gyro.getAbsoluteAngle() <= claimDepotAngle - 4.0 && opModeIsActive()) {
-                telemetry.addData("Gyro", gyro.getAbsoluteAngle())
-                telemetry.update()
-                idle()
-            }
-            drive.stop()
+    /** Stage in which the robot exits the depot. **/
+    inner class ExitDepot: State() {
+        override val name = "Exit depot"
 
+        override fun run(prev: State?, next: State?) {
             drive.forwardWithPower(-standardPower)
             sleep(adjustByPower(exitDepotTime))
             drive.stop()
@@ -230,7 +236,7 @@ open class AutoOpMode: LinearOpMode() {
 
     /** Stage in which the robot knocks the mineral and travels to the crater from the depot side. **/
     inner class KnockMineralCraterSide: State() {
-        override val name = "Knock mineral"
+        override val name = "Knock mineral (crater)"
 
         override fun run(prev: State?, next: State?) {
             if (mineralPos != 0) {
@@ -249,14 +255,22 @@ open class AutoOpMode: LinearOpMode() {
         }
     }
 
-    inner class TravelToDepot: State() {
-        override val name = "Travel to depot"
+    /** Stage in which the robot moves to the side to prepare to travel to the depot. **/
+    inner class MoveToSideCraterSide: State() {
+        override val name = "Move to side"
 
         override fun run(prev: State?, next: State?) {
             drive.move(-standardPower, MecanumDrive.Motor.Vector2D(-1.0, 0.2), 0.0)
             sleep(adjustByPower(moveToSideCraterSideTime + moveToMineralCraterSideTime * mineralPos))
             drive.stop()
+        }
+    }
 
+    /** Stage in which the robot uses its gyro to turn towards the depot. **/
+    inner class TurnTowardsDepot: State() {
+        override val name = "Turn towards depot"
+
+        override fun run(prev: State?, next: State?) {
             drive.steerWithPower(turnPower, 1.0)
             while (gyro.getAbsoluteAngle() <= claimDepotAngle - 6.0 && opModeIsActive()) {
                 telemetry.addData("Gyro", gyro.getAbsoluteAngle())
@@ -265,6 +279,14 @@ open class AutoOpMode: LinearOpMode() {
             }
             drive.stop()
 
+        }
+    }
+
+    /** Stage in which the robot travels to the depot. **/
+    inner class TravelToDepot: State() {
+        override val name = "Travel to depot"
+
+        override fun run(prev: State?, next: State?) {
             drive.forwardWithPower(moveToDepotCraterSidePower)
             sleep(2000)
             /* var location: Vision.Location?
@@ -364,6 +386,7 @@ open class AutoOpMode: LinearOpMode() {
 
         states.clear()
         // states.add(Land())
+        states.add(GatherVisionData())
         states.add(MoveFromLander())
 
         while (opModeIsActive() && !gyro.isCalibrated) {
@@ -374,23 +397,30 @@ open class AutoOpMode: LinearOpMode() {
         telemetry.update()
     }
 
-    protected fun addFallbackStages() {
+    /** Adds states to be used in case a location cannot be determined. **/
+    protected open fun addFallbackStates() {
         states.addAll(arrayOf(
-                KnockMineralCraterSide()
+                KnockMineralDepotSide()
         ))
     }
 
-    protected fun addDepotStages() {
+    /** Adds states to be used when the robot starts on the depot side. **/
+    protected open fun addDepotStates() {
         states.addAll(arrayOf(
                 KnockMineralDepotSide(),
+                TurnTowardsDepot(),
+                ExitDepot(),
                 ClaimDepot(),
                 ParkAtCrater()
         ))
     }
 
-    protected fun addCraterStages() {
+    /** Adds states to be used when the robot starts on the crater side. **/
+    protected open fun addCraterStates() {
         states.addAll(arrayOf(
                 KnockMineralCraterSide(),
+                MoveToSideCraterSide(),
+                TurnTowardsDepot(),
                 TravelToDepot(),
                 ClaimDepot(),
                 ParkAtCrater()

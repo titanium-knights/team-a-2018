@@ -18,8 +18,8 @@ public class TeleOpMode extends OpMode {
     private final int intakeMidPos = 480;
     private final int intakeOutPos = 1000;
 
-    private final double extakeInPos = 1.0;
-    private final double extakeOutPos = 0.0;
+    private final double extakeInPos = 0.95;
+    private final double extakeOutPos = 0.05;
 
     private void resetEncoder(DcMotor motor) {
         DcMotor.RunMode mode = motor.getMode();
