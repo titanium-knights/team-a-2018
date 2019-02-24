@@ -18,7 +18,7 @@ public class TeleOpMode extends OpMode {
     private final int intakeMidPos = 480;
     private final int intakeOutPos = 1000;
 
-    private final double extakeInPos = 0.95;
+    private final double extakeInPos = 0.97;
     private final double extakeOutPos = 0.05;
 
     private void resetEncoder(DcMotor motor) {
@@ -92,9 +92,11 @@ public class TeleOpMode extends OpMode {
                 intake.getBinMotor().setTargetPosition(intakeMidPos);
                 intake.moveBin(0.3);
             } else if (gamepad2.x) {
-                intake.getBinMotor().setMode(DcMotor.RunMode.RUN_TO_POSITION);
-                intake.getBinMotor().setTargetPosition(intakeInPos);
-                intake.moveBin(0.3);
+                if (gamepad2.a || intake.getCurrentPosition() < 1000) {
+                    intake.getBinMotor().setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                    intake.getBinMotor().setTargetPosition(intakeInPos);
+                    intake.moveBin(0.3);
+                }
             }
         }
 
@@ -119,7 +121,9 @@ public class TeleOpMode extends OpMode {
         // Move the extake bin out if UP on the D-Pad is pressed.
         // Move it in if DOWN is pressed.
         if (gamepad2.dpad_up) {
-            extake.moveBin(extakeOutPos);
+            if (gamepad2.a || extake.getCurrentPosition() > 450) {
+                extake.moveBin(extakeOutPos);
+            }
         } else if (gamepad2.dpad_down) {
             extake.moveBin(extakeInPos);
         }
