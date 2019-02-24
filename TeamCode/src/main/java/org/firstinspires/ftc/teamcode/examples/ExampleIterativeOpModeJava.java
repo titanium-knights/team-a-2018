@@ -10,6 +10,11 @@ import org.firstinspires.ftc.teamcode.sensing.Gyro;
 import org.firstinspires.ftc.teamcode.sensing.IMUGyro;
 import org.firstinspires.ftc.teamcode.sensing.Vision;
 
+/**
+ * A bare-bones iterative op mode in Java.
+ * Runs by repeatedly calling loop over and over again.
+ * Good for Tele-Op op modes.
+ */
 @TeleOp(name = "NAME HERE") // TODO: Add a group name
 @Disabled // TODO: Delete this line to enable your op mode
 public class ExampleIterativeOpModeJava extends OpMode {

@@ -10,6 +10,11 @@ import org.firstinspires.ftc.teamcode.sensing.Gyro;
 import org.firstinspires.ftc.teamcode.sensing.IMUGyro;
 import org.firstinspires.ftc.teamcode.sensing.Vision;
 
+/**
+ * A bare-bones linear op mode in Java.
+ * Runs by calling a method once and is slightly simpler to implement than an iterative op mode.
+ * Good for Autonomous op modes.
+ */
 @Autonomous(name = "NAME HERE") // TODO: Add a name and group
 @Disabled // TODO: Delete this line to enable your op mode
 public class ExampleLinearOpModeJava extends LinearOpMode {

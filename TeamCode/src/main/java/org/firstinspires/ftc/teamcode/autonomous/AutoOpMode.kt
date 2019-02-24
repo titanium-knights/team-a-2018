@@ -40,7 +40,7 @@ open class AutoOpMode: LinearOpMode() {
     val visionTime = 2000
 
     /** How long the robot should move horizontally towards a mineral when started from the depot side, in milliseconds. (M) **/
-    val moveToMineralDepotSideTime = 2700
+    val moveToMineralDepotSideTime = 2600
 
     /** How long the robot should move horizontally towards a mineral when started from the depot side, in milliseconds. (M) **/
     val moveToMineralCraterSideTime = 2700
@@ -70,7 +70,7 @@ open class AutoOpMode: LinearOpMode() {
     val moveToDepotCraterSidePower = standardPower
 
     /** Threshold at which the robot must stop while moving to the depot from the crater side, in the vision coordinate system. (V) **/
-    val moveToDepotCraterSideThreshold = 0.0
+    // val moveToDepotCraterSideThreshold = 0.0
 
     /** Power at which the robot should rotate the intake, in milliseconds. (2) **/
     val rotateIntakePower = 0.3
@@ -80,9 +80,6 @@ open class AutoOpMode: LinearOpMode() {
 
     /** How long the robot should pause after extending the intake, in milliseconds. (2) **/
     val claimDepotPauseTime = 1000
-
-    /** How long the robot should move towards the side of the field after claiming the depot. (G) **/
-    val moveToSideTime = 1000
 
     /** How long the robot should move towards the crater, in milliseconds. (H) **/
     val parkAtCraterDepotSideTime = 7600
@@ -109,7 +106,7 @@ open class AutoOpMode: LinearOpMode() {
         abstract fun run(prev: State?, next: State?)
     }
 
-    /** Work-in-progress stage in which the robot lands. **/
+    /** Work-in-progress state in which the robot lands. **/
     inner class Land: State() {
         override val name = "Land"
 
@@ -118,7 +115,7 @@ open class AutoOpMode: LinearOpMode() {
         }
     }
 
-    /** Stage in which the robot moves away from the lander. (A) **/
+    /** State in which the robot moves away from the lander. (A) **/
     inner class MoveFromLander: State() {
         override val name = "Move from lander"
 
@@ -129,7 +126,7 @@ open class AutoOpMode: LinearOpMode() {
         }
     }
 
-    /** Stage in which the robot gathers vision data. (1) **/
+    /** State in which the robot gathers vision data. (1) **/
     inner class GatherVisionData(val shouldFindLocation: Boolean = true): State() {
         override val name = "Gather vision data"
 
@@ -175,7 +172,7 @@ open class AutoOpMode: LinearOpMode() {
             }
 
             mineralPos = when (measurementsTaken > 0) {
-                true -> if (goldMineralPosSum / measurementsTaken > 500) 1 else 0
+                true -> if (goldMineralPosSum / measurementsTaken > 700) 1 else 0
                 else -> -1
             }
 
@@ -189,7 +186,7 @@ open class AutoOpMode: LinearOpMode() {
         }
     }
 
-    /** Stage in which the robot knocks the mineral from the depot side. **/
+    /** State in which the robot knocks the mineral from the depot side. **/
     inner class KnockMineralDepotSide: State() {
         override val name = "Knock mineral (depot)"
 
@@ -206,7 +203,7 @@ open class AutoOpMode: LinearOpMode() {
         }
     }
 
-    /** Stage in which the robot enters the depot from the depot side. **/
+    /** State in which the robot enters the depot from the depot side. **/
     inner class EnterDepot: State() {
         override val name = "Enter depot"
 
@@ -223,7 +220,7 @@ open class AutoOpMode: LinearOpMode() {
         }
     }
 
-    /** Stage in which the robot exits the depot. **/
+    /** State in which the robot exits the depot. **/
     inner class ExitDepot: State() {
         override val name = "Exit depot"
 
@@ -234,7 +231,7 @@ open class AutoOpMode: LinearOpMode() {
         }
     }
 
-    /** Stage in which the robot knocks the mineral and travels to the crater from the depot side. **/
+    /** State in which the robot knocks the mineral and travels to the crater from the depot side. **/
     inner class KnockMineralCraterSide: State() {
         override val name = "Knock mineral (crater)"
 
@@ -255,7 +252,7 @@ open class AutoOpMode: LinearOpMode() {
         }
     }
 
-    /** Stage in which the robot moves to the side to prepare to travel to the depot. **/
+    /** State in which the robot moves to the side to prepare to travel to the depot. **/
     inner class MoveToSideCraterSide: State() {
         override val name = "Move to side"
 
@@ -266,7 +263,7 @@ open class AutoOpMode: LinearOpMode() {
         }
     }
 
-    /** Stage in which the robot uses its gyro to turn towards the depot when started from the crater. **/
+    /** State in which the robot uses its gyro to turn towards the depot when started from the crater. **/
     inner class TurnTowardsDepotCraterSide: State() {
         override val name = "Turn towards depot"
 
@@ -282,7 +279,7 @@ open class AutoOpMode: LinearOpMode() {
         }
     }
 
-    /** Stage in which the robot uses its gyro to turn towards the depot when started from the depot. **/
+    /** State in which the robot uses its gyro to turn towards the depot when started from the depot. **/
     inner class TurnTowardsDepotDepotSide: State() {
         override val name = "Turn towards depot (depot)"
 
@@ -297,7 +294,7 @@ open class AutoOpMode: LinearOpMode() {
         }
     }
 
-    /** Stage in which the robot travels to the depot. **/
+    /** State in which the robot travels to the depot. **/
     inner class TravelToDepot: State() {
         override val name = "Travel to depot"
 
@@ -313,7 +310,7 @@ open class AutoOpMode: LinearOpMode() {
         }
     }
 
-    /** Stage in which the robot uses its intake to claim the depot. (2) **/
+    /** State in which the robot uses its intake to claim the depot. (2) **/
     inner class ClaimDepot: State() {
         override val name = "Claim depot"
 
@@ -342,7 +339,7 @@ open class AutoOpMode: LinearOpMode() {
         }
     }
 
-    /** Stage in which the robot travels to and parks at the crater when started from the crater side. **/
+    /** State in which the robot travels to and parks at the crater when started from the crater side. **/
     inner class ParkAtCraterDepotSide: State() {
         override val name = "Park at crater (depot side)"
 
@@ -368,7 +365,7 @@ open class AutoOpMode: LinearOpMode() {
         }
     }
 
-    /** Stage in which the robot travels to and parks at the crater when started from the crater side. **/
+    /** State in which the robot travels to and parks at the crater when started from the crater side. **/
     inner class ParkAtCraterCraterSide: State() {
         override val name = "Park at crater (crater side)"
 
