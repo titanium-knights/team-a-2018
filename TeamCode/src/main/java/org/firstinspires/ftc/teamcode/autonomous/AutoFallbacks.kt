@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous
 
 /** Autonomous op mode to use in case there is a chance of collision with the other team's robot. **/
 @Autonomous(name = "Autonomous Op Mode - Fallback on Crater Side", group = "Fallbacks")
-open class AutoOpModeFallbackOnCraterSide: AutoOpMode() {
+class AutoOpModeFallbackOnCraterSide: AutoOpMode() {
     override fun addCraterStates() {
         states.add(KnockMineralDepotSide())
     }

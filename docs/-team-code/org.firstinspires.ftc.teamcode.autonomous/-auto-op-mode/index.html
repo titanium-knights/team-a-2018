@@ -25,6 +25,24 @@
 </tr>
 <tr>
 <td>
+<p><a href="-enter-depot/index.html">EnterDepot</a></p>
+</td>
+<td>
+<code><span class="keyword">inner</span> <span class="keyword">class </span><span class="identifier">EnterDepot</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-state/index.html"><span class="identifier">State</span></a></code>
+<p>Stage in which the robot enters the depot from the depot side.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-exit-depot/index.html">ExitDepot</a></p>
+</td>
+<td>
+<code><span class="keyword">inner</span> <span class="keyword">class </span><span class="identifier">ExitDepot</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-state/index.html"><span class="identifier">State</span></a></code>
+<p>Stage in which the robot exits the depot.</p>
+</td>
+</tr>
+<tr>
+<td>
 <p><a href="-gather-vision-data/index.html">GatherVisionData</a></p>
 </td>
 <td>
@@ -70,6 +88,15 @@
 </tr>
 <tr>
 <td>
+<p><a href="-move-to-side-crater-side/index.html">MoveToSideCraterSide</a></p>
+</td>
+<td>
+<code><span class="keyword">inner</span> <span class="keyword">class </span><span class="identifier">MoveToSideCraterSide</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-state/index.html"><span class="identifier">State</span></a></code>
+<p>Stage in which the robot moves to the side to prepare to travel to the depot.</p>
+</td>
+</tr>
+<tr>
+<td>
 <p><a href="-park-at-crater/index.html">ParkAtCrater</a></p>
 </td>
 <td>
@@ -91,7 +118,18 @@
 <p><a href="-travel-to-depot/index.html">TravelToDepot</a></p>
 </td>
 <td>
-<code><span class="keyword">inner</span> <span class="keyword">class </span><span class="identifier">TravelToDepot</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-state/index.html"><span class="identifier">State</span></a></code></td>
+<code><span class="keyword">inner</span> <span class="keyword">class </span><span class="identifier">TravelToDepot</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-state/index.html"><span class="identifier">State</span></a></code>
+<p>Stage in which the robot travels to the depot.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-turn-towards-depot/index.html">TurnTowardsDepot</a></p>
+</td>
+<td>
+<code><span class="keyword">inner</span> <span class="keyword">class </span><span class="identifier">TurnTowardsDepot</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-state/index.html"><span class="identifier">State</span></a></code>
+<p>Stage in which the robot uses its gyro to turn towards the depot.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -277,20 +315,20 @@
 </tr>
 <tr>
 <td>
+<p><a href="rotate-intake-pos.html">rotateIntakePos</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">rotateIntakePos</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
+<p>Point to which the robot should rotate the intake. (2)</p>
+</td>
+</tr>
+<tr>
+<td>
 <p><a href="rotate-intake-power.html">rotateIntakePower</a></p>
 </td>
 <td>
 <code><span class="keyword">val </span><span class="identifier">rotateIntakePower</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a></code>
 <p>Power at which the robot should rotate the intake, in milliseconds. (2)</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="rotate-intake-time.html">rotateIntakeTime</a></p>
-</td>
-<td>
-<code><span class="keyword">val </span><span class="identifier">rotateIntakeTime</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
-<p>How long the robot should rotate the intake, in milliseconds. (2)</p>
 </td>
 </tr>
 <tr>
@@ -342,24 +380,30 @@ All millisecond values are multiplied by this value.</p>
 <tbody>
 <tr>
 <td>
-<p><a href="add-crater-stages.html">addCraterStages</a></p>
+<p><a href="add-crater-states.html">addCraterStates</a></p>
 </td>
 <td>
-<code><span class="keyword">fun </span><span class="identifier">addCraterStages</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">addCraterStates</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Adds states to be used when the robot starts on the crater side.</p>
+</td>
 </tr>
 <tr>
 <td>
-<p><a href="add-depot-stages.html">addDepotStages</a></p>
+<p><a href="add-depot-states.html">addDepotStates</a></p>
 </td>
 <td>
-<code><span class="keyword">fun </span><span class="identifier">addDepotStages</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">addDepotStates</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Adds states to be used when the robot starts on the depot side.</p>
+</td>
 </tr>
 <tr>
 <td>
-<p><a href="add-fallback-stages.html">addFallbackStages</a></p>
+<p><a href="add-fallback-states.html">addFallbackStates</a></p>
 </td>
 <td>
-<code><span class="keyword">fun </span><span class="identifier">addFallbackStages</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">addFallbackStates</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Adds states to be used in case a location cannot be determined.</p>
+</td>
 </tr>
 <tr>
 <td>
@@ -392,14 +436,36 @@ All millisecond values are multiplied by this value.</p>
 <p><a href="../-auto-op-mode-crater/index.html">AutoOpModeCrater</a></p>
 </td>
 <td>
-<code><span class="keyword">class </span><span class="identifier">AutoOpModeCrater</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">AutoOpMode</span></a></code></td>
+<code><span class="keyword">class </span><span class="identifier">AutoOpModeCrater</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">AutoOpMode</span></a></code>
+<p>Autonomous op mode to use in case the robot cannot determine its position on the crater side.</p>
+</td>
 </tr>
 <tr>
 <td>
 <p><a href="../-auto-op-mode-depot/index.html">AutoOpModeDepot</a></p>
 </td>
 <td>
-<code><span class="keyword">class </span><span class="identifier">AutoOpModeDepot</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">AutoOpMode</span></a></code></td>
+<code><span class="keyword">class </span><span class="identifier">AutoOpModeDepot</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">AutoOpMode</span></a></code>
+<p>Autonomous op mode to use in case the robot cannot determine its position on the depot side.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-auto-op-mode-fallback/index.html">AutoOpModeFallback</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">AutoOpModeFallback</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">AutoOpMode</span></a></code>
+<p>Autonomous op mode to use in case the normal one completely borks.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-auto-op-mode-fallback-on-crater-side/index.html">AutoOpModeFallbackOnCraterSide</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">AutoOpModeFallbackOnCraterSide</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">AutoOpMode</span></a></code>
+<p>Autonomous op mode to use in case there is a chance of collision with the other team's robot.</p>
+</td>
 </tr>
 <tr>
 <td>

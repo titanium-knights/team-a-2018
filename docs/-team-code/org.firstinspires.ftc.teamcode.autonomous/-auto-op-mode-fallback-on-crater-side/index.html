@@ -1,15 +1,15 @@
 <HTML>
 <HEAD>
 <meta charset="UTF-8">
-<title>AutoOpModeCrater - TeamCode</title>
+<title>AutoOpModeFallbackOnCraterSide - TeamCode</title>
 <link rel="stylesheet" href="../../../style.css">
 </HEAD>
 <BODY>
-<a href="../../index.html">TeamCode</a>&nbsp;/&nbsp;<a href="../index.html">org.firstinspires.ftc.teamcode.autonomous</a>&nbsp;/&nbsp;<a href="./index.html">AutoOpModeCrater</a><br/>
+<a href="../../index.html">TeamCode</a>&nbsp;/&nbsp;<a href="../index.html">org.firstinspires.ftc.teamcode.autonomous</a>&nbsp;/&nbsp;<a href="./index.html">AutoOpModeFallbackOnCraterSide</a><br/>
 <br/>
-<h1>AutoOpModeCrater</h1>
-<code><span class="identifier">@Autonomous</span><span class="symbol">(</span>"Autonomous Op Mode - Crater Side"<span class="symbol">, </span>"Fallbacks"<span class="symbol">)</span> <span class="keyword">class </span><span class="identifier">AutoOpModeCrater</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-auto-op-mode/index.html"><span class="identifier">AutoOpMode</span></a></code>
-<p>Autonomous op mode to use in case the robot cannot determine its position on the crater side.</p>
+<h1>AutoOpModeFallbackOnCraterSide</h1>
+<code><span class="identifier">@Autonomous</span><span class="symbol">(</span>"Autonomous Op Mode - Fallback on Crater Side"<span class="symbol">, </span>"Fallbacks"<span class="symbol">)</span> <span class="keyword">class </span><span class="identifier">AutoOpModeFallbackOnCraterSide</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-auto-op-mode/index.html"><span class="identifier">AutoOpMode</span></a></code>
+<p>Autonomous op mode to use in case there is a chance of collision with the other team's robot.</p>
 <h3>Constructors</h3>
 <table>
 <tbody>
@@ -18,8 +18,8 @@
 <p><a href="-init-.html">&lt;init&gt;</a></p>
 </td>
 <td>
-<code><span class="identifier">AutoOpModeCrater</span><span class="symbol">(</span><span class="symbol">)</span></code>
-<p>Autonomous op mode to use in case the robot cannot determine its position on the crater side.</p>
+<code><span class="identifier">AutoOpModeFallbackOnCraterSide</span><span class="symbol">(</span><span class="symbol">)</span></code>
+<p>Autonomous op mode to use in case there is a chance of collision with the other team's robot.</p>
 </td>
 </tr>
 </tbody>
@@ -257,25 +257,18 @@ All millisecond values are multiplied by this value.</p>
 <tbody>
 <tr>
 <td>
-<p><a href="run-op-mode.html">runOpMode</a></p>
+<p><a href="add-crater-states.html">addCraterStates</a></p>
 </td>
 <td>
-<code><span class="keyword">fun </span><span class="identifier">runOpMode</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+<code><span class="keyword">fun </span><span class="identifier">addCraterStates</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Adds states to be used when the robot starts on the crater side.</p>
+</td>
 </tr>
 </tbody>
 </table>
 <h3>Inherited Functions</h3>
 <table>
 <tbody>
-<tr>
-<td>
-<p><a href="../-auto-op-mode/add-crater-states.html">addCraterStates</a></p>
-</td>
-<td>
-<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">addCraterStates</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
-<p>Adds states to be used when the robot starts on the crater side.</p>
-</td>
-</tr>
 <tr>
 <td>
 <p><a href="../-auto-op-mode/add-depot-states.html">addDepotStates</a></p>
@@ -300,6 +293,13 @@ All millisecond values are multiplied by this value.</p>
 </td>
 <td>
 <code><span class="keyword">fun </span><span class="identifier">run</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="../-auto-op-mode/run-op-mode.html">runOpMode</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">runOpMode</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 <tr>
 <td>

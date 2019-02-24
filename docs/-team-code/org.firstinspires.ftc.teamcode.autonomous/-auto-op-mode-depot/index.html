@@ -9,6 +9,7 @@
 <br/>
 <h1>AutoOpModeDepot</h1>
 <code><span class="identifier">@Autonomous</span><span class="symbol">(</span>"Autonomous Op Mode - Depot Side"<span class="symbol">, </span>"Fallbacks"<span class="symbol">)</span> <span class="keyword">class </span><span class="identifier">AutoOpModeDepot</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-auto-op-mode/index.html"><span class="identifier">AutoOpMode</span></a></code>
+<p>Autonomous op mode to use in case the robot cannot determine its position on the depot side.</p>
 <h3>Constructors</h3>
 <table>
 <tbody>
@@ -17,7 +18,9 @@
 <p><a href="-init-.html">&lt;init&gt;</a></p>
 </td>
 <td>
-<code><span class="identifier">AutoOpModeDepot</span><span class="symbol">(</span><span class="symbol">)</span></code></td>
+<code><span class="identifier">AutoOpModeDepot</span><span class="symbol">(</span><span class="symbol">)</span></code>
+<p>Autonomous op mode to use in case the robot cannot determine its position on the depot side.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -189,20 +192,20 @@
 </tr>
 <tr>
 <td>
+<p><a href="../-auto-op-mode/rotate-intake-pos.html">rotateIntakePos</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">rotateIntakePos</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
+<p>Point to which the robot should rotate the intake. (2)</p>
+</td>
+</tr>
+<tr>
+<td>
 <p><a href="../-auto-op-mode/rotate-intake-power.html">rotateIntakePower</a></p>
 </td>
 <td>
 <code><span class="keyword">val </span><span class="identifier">rotateIntakePower</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a></code>
 <p>Power at which the robot should rotate the intake, in milliseconds. (2)</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="../-auto-op-mode/rotate-intake-time.html">rotateIntakeTime</a></p>
-</td>
-<td>
-<code><span class="keyword">val </span><span class="identifier">rotateIntakeTime</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
-<p>How long the robot should rotate the intake, in milliseconds. (2)</p>
 </td>
 </tr>
 <tr>
@@ -266,24 +269,30 @@ All millisecond values are multiplied by this value.</p>
 <tbody>
 <tr>
 <td>
-<p><a href="../-auto-op-mode/add-crater-stages.html">addCraterStages</a></p>
+<p><a href="../-auto-op-mode/add-crater-states.html">addCraterStates</a></p>
 </td>
 <td>
-<code><span class="keyword">fun </span><span class="identifier">addCraterStages</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">addCraterStates</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Adds states to be used when the robot starts on the crater side.</p>
+</td>
 </tr>
 <tr>
 <td>
-<p><a href="../-auto-op-mode/add-depot-stages.html">addDepotStages</a></p>
+<p><a href="../-auto-op-mode/add-depot-states.html">addDepotStates</a></p>
 </td>
 <td>
-<code><span class="keyword">fun </span><span class="identifier">addDepotStages</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">addDepotStates</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Adds states to be used when the robot starts on the depot side.</p>
+</td>
 </tr>
 <tr>
 <td>
-<p><a href="../-auto-op-mode/add-fallback-stages.html">addFallbackStages</a></p>
+<p><a href="../-auto-op-mode/add-fallback-states.html">addFallbackStates</a></p>
 </td>
 <td>
-<code><span class="keyword">fun </span><span class="identifier">addFallbackStages</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">addFallbackStates</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Adds states to be used in case a location cannot be determined.</p>
+</td>
 </tr>
 <tr>
 <td>
