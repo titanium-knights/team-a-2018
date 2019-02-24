@@ -1,8 +1,8 @@
 $dokka.format:html
 $dokka.linkExtension:html
 $dokka.location:org.firstinspires.ftc.teamcode.utils$stopAndResetEncoder(com.qualcomm.robotcore.hardware.DcMotor)org.firstinspires.ftc.teamcode.utils/com.qualcomm.robotcore.hardware.-dc-motor/stop-and-reset-encoder.html
-org.firstinspires.ftc.teamcode
 org.firstinspires.ftc.teamcode.autonomous
+org.firstinspires.ftc.teamcode.examples
 org.firstinspires.ftc.teamcode.movement
 org.firstinspires.ftc.teamcode.movement.deprecated
 org.firstinspires.ftc.teamcode.sensing

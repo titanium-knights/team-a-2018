@@ -15,8 +15,6 @@ import java.util.*
 import kotlin.math.abs
 import kotlin.math.sign
 
-private typealias ParkAtCraterCraterSide = AutoOpMode.ParkAtCraterDepotSide
-
 /**
  * The autonomous op mode.
  *
@@ -36,7 +34,7 @@ open class AutoOpMode: LinearOpMode() {
     val turnPower = 0.3
 
     /** How long the robot should move away from the lander, in power-adjusted milliseconds. (A) **/
-    val moveFromLanderTime = 1800
+    val moveFromLanderTime = 1400
 
     /** How long the robot should obtain vision data for, in milliseconds. (1) **/
     val visionTime = 2000
@@ -48,10 +46,10 @@ open class AutoOpMode: LinearOpMode() {
     val moveToMineralCraterSideTime = 2700
 
     /** How long the robot should move to knock a mineral on the depot side, in milliseconds. (B) **/
-    val knockMineralDepotSideTime = 2500
+    val knockMineralDepotSideTime = 2700
 
     /** How long the robot should move after knocking a mineral on the depot side, in milliseconds. (C) **/
-    val postKnockMineralDepotSideTime = 2100
+    val postKnockMineralDepotSideTime = 1900
 
     /** How long the robot should move to knock a mineral on the crater side, in milliseconds. (C) **/
     val knockMineralCraterSideTime = 800
@@ -60,13 +58,13 @@ open class AutoOpMode: LinearOpMode() {
     val knockMineralReturnCraterSideTime = 1150
 
     /** How long the robot should move from the center mineral towards the side of the field before traveling to the depot, in milliseconds. (D) **/
-    val moveToSideCraterSideTime = 7300
+    val moveToSideCraterSideTime = 7600
 
     /** Angle to which the robot should turn in order to claim the depot when started from the crater side, in degrees. (3) **/
     val claimDepotAngle = 45.0
 
     /** How long the robot exits the depot for when started from the depot side. **/
-    val exitDepotTime = 1500
+    val exitDepotTime = 1700
 
     /** Power at which the robot moves along the side of the field towards the depot. (V) **/
     val moveToDepotCraterSidePower = standardPower
@@ -87,7 +85,7 @@ open class AutoOpMode: LinearOpMode() {
     val moveToSideTime = 1000
 
     /** How long the robot should move towards the crater, in milliseconds. (H) **/
-    val parkAtCraterDepotSideTime = 9000
+    val parkAtCraterDepotSideTime = 7600
 
     // END Quick tuning variables
 
@@ -305,7 +303,7 @@ open class AutoOpMode: LinearOpMode() {
 
         override fun run(prev: State?, next: State?) {
             drive.forwardWithPower(moveToDepotCraterSidePower)
-            sleep(1500)
+            sleep(800)
             /* var location: Vision.Location?
             do {
                 location = vision.location
@@ -364,7 +362,33 @@ open class AutoOpMode: LinearOpMode() {
             }
             drive.stop()
 
-            drive.forwardWithPower(standardPower)
+            drive.move(standardPower, MecanumDrive.Motor.Vector2D(0.8, 1.0), 0.0)
+            sleep(adjustByPower(parkAtCraterDepotSideTime / 2))
+            drive.stop()
+        }
+    }
+
+    /** Stage in which the robot travels to and parks at the crater when started from the crater side. **/
+    inner class ParkAtCraterCraterSide: State() {
+        override val name = "Park at crater (crater side)"
+
+        override fun run(prev: State?, next: State?) {
+            drive.forwardWithPower(-standardPower)
+            sleep(adjustByPower(parkAtCraterDepotSideTime / 2))
+            drive.stop()
+
+            val startAngle = gyro.getAbsoluteAngle()
+            val target = if (startAngle == 0.0) 180.0 else sign(startAngle) * (abs(startAngle) - 180)
+            val targetRange = (target-2.0)..(target+2.0)
+            drive.steerWithPower(turnPower, -1.0)
+            while (!targetRange.contains(gyro.getAbsoluteAngle()) && opModeIsActive()) {
+                telemetry.addData("Gyro", gyro.getAbsoluteAngle())
+                telemetry.update()
+                idle()
+            }
+            drive.stop()
+
+            drive.move(standardPower, MecanumDrive.Motor.Vector2D(-0.8, 1.0), 0.0)
             sleep(adjustByPower(parkAtCraterDepotSideTime / 2))
             drive.stop()
         }
