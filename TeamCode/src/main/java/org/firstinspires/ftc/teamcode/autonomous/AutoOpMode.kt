@@ -15,6 +15,8 @@ import java.util.*
 import kotlin.math.abs
 import kotlin.math.sign
 
+private typealias ParkAtCraterCraterSide = AutoOpMode.ParkAtCraterDepotSide
+
 /**
  * The autonomous op mode.
  *
@@ -58,7 +60,7 @@ open class AutoOpMode: LinearOpMode() {
     val knockMineralReturnCraterSideTime = 1150
 
     /** How long the robot should move from the center mineral towards the side of the field before traveling to the depot, in milliseconds. (D) **/
-    val moveToSideCraterSideTime = 6600
+    val moveToSideCraterSideTime = 7300
 
     /** Angle to which the robot should turn in order to claim the depot when started from the crater side, in degrees. (3) **/
     val claimDepotAngle = 45.0
@@ -86,7 +88,6 @@ open class AutoOpMode: LinearOpMode() {
 
     /** How long the robot should move towards the crater, in milliseconds. (H) **/
     val parkAtCraterDepotSideTime = 9000
-    val parkAtCraterCraterSideTime = 6600
 
     // END Quick tuning variables
 
@@ -303,22 +304,14 @@ open class AutoOpMode: LinearOpMode() {
         override val name = "Travel to depot"
 
         override fun run(prev: State?, next: State?) {
-            // drive.forwardWithPower(moveToDepotCraterSidePower)
-            // sleep(1500)
+            drive.forwardWithPower(moveToDepotCraterSidePower)
+            sleep(1500)
             /* var location: Vision.Location?
             do {
                 location = vision.location
                 sleep(50)
             } while (opModeIsActive() && (location == null || (sign(location.x) != -sign(location.y) || abs(location.y) < moveToDepotCraterSideThreshold))) */
-            // drive.stop()
-
-            intake.motor.mode = DcMotor.RunMode.RUN_TO_POSITION
-            intake.motor.targetPosition = intake.range!!.endInclusive
-            intake.move(1.0)
-            while (intake.motor.isBusy && opModeIsActive()) {
-                idle()
-            }
-            intake.stop()
+            drive.stop()
         }
     }
 
@@ -327,12 +320,6 @@ open class AutoOpMode: LinearOpMode() {
         override val name = "Claim depot"
 
         override fun run(prev: State?, next: State?) {
-            if (prev is TravelToDepot) {
-                intake.move(1.0)
-                sleep(300)
-                intake.stop()
-            }
-
             val mode = intake.binMotor.mode
 
             intake.binMotor.mode = DcMotor.RunMode.RUN_TO_POSITION
@@ -354,16 +341,6 @@ open class AutoOpMode: LinearOpMode() {
             }
             intake.stopBin()
             intake.binMotor.mode = mode
-
-            if (prev is TravelToDepot) {
-                intake.motor.targetPosition = intake.range!!.start
-                intake.move(1.0)
-                while (intake.motor.isBusy && opModeIsActive()) {
-                    idle()
-                }
-                intake.stop()
-                intake.motor.mode = DcMotor.RunMode.RUN_WITHOUT_ENCODER
-            }
         }
     }
 
@@ -389,31 +366,6 @@ open class AutoOpMode: LinearOpMode() {
 
             drive.forwardWithPower(standardPower)
             sleep(adjustByPower(parkAtCraterDepotSideTime / 2))
-            drive.stop()
-        }
-    }
-
-    inner class ParkAtCraterCraterSide: State() {
-        override val name = "Park at crater (crater side)"
-
-        override fun run(prev: State?, next: State?) {
-            drive.forwardWithPower(-standardPower)
-            sleep(adjustByPower(parkAtCraterCraterSideTime / 2))
-            drive.stop()
-
-            val startAngle = gyro.getAbsoluteAngle()
-            val target = if (startAngle == 0.0) 180.0 else sign(startAngle) * (abs(startAngle) - 180)
-            val targetRange = (target-2.0)..(target+2.0)
-            drive.steerWithPower(turnPower, -1.0)
-            while (!targetRange.contains(gyro.getAbsoluteAngle()) && opModeIsActive()) {
-                telemetry.addData("Gyro", gyro.getAbsoluteAngle())
-                telemetry.update()
-                idle()
-            }
-            drive.stop()
-
-            drive.forwardWithPower(standardPower)
-            sleep(adjustByPower(parkAtCraterCraterSideTime / 2))
             drive.stop()
         }
     }
