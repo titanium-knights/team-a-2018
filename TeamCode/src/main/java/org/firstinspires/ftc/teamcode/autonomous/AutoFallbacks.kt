@@ -11,7 +11,7 @@ class AutoOpModeFallbackOnCraterSide: AutoOpMode() {
 }
 
 /** Autonomous op mode to use in case the robot cannot determine its position on the depot side. **/
-@Autonomous(name = "Autonomous Op Mode - Depot Side", group = "Fallbacks")
+@Autonomous(name = "Autonomous Op Mode - Depot Side", group = "* Main")
 class AutoOpModeDepot: AutoOpMode() {
     override fun runOpMode() {
         setup()
@@ -23,7 +23,7 @@ class AutoOpModeDepot: AutoOpMode() {
 }
 
 /** Autonomous op mode to use in case the robot cannot determine its position on the crater side. **/
-@Autonomous(name = "Autonomous Op Mode - Crater Side", group = "Fallbacks")
+@Autonomous(name = "Autonomous Op Mode - Crater Side", group = "* Main")
 class AutoOpModeCrater: AutoOpMode() {
     override fun runOpMode() {
         setup()

@@ -20,7 +20,7 @@ import kotlin.math.sign
  *
  * The letters A-M and numbers 1-3 found in the documentation for the quick tuning variables correspond to the letters and numbers in the autonomous plan diagram.
  * **/
-@Autonomous(name = "Autonomous Op Mode", group = "* Main")
+// @Autonomous(name = "Autonomous Op Mode", group = "* Main")
 open class AutoOpMode: LinearOpMode() {
     // Quick tuning variables
 
@@ -34,37 +34,37 @@ open class AutoOpMode: LinearOpMode() {
     val turnPower = 0.3
 
     /** How long the robot should move away from the lander, in power-adjusted milliseconds. (A) **/
-    val moveFromLanderTime = 2000
+    val moveFromLanderTime = 1800
 
     /** How long the robot should obtain vision data for, in milliseconds. (1) **/
     val visionTime = 2000
 
     /** How long the robot should move horizontally towards a mineral when started from the depot side, in milliseconds. (M) **/
-    val moveToMineralDepotSideTime = 1800
+    val moveToMineralDepotSideTime = 2700
 
     /** How long the robot should move horizontally towards a mineral when started from the depot side, in milliseconds. (M) **/
     val moveToMineralCraterSideTime = 2700
 
     /** How long the robot should move to knock a mineral on the depot side, in milliseconds. (B) **/
-    val knockMineralDepotSideTime = 2000
+    val knockMineralDepotSideTime = 2500
 
     /** How long the robot should move after knocking a mineral on the depot side, in milliseconds. (C) **/
-    val postKnockMineralDepotSideTime = 1000
+    val postKnockMineralDepotSideTime = 2100
 
     /** How long the robot should move to knock a mineral on the crater side, in milliseconds. (C) **/
-    val knockMineralCraterSideTime = 1000
+    val knockMineralCraterSideTime = 800
 
     /** How long the robot should move after knocking a mineral on the crater side, in milliseconds. (C) **/
     val knockMineralReturnCraterSideTime = 1150
 
     /** How long the robot should move from the center mineral towards the side of the field before traveling to the depot, in milliseconds. (D) **/
-    val moveToSideCraterSideTime = 5500
+    val moveToSideCraterSideTime = 6600
 
     /** Angle to which the robot should turn in order to claim the depot when started from the crater side, in degrees. (3) **/
     val claimDepotAngle = 45.0
 
     /** How long the robot exits the depot for when started from the depot side. **/
-    val exitDepotTime = 1000
+    val exitDepotTime = 1500
 
     /** Power at which the robot moves along the side of the field towards the depot. (V) **/
     val moveToDepotCraterSidePower = standardPower
@@ -85,7 +85,8 @@ open class AutoOpMode: LinearOpMode() {
     val moveToSideTime = 1000
 
     /** How long the robot should move towards the crater, in milliseconds. (H) **/
-    val parkAtCraterTime = 7400
+    val parkAtCraterDepotSideTime = 9000
+    val parkAtCraterCraterSideTime = 6600
 
     // END Quick tuning variables
 
@@ -156,7 +157,7 @@ open class AutoOpMode: LinearOpMode() {
                 val measurements = vision.updatedRecognitions
                 if (measurements != null) {
                     measurements.filter {
-                        it.confidence > 0.50 && it.label == Vision.LABEL_GOLD_MINERAL
+                        it.label == Vision.LABEL_GOLD_MINERAL
                     }.maxBy { it.height }?.let {
                         telemetry.addData("Measurements Taken", measurementsTaken)
                         telemetry.addData("Gold Mineral X", it.left)
@@ -218,7 +219,7 @@ open class AutoOpMode: LinearOpMode() {
             }
 
             drive.forwardWithPower(-standardPower)
-            sleep(adjustByPower(knockMineralDepotSideTime))
+            sleep(adjustByPower(postKnockMineralDepotSideTime))
             drive.stop()
         }
     }
@@ -266,13 +267,13 @@ open class AutoOpMode: LinearOpMode() {
         }
     }
 
-    /** Stage in which the robot uses its gyro to turn towards the depot. **/
-    inner class TurnTowardsDepot: State() {
+    /** Stage in which the robot uses its gyro to turn towards the depot when started from the crater. **/
+    inner class TurnTowardsDepotCraterSide: State() {
         override val name = "Turn towards depot"
 
         override fun run(prev: State?, next: State?) {
             drive.steerWithPower(turnPower, 1.0)
-            while (gyro.getAbsoluteAngle() <= claimDepotAngle - 6.0 && opModeIsActive()) {
+            while (gyro.getAbsoluteAngle() <= claimDepotAngle - 4.0 && opModeIsActive()) {
                 telemetry.addData("Gyro", gyro.getAbsoluteAngle())
                 telemetry.update()
                 idle()
@@ -282,19 +283,42 @@ open class AutoOpMode: LinearOpMode() {
         }
     }
 
+    /** Stage in which the robot uses its gyro to turn towards the depot when started from the depot. **/
+    inner class TurnTowardsDepotDepotSide: State() {
+        override val name = "Turn towards depot (depot)"
+
+        override fun run(prev: State?, next: State?) {
+            drive.steerWithPower(turnPower, -1.0)
+            while (gyro.getAbsoluteAngle() >= -180 + claimDepotAngle + 9.0 && opModeIsActive()) {
+                telemetry.addData("Gyro", gyro.getAbsoluteAngle())
+                telemetry.update()
+                idle()
+            }
+            drive.stop()
+        }
+    }
+
     /** Stage in which the robot travels to the depot. **/
     inner class TravelToDepot: State() {
         override val name = "Travel to depot"
 
         override fun run(prev: State?, next: State?) {
-            drive.forwardWithPower(moveToDepotCraterSidePower)
-            sleep(2000)
+            // drive.forwardWithPower(moveToDepotCraterSidePower)
+            // sleep(1500)
             /* var location: Vision.Location?
             do {
                 location = vision.location
                 sleep(50)
             } while (opModeIsActive() && (location == null || (sign(location.x) != -sign(location.y) || abs(location.y) < moveToDepotCraterSideThreshold))) */
-            drive.stop()
+            // drive.stop()
+
+            intake.motor.mode = DcMotor.RunMode.RUN_TO_POSITION
+            intake.motor.targetPosition = intake.range!!.endInclusive
+            intake.move(1.0)
+            while (intake.motor.isBusy && opModeIsActive()) {
+                idle()
+            }
+            intake.stop()
         }
     }
 
@@ -303,6 +327,12 @@ open class AutoOpMode: LinearOpMode() {
         override val name = "Claim depot"
 
         override fun run(prev: State?, next: State?) {
+            if (prev is TravelToDepot) {
+                intake.move(1.0)
+                sleep(300)
+                intake.stop()
+            }
+
             val mode = intake.binMotor.mode
 
             intake.binMotor.mode = DcMotor.RunMode.RUN_TO_POSITION
@@ -324,21 +354,31 @@ open class AutoOpMode: LinearOpMode() {
             }
             intake.stopBin()
             intake.binMotor.mode = mode
+
+            if (prev is TravelToDepot) {
+                intake.motor.targetPosition = intake.range!!.start
+                intake.move(1.0)
+                while (intake.motor.isBusy && opModeIsActive()) {
+                    idle()
+                }
+                intake.stop()
+                intake.motor.mode = DcMotor.RunMode.RUN_WITHOUT_ENCODER
+            }
         }
     }
 
     /** Stage in which the robot travels to and parks at the crater when started from the crater side. **/
-    inner class ParkAtCrater: State() {
-        override val name = "Park at crater (crater side)"
+    inner class ParkAtCraterDepotSide: State() {
+        override val name = "Park at crater (depot side)"
 
         override fun run(prev: State?, next: State?) {
             drive.forwardWithPower(-standardPower)
-            sleep(adjustByPower(parkAtCraterTime / 2))
+            sleep(adjustByPower(parkAtCraterDepotSideTime / 2))
             drive.stop()
 
             val startAngle = gyro.getAbsoluteAngle()
             val target = if (startAngle == 0.0) 180.0 else sign(startAngle) * (abs(startAngle) - 180)
-            val targetRange = (target-4.0)..(target+4.0)
+            val targetRange = (target-2.0)..(target+2.0)
             drive.steerWithPower(turnPower, -1.0)
             while (!targetRange.contains(gyro.getAbsoluteAngle()) && opModeIsActive()) {
                 telemetry.addData("Gyro", gyro.getAbsoluteAngle())
@@ -348,7 +388,32 @@ open class AutoOpMode: LinearOpMode() {
             drive.stop()
 
             drive.forwardWithPower(standardPower)
-            sleep(adjustByPower(parkAtCraterTime / 2))
+            sleep(adjustByPower(parkAtCraterDepotSideTime / 2))
+            drive.stop()
+        }
+    }
+
+    inner class ParkAtCraterCraterSide: State() {
+        override val name = "Park at crater (crater side)"
+
+        override fun run(prev: State?, next: State?) {
+            drive.forwardWithPower(-standardPower)
+            sleep(adjustByPower(parkAtCraterCraterSideTime / 2))
+            drive.stop()
+
+            val startAngle = gyro.getAbsoluteAngle()
+            val target = if (startAngle == 0.0) 180.0 else sign(startAngle) * (abs(startAngle) - 180)
+            val targetRange = (target-2.0)..(target+2.0)
+            drive.steerWithPower(turnPower, -1.0)
+            while (!targetRange.contains(gyro.getAbsoluteAngle()) && opModeIsActive()) {
+                telemetry.addData("Gyro", gyro.getAbsoluteAngle())
+                telemetry.update()
+                idle()
+            }
+            drive.stop()
+
+            drive.forwardWithPower(standardPower)
+            sleep(adjustByPower(parkAtCraterCraterSideTime / 2))
             drive.stop()
         }
     }
@@ -385,9 +450,6 @@ open class AutoOpMode: LinearOpMode() {
         vision.init()
 
         states.clear()
-        // states.add(Land())
-        states.add(GatherVisionData())
-        states.add(MoveFromLander())
 
         while (opModeIsActive() && !gyro.isCalibrated) {
             sleep(50)
@@ -400,6 +462,7 @@ open class AutoOpMode: LinearOpMode() {
     /** Adds states to be used in case a location cannot be determined. **/
     protected open fun addFallbackStates() {
         states.addAll(arrayOf(
+                MoveFromLander(),
                 KnockMineralDepotSide()
         ))
     }
@@ -407,23 +470,26 @@ open class AutoOpMode: LinearOpMode() {
     /** Adds states to be used when the robot starts on the depot side. **/
     protected open fun addDepotStates() {
         states.addAll(arrayOf(
+                MoveFromLander(),
                 KnockMineralDepotSide(),
-                TurnTowardsDepot(),
+                EnterDepot(),
+                TurnTowardsDepotDepotSide(),
                 ExitDepot(),
                 ClaimDepot(),
-                ParkAtCrater()
+                ParkAtCraterDepotSide()
         ))
     }
 
     /** Adds states to be used when the robot starts on the crater side. **/
     protected open fun addCraterStates() {
         states.addAll(arrayOf(
+                MoveFromLander(),
                 KnockMineralCraterSide(),
                 MoveToSideCraterSide(),
-                TurnTowardsDepot(),
+                TurnTowardsDepotCraterSide(),
                 TravelToDepot(),
                 ClaimDepot(),
-                ParkAtCrater()
+                ParkAtCraterCraterSide()
         ))
     }
 
@@ -436,7 +502,7 @@ open class AutoOpMode: LinearOpMode() {
             val state = states.remove()
 
             telemetry.addData("Status", state.name)
-            telemetry.addData("States Left", states.size)
+            telemetry.addData("# of States", states.size)
             telemetry.update()
 
             state.run(previousState, states.peek())
