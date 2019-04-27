@@ -43,7 +43,7 @@ open class AutoOpMode: LinearOpMode() {
     val moveToMineralDepotSideTime = 2600
 
     /** How long the robot should move horizontally towards a mineral when started from the depot side, in milliseconds. (M) **/
-    val moveToMineralCraterSideTime = 2700
+    val moveToMineralCraterSideTime = 2230
 
     /** How long the robot should move to knock a mineral on the depot side, in milliseconds. (B) **/
     val knockMineralDepotSideTime = 2700
@@ -52,10 +52,10 @@ open class AutoOpMode: LinearOpMode() {
     val postKnockMineralDepotSideTime = 1900
 
     /** How long the robot should move to knock a mineral on the crater side, in milliseconds. (C) **/
-    val knockMineralCraterSideTime = 800
+    val knockMineralCraterSideTime = 1050
 
     /** How long the robot should move after knocking a mineral on the crater side, in milliseconds. (C) **/
-    val knockMineralReturnCraterSideTime = 1150
+    val knockMineralReturnCraterSideTime = 1450
 
     /** How long the robot should move from the center mineral towards the side of the field before traveling to the depot, in milliseconds. (D) **/
     val moveToSideCraterSideTime = 7600
